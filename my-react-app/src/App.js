@@ -15,6 +15,8 @@ import Contact from './Common/contact.js'
 import Section from './Common/section.js'
 import SectionU from './Common/sectionU.js'
 import SectionCarr from './Common/sectionCarr.js'
+import LogIn from './Common/logIn.js'
+import Register from './Common/registered.js'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <Header/>
       <SectionCarr/>
       <SectionU/>
+      <LogIn/>
+      <Register/>
       <Section/>
       <Contact/>
       <Footer/>

@@ -24,6 +24,7 @@
                 <li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" href="Accueil.html" style={{padding: '10px 20px'}}>Accueil</a>
                 </li><li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" href="A-propos.html" style={{padding: "10px 20px"}}>A propos</a>
                 </li><li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" href="A-propos.html#sec-2062" style={{padding: "10px 20px", color:"green"}}>Contact</a>
+                </li><li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" href="A-propos.html#sec-2062" style={{padding: "10px 20px", color:"green"}}>Inscription</a>
                 </li><li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" href="LogIn.html" style={{padding:"10px 20px" }}><button className="button-sucess btn"> LogIn </button></a>
                 </li>
             </ul>
