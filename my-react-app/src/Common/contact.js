@@ -22,7 +22,7 @@ function Contact(){
                 <div className="u-form-email u-form-group u-form-partition-factor-2 u-label-none u-form-group-2">
                   <label for="email-e4cc" className="u-label u-text-body-color u-label-2">Email</label>
                   <input type="email" placeholder="Enter a valid email address" id="email-e4cc" name={email} value={email} onChange={(e)=>setEmail(e.target.value)} className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-2" required="" wfd-id="id410"/>
-                </div>
+                </div>x²
                 <div className="u-form-group u-form-message u-label-none u-form-group-3">
                   <label for="message-e4cc" className="u-label u-text-body-color u-label-3">Message</label>
                   <textarea name={textarea} value={textarea} onChange={(e)=>setTextarea(e.target.value)} placeholder="Enter your message" rows="4" cols="50" id="message-e4cc" name="message" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-3" required=""></textarea>
