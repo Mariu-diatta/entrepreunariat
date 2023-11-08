@@ -1,6 +1,5 @@
 import '../accueil/Site1/A-propos.css'
 import '../accueil/Site1/Accueil.css'
-import '../accueil/Site1/nicepage.css'
 import '../accueil/Site1/LogIn.css'
 function Footer(){
     return(

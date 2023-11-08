@@ -2,8 +2,6 @@ import '../accueil/Site1/A-propos.css'
 import '../accueil/Site1/Accueil.css'
 import '../accueil/Site1/nicepage.css'
 import '../accueil/Site1/LogIn.css'
-import '../accueil/Site1/Post-Template.css'
-import '../accueil/Site1/Blog-Template.css'
 import logo from "../accueil/Site1/images/logo_3.PNG"
 import { Outlet, Link } from "react-router-dom";
 
