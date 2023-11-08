@@ -20,8 +20,8 @@ const Register =()=>{
         }
 
         return(
-        <div className="container p-5 ">
-            <h2 className="u-text u-text-1" >Inscrivez-vous!</h2>
+        <div className="container  p-4  u-align-center   u-section-6" >
+            <h2 className="u-text u-text-1 p-2" >Inscrivez-vous!</h2>
             <form onSubmit={handleSummit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
                 <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                   <label for="name-e4cc" className="u-label u-text-body-color u-label-1">Name</label>

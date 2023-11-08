@@ -1,4 +1,5 @@
 import {useState} from 'react'
+
 function LogIn(){
    const [name, setName] = useState("");
    const [password, setPassword] = useState("");
@@ -6,14 +7,12 @@ function LogIn(){
         e.preventDefault();
           console.log([name,password]);
     };
-
     return(
-        <div className="container p-4" >
-            <h2 className="u-text u-text-1">Connectez-vous!</h2>
+        <div className="container p-4 p-4  u-align-center   u-section-6">
+            <h2 className="u-text u-text-1 p-3">Connectez-vous!</h2>
             <form onSubmit = {handleSubmit}   className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
                 <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                   <label for="name-e4cc" className="u-label u-text-body-color u-label-1">Name</label>
-                  {name}
                   <input type="text" placeholder="Nom" id="name-e4cc" name={name} value={name} onChange={(e)=>setName(e.target.value)}  className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" maxlength="30"  required="" wfd-id="id409"/>
                 </div>
                 <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
