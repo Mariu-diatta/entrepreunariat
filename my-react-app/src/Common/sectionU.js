@@ -1,6 +1,8 @@
+import im from "../accueil/Site1/images/3q6.jpg"
+
 function SectionU(){
 return(
-    <section className="u-align-center u-clearfix u-container-align-center u-palette-1-base u-section-4" id="carousel_d430">
+    <section className="pt-0  u-align-center u-clearfix u-container-align-center u-palette-1-base u-section-4 " id="carousel_d430" style={{paddingTop:"0px", paddingLeft:"5px", paddingRight:"5px", marginDown:"0px", marginTop:"0px"}}>
       <div className="u-clearfix u-sheet u-sheet-1">
         <h2 className="u-align-center u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750">Notre Travail</h2>
         <p className="u-align-center u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1500"> Quam quisque id diam vel quam elementum. Vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt. Pellentesque habitant morbi tristique senectus et netus. </p>
@@ -78,7 +80,7 @@ return(
                 </div>
               </div>
             </div>
-            <div className="u-align-left u-container-style u-image u-list-item u-repeater-item u-shading u-image-9" src="" data-image-width="740" data-image-height="943" data-animation-name="customAnimationIn" data-animation-duration="1500">
+            <div className="u-align-left u-container-style u-image u-list-item u-repeater-item u-shading u-image-9" src={im } data-image-width="740" data-image-height="943" data-animation-name="customAnimationIn" data-animation-duration="1500">
               <div className="u-container-layout u-similar-container u-container-layout-17">
                 <div className="u-align-center u-container-style u-expanded-width u-group u-opacity u-opacity-85 u-white u-group-9" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
                   <div className="u-container-layout u-valign-middle u-container-layout-18">

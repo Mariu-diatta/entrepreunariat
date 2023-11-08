@@ -8,9 +8,8 @@ function Contact(){
    const handleSubmit = (e)=>{
         e.preventDefault();
           console.log([name,email,textarea]);
-    };
-
-    return(
+   };
+   return(
         <section className="container u-align-center u-clearfix u-palette-3-base u-section-6" id="sec-b06d">
           <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
             <h2 className="u-text u-text-1">Contactez nous!</h2>
