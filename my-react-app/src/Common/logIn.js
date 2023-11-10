@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 function LogIn(){
    const [name, setName] = useState("");
@@ -7,6 +7,14 @@ function LogIn(){
         e.preventDefault();
           console.log([name,password]);
     };
+
+    useEffect(
+      fetch(()=>{
+          console.log("Je suis cool")
+      }),[]
+    )
+
+
     return(
         <div className="container u-align-center u-clearfix  u-section-6">
             <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
