@@ -1,6 +1,9 @@
 from flask import Flask
 from flask import request
 from flaskext.mysql import MySQL
+from ozekilibsrest import Configuration, Message, MessageApi
+import sms
+import keys
 
 app = Flask(__name__)
 
@@ -28,14 +31,26 @@ def getUser(name, passward):
     data = cursor.fetchone()
     return data
 
-def createUser(nom, prenom, ville, genre, tel, mail, password, message):
+def createUser(nom, prenom, ville, genre, tel, mail, password, message1):
     cursor =sendConn().cursor()
-    cursor.execute("INSERT INTO user(Nom_user, Prenom_user, Ville_user, Genre_user, Tel_user, Mail_user, Passe_user, Message_user) values(%s, %s, %s, %s, %s, %s, %s, %s)", (nom, prenom, ville, genre, tel, mail, password, message))
-    sendConn().commit()
+    keys.target_number=tel
+    code=body=tel[1:5]+"nb"
+    message=sms.client.messages.create  (
+        body=code,
+        from_=keys.twilio_number ,
+        to=keys.target_number
+    )
+    code_validate=input("give the code in your phone")
+    if code_validate != code:
+        print("it's a mistake")
+    else:
+        print(message.body)
+        cursor.execute("INSERT INTO user(Nom_user, Prenom_user, Ville_user, Genre_user, Tel_user, Mail_user, Passe_user, Message_user) values(%s, %s, %s, %s, %s, %s, %s, %s)", (nom, prenom, ville, genre, tel, mail, password, message))
+        sendConn().commit()
 
-print(f"{createUser( 'DIATTAA', 'Mariuss', 'Dakarr', 'Femmee', '07456886577', 'mariusgdiatEta@gmail.com','Jules19934', 'message' )}")
+createUser( 'DIATTAA', 'Mariuss', 'Dakarr', 'Femmee', '+330745688657', 'mariusgdiatEta@gmail.com','Jules19934', 'message' )
 #print(f"{createUser( 'DIATTAA2', 'Mariuss2', 'Dakarr2', 'Femmee', '074568865772', 'mariusgdiatE2ta@gmail.com','Jule2s19934', 'm2essage' )}")
-print(getUsers())
+#print(getUsers())
 
 @app.route("/")
 def hello_world():

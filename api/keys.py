@@ -1,0 +1,4 @@
+account_sid='ACbc45378f17655b1d0383645a0778f98f'
+auth_token='11983a7dba04f9285507514d7a7a6180'
+twilio_number = '+16015014912'
+target_number='+33745688657'
