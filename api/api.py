@@ -16,14 +16,26 @@ def sendConn():
     conn = mysql.connect()
     return conn
 
-def allData():
+def getUsers():
     cursor =sendConn().cursor()
     cursor.execute("SELECT * from user")
+    data = cursor.fetchall()
+    return data
+
+def getUser(name, passward):
+    cursor =sendConn().cursor()
+    cursor.execute("SELECT * from user where name=%s and passward=%s", (name, passward))
     data = cursor.fetchone()
     return data
 
-print(f"{allData()}")
+def createUser(nom, prenom, ville, genre, tel, mail, password, message):
+    cursor =sendConn().cursor()
+    cursor.execute("INSERT INTO user(Nom_user, Prenom_user, Ville_user, Genre_user, Tel_user, Mail_user, Passe_user, Message_user) values(%s, %s, %s, %s, %s, %s, %s, %s)", (nom, prenom, ville, genre, tel, mail, password, message))
+    sendConn().commit()
 
+print(f"{createUser( 'DIATTAA', 'Mariuss', 'Dakarr', 'Femmee', '07456886577', 'mariusgdiatEta@gmail.com','Jules19934', 'message' )}")
+#print(f"{createUser( 'DIATTAA2', 'Mariuss2', 'Dakarr2', 'Femmee', '074568865772', 'mariusgdiatE2ta@gmail.com','Jule2s19934', 'm2essage' )}")
+print(getUsers())
 
 @app.route("/")
 def hello_world():
