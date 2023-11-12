@@ -2,7 +2,7 @@ import Section from './section.js'
 const About = () =>{
     return(
         <>
-            <div style={{paddingLeft:"30px", paddingRight:"30px"}} >
+            <div style={{paddingLeft:"100px", paddingRight:"100px"}} >
                 <Section/>
             </div>
         </>

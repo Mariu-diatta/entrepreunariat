@@ -5,7 +5,7 @@ import Section from './section.js'
 
 const Accueil =() => {
     return(
-        <div className="p-4" style={{paddingLeft:"30px", paddingRight:"30px"}}>
+        <div className="" style={{paddingLeft:"100px", paddingRight:"100px"}}>
             <Carrous />
             <SectionU/>
             <Section/>
