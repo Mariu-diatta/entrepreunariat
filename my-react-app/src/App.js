@@ -14,6 +14,8 @@ import Register from './Common/registered.js'
 import About from './Common/about.js'
 import Admin  from './Common/pageAdmin.js';
 import Aderant from './Common/pageAderant.js';
+import Commande from './Common/commande.js';
+import AboutUser from './Common/aboutUser.js';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
               <Route path="/login" element={<LogIn/>} />
               <Route path="/adherant" element={<Aderant/>}/>
               <Route path="/admin" element={<Admin/>}/>
+              <Route path="/commande" element={<Commande/>}/>
+              <Route path="/aboutUser" element={<AboutUser/>}/>
             </Route>
           </Routes>
           <Footer/>

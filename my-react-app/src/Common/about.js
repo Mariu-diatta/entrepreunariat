@@ -3,7 +3,7 @@ const About = () =>{
     return(
         <>
             <div style={{paddingLeft:"100px", paddingRight:"100px"}} >
-                <Section/>
+                <Section utile={true}/>
             </div>
         </>
     )

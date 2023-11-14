@@ -18,7 +18,7 @@ function Section(){
               <div className="u-gutter-0 u-layout">
                 <div className="u-layout-row">
                   <PhotoPanel title={titre} image={im1} contenu={contenu} />
-                  <PhotoPanel1 image={im2} contenu={contenu} />
+                  <PhotoPanel1 image={im2} contenu={contenu} utile={'ok'}/>
                 </div>
               </div>
             </div>
