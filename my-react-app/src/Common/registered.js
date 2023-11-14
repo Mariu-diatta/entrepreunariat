@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import axios from 'axios';
+import {Navigate} from 'react-router-dom';
 
 const Register =()=>{
 
@@ -12,6 +12,7 @@ const Register =()=>{
         const [password, setPassword]= useState("");
         const [password1, setPassword1]= useState("");
         const [message, setMessage]= useState("");
+        const [isRegistered, setIsRegistered] = useState(false)
 
 
 
@@ -36,7 +37,9 @@ const Register =()=>{
           fetch(
             'http://127.0.0.1:5000//registered',
             requestOptions
-          );
+          ).then(Response=>{
+            console.log(Response)
+            Response['ok']?setIsRegistered(true): console.log("erreur") });
         };
 
         return(
@@ -102,6 +105,9 @@ const Register =()=>{
                     </form>
                 </div>
             </div>
+            {    
+              isRegistered?<Navigate to="/login"/>:console.log("Je suis pas redirigé")
+            }
         </div>
     )
 }

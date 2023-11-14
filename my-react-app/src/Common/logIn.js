@@ -1,8 +1,12 @@
 import {useEffect, useState} from 'react'
+import Admin  from './pageAdmin.js';
+import Aderant from './pageAderant.js';
+import {Navigate} from 'react-router-dom';
 
 function LogIn(){
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [isConected, setIsConected] = useState(false);
 
     const handleSubmit = (e)=>{
           e.preventDefault();
@@ -17,11 +21,15 @@ function LogIn(){
           };
 
           fetch(
-            'http://127.0.0.1:5000//registered',
+            'http://127.0.0.1:5000/login',
             requestOptions
-          );
+          ).then(response =>
+            {
+              console.log(response);
+              setIsConected(response['ok']);
+              console.log(response['ok']);
+          });
         };
-    
 
     return(
         <div className="container u-align-center u-clearfix  u-section-6">
@@ -43,6 +51,9 @@ function LogIn(){
                     </form>
                 </div>
             </div>
+            {    
+              isConected?<Navigate to="/admin"/>:console.log("Je suis pas redirigé")
+            }
         </div>
     )
 }

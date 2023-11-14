@@ -12,17 +12,21 @@ import SectionCarr from './Common/sectionCarr.js'
 import LogIn from './Common/logIn.js'
 import Register from './Common/registered.js'
 import About from './Common/about.js'
+import Admin  from './Common/pageAdmin.js';
+import Aderant from './Common/pageAderant.js';
 
 function App() {
   return (
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Header/>}>
-              <Route index element={<Accueil/>} />
-              <Route path="/a_propos" element={<About/>} />
-              <Route path="/contact" element={<Contact/>} />
-              <Route path="/inscription" element={<Register />} />
+              <Route index element={<Accueil/>}/>
+              <Route path="/a_propos" element={<About/>}/>
+              <Route path="/contact" element={<Contact/>}/>
+              <Route path="/inscription" element={<Register/>} />
               <Route path="/login" element={<LogIn/>} />
+              <Route path="/adherant" element={<Aderant/>}/>
+              <Route path="/admin" element={<Admin/>}/>
             </Route>
           </Routes>
           <Footer/>
