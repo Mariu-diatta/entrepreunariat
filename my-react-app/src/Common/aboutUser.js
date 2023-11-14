@@ -1,7 +1,7 @@
 import Section from "./section";
 const AboutUser = ()=>{
     return(
-        <div style={{paddingLeft:"20%",paddingRight:"30%"}}>
+        <div style={{paddingLeft:"10%",paddingRight:"10%"}}>
              <Section />
         </div>
     )

@@ -2,7 +2,7 @@ import Section from './section.js'
 const About = () =>{
     return(
         <>
-            <div style={{paddingLeft:"100px", paddingRight:"100px"}} >
+            <div style={{paddingLeft:"10%", paddingRight:"10%"}} >
                 <Section utile={true}/>
             </div>
         </>
