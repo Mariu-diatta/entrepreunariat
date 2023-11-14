@@ -14,6 +14,7 @@ app.config['MYSQL_DATABASE_PASSWORD'] = ''
 app.config['MYSQL_DATABASE_DB'] = 'flask'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
+
 def sendConn():
     mysql.init_app(app)
     conn = mysql.connect()
@@ -32,20 +33,20 @@ def getUser(name, passward):
     return data
 
 
-def createUser(nom, prenom, ville, genre, tel, mail, password, message1):
+def createUser(nom, prenom, ville, genre, tel, mail, password, message):
     cursor =sendConn().cursor()
-    keys.target_number=tel
-    code=body=tel[1:5]+"nb"
-    message=sms.client.messages.create  (
-        body=code,
-        from_=keys.twilio_number ,
-        to=keys.target_number
-    )
-    code_validate=input("give the code in your phone")
-    if code_validate != code:
+    #keys.target_number=tel
+    #code=body=tel[1:5]+"nb"
+    #message=sms.client.messages.create  (
+    #    body=code,
+    #    from_=keys.twilio_number ,
+    #    to=keys.target_number
+    #)
+    #code_validate=input("give the code in your phone")
+    if  False: #code_validate != code:
         print("it's a mistake")
     else:
-        print(message.body)
+        #print(message.body)
         cursor.execute("INSERT INTO user(Nom_user, Prenom_user, Ville_user, Genre_user, Tel_user, Mail_user, Passe_user, Message_user) values(%s, %s, %s, %s, %s, %s, %s, %s)", (nom, prenom, ville, genre, tel, mail, password, message))
         sendConn().commit()
 
@@ -57,14 +58,28 @@ createUser( 'DIATTAA', 'Mariuss', 'Dakarr', 'Femmee', '+330745688657', 'mariusgd
 def hello_world():
     return "<p>Hello, World!</p>"
 
+def verifUser(name, passe):
+    cursor =sendConn().cursor()
+    cursor.execute("select * from flask where Nom_user=%s and Passe_user =%s", (name,passe))
+    data = cursor.fetchone()
+    if data!=None:
+        return True
+    else: return False
+
+
 @app.route("/login" , methods=['GET', 'POST'])
 def login():
+    reponse=None
     if request.method=='POST':
         request_data=json.loads(request.data)
-        print(request_data)
-        return request_data
+        #cursor =sendConn().cursor()
+        #data = cursor.fetchone()
+        print( request_data['Nom_user'])
+        reponse= json.jsonify({'resultat': False})
     else:
-        return "<p>La vie difficile!</p>"
+         reponse= "<p>La vie difficile!</p>"
+    #verifUser(nom, prenom)
+    return reponse
 
 @app.route("/registered" , methods=['GET', 'POST'])
 def registered():
