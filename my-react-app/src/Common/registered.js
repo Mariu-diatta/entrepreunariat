@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import axios from 'axios';
 
 const Register =()=>{
 
@@ -12,19 +13,38 @@ const Register =()=>{
         const [password1, setPassword1]= useState("");
         const [message, setMessage]= useState("");
 
-        const handleSummit=(e)=>{
-            e.preventDefault();
-            (password==password1)?
-            console.log([name,pname,genre,ville,tel,mail,password,password1,message])
-            :alert("mote de passe pas identique")
-        }
+
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+            // Call your API with the form data
+          const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              'Nom_user':name, 
+              'Prenom_user':pname,
+              'Ville_user':ville, 
+              'Genre_user':genre,
+              'Tel_user':tel,
+              'Mail_user':mail,
+              'Passe_user':password,
+              'Message_user':message,
+            })
+          };
+
+          fetch(
+            'http://127.0.0.1:5000//registered',
+            requestOptions
+          );
+        };
 
         return(
         <div className="container  p-4  u-align-center   u-section-6" >
             <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
                 <h2 className="u-text u-text-1 p-2" >Inscrivez-vous!</h2>
                 <div className="u-form u-form-1">
-                    <form onSubmit={handleSummit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
+                    <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
                         
                         <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                           <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Name</label>
