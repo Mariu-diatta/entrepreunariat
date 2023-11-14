@@ -1,12 +1,12 @@
-from flask import Flask
-from flask import request
+from flask import Flask, request, json
 from flaskext.mysql import MySQL
-from ozekilibsrest import Configuration, Message, MessageApi
 import sms
 import keys
+from flask_cors import CORS
+
 
 app = Flask(__name__)
-
+CORS(app)
 mysql = MySQL()
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
@@ -30,6 +30,7 @@ def getUser(name, passward):
     cursor.execute("SELECT * from user where name=%s and passward=%s", (name, passward))
     data = cursor.fetchone()
     return data
+
 
 def createUser(nom, prenom, ville, genre, tel, mail, password, message1):
     cursor =sendConn().cursor()
@@ -67,8 +68,9 @@ def login():
 @app.route("/registered" , methods=['GET', 'POST'])
 def registered():
     if request.method=='POST':
-        response = {'message': 'I\'m connected!'}
-        return response 
+        request_data=json.loads(request.data)
+        print(request_data)
+        return request_data
     else:
         return {'message': 'I\'m erreur!'}
 
