@@ -1,19 +1,27 @@
 import {useEffect, useState} from 'react'
 
 function LogIn(){
-   const [name, setName] = useState("");
-   const [password, setPassword] = useState("");
-   const handleSubmit = (e)=>{
-        e.preventDefault();
-          console.log([name,password]);
-    };
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
 
-    useEffect(
-      fetch(()=>{
-          console.log("Je suis cool")
-      }),[]
-    )
+    const handleSubmit = (e)=>{
+          e.preventDefault();
 
+          const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              'Nom_user':name, 
+              'Passe_user':password,
+            })
+          };
+
+          fetch(
+            'http://127.0.0.1:5000//registered',
+            requestOptions
+          );
+        };
+    
 
     return(
         <div className="container u-align-center u-clearfix  u-section-6">

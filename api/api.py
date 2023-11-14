@@ -59,9 +59,10 @@ def hello_world():
 
 @app.route("/login" , methods=['GET', 'POST'])
 def login():
-    if request.method=='GET':
-        response = {'message': 'Hello, World!'}
-        return response 
+    if request.method=='POST':
+        request_data=json.loads(request.data)
+        print(request_data)
+        return request_data
     else:
         return "<p>La vie difficile!</p>"
 
@@ -76,8 +77,13 @@ def registered():
 
 @app.route("/<name>/<email>", methods=['GET', 'POST'])
 def sendmail(name, email):
+    cursor =sendConn().cursor()
+    cursor.execute("select * from flask where Mail_user=%s and Nom_user =%s", (email,name, ))
+    data = cursor.fetchone()
     if request.method=='Post':
-        return "<p>La vie difficile!</p>"
+        if data !=None:
+            return "<p>La vie difficile!</p>"
+        else: return "<p>email ou nom introuvable dans la base</p>"
     else:
         return "<p>La vie difficile!</p>"
 
