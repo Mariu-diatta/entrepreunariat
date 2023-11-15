@@ -3,7 +3,7 @@ import '../accueil/Site1/Accueil.css'
 import '../accueil/Site1/LogIn.css'
 function Footer(){
     return(
-        <footer className="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-e160">
+        <footer className="flex-row u-align-center u-clearfix u-grey-5 u-footer" id="sec-e160" style={{position:'', width:'100%'}}>
             <div className="u-clearfix u-sheet u-sheet-1">
                     <p className="u-small-text u-text u-text-variant u-text-1">Notre Company se trouve à Almadil'élément de texte.</p>
             </div>
