@@ -4,13 +4,13 @@ import '../accueil/Site1/nicepage.css'
 import '../accueil/Site1/LogIn.css'
 import logo from "../accueil/Site1/images/logo_3.PNG"
 import { Outlet, Link } from "react-router-dom";
-import {useState} from "react"
+import {useEffect, useState} from "react"
 
-const  Header =()=>{
-    const [connect, setConnect]=useState(true)
+function  Header({valueHeaderState, changeHeaderState}){
     const [col, setCol]=useState({color:'black', 'statu':false})
     const [col1, setCol1]=useState({color:'black', 'statu':false})
     const [col2, setCol2]=useState({color:'black', 'statu':false})
+
     return(
       <>
           <nav className='sticky-top flex-row u-grey-25' style={{position:"", backgroundColor:"", width:"100%", paddingTop:"0px", marginTop:"0px",zIndex:120}}>
@@ -32,36 +32,24 @@ const  Header =()=>{
                           </li><li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: "10px 20px"}}><Link to="/a_propos" onMouseOut={()=>setCol1({'color':"black", 'statut': false})} onMouseOver={()=>setCol1({'color':"blue", 'statut': false})} style={col1}>A propos</Link></a>
                           </li><li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: "10px 20px", color:"green"}}><Link to="/contact" onMouseOut={()=>setCol2({'color':"black", 'statut': false})} onMouseOver={()=>setCol2({'color':"blue", 'statut': false})} style={col2}>Contact</Link></a>
                           </li>
-                    {
-                      connect?
+                    
                       <li className="u-nav-item">
                           <a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: "10px 20px", color:"green"}}>
-                              <Link to="/inscription">Inscription</Link>
+                          {
+                           valueHeaderState?<Link to="/admin"> Compte </Link>:<Link to="/inscription">Inscription</Link>   
+                          }
                           </a>
-                      </li>
-                      :
-                      <a></a>
-                    }
-
-                    {
-                      connect?
-                        <li className="u-nav-item">
-                            <a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding:"10px 20px" }}>
-                                <button className="button-sucess btn">
-                                    <Link to="/login"> LogIn </Link>
-                                </button>
-                            </a>
-                        </li>
-
-                      :
+                      </li>                    
                       <li className="u-nav-item">
-                          <a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding:"10px 20px" }}>
-                              <button className="button-sucess btn">
-                                  <Link to="/login"> Deconnecter </Link>
-                              </button>
-                          </a>
+                        <a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding:"10px 20px" }}>
+                          <button className="button-sucess btn">
+                            {
+                              valueHeaderState? <Link to="/zero" onClick={()=>changeHeaderState(false)}>  Deconnecter </Link>:<Link to="/login"> LogIn</Link>
+                            }
+                          </button>
+                        </a>
                       </li>
-                    }
+                    
                     </ul>
                     </div>
                   </nav>

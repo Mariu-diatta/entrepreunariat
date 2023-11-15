@@ -3,10 +3,11 @@ import Admin  from './pageAdmin.js';
 import Aderant from './pageAderant.js';
 import {Navigate} from 'react-router-dom';
 
-function LogIn(){
+function LogIn({valueHeaderState, changeHeaderState}){
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
-    const [isConected, setIsConected] = useState(false);
+    // const [isConected, setIsConected] = useState(false);
+    // useEffect(()=>setIsConected(localStorage.getItem("etatConection")),[])
 
     const handleSubmit = (e)=>{
           e.preventDefault();
@@ -26,10 +27,12 @@ function LogIn(){
           ).then(response =>
             {
               console.log(response);
-              setIsConected(response['ok']);
+              // setIsConected(response['ok']);
               console.log(response['ok']);
+              localStorage.setItem("etatConection",true);
+              changeHeaderState(true)
           });
-        };
+    };
 
     return(
         <div className="container u-align-center u-clearfix  u-section-6">
@@ -52,7 +55,7 @@ function LogIn(){
                 </div>
             </div>
             {    
-              isConected?<Navigate to="/admin"/>:console.log("Je suis pas redirigé")
+              valueHeaderState?<Navigate to="/admin"/>:console.log("Je suis pas redirigé")
             }
         </div>
     )
