@@ -22,10 +22,6 @@ function  Header({valueHeaderState, changeHeaderState}){
                     </a>
                   </div>
                   <nav className="col-lg-6 u-menu-1 " style={{paddingTop:"20px", marginBottom:"0px"}}>
-                    {/* <div className="menu-collapse" style={{fontSize: "1rem", letterSpacing: "0px"}}>
-                      <a className="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-x u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-                      </a>
-                    </div> */}
                     <div className="u-custom-menu u-nav-container" >
                       <ul className="u-nav u-unstyled u-nav-1">
                           <li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: '10px 20px'}}><Link to="/" onMouseOut={()=>setCol({'color':"black", 'statut': false})} onMouseOver={()=>setCol({'color':"blue", 'statut': false})} style={col}>Accueil</Link></a>
