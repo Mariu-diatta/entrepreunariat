@@ -13,8 +13,8 @@ const Admin =()=>{
     const [mess, setMess]=useState(false)
     return(
         <>
-            <div className="row p-4"> 
-               <div className="col-lg-2 p-4" style={{backgroundColor:"grey"}}>
+            <div className="row "> 
+               <div className="sticky-left col-lg-2  " style={{backgroundColor:"grey", marginLeft:"30px"}}>
                 <nav>
                     <ul style={{listStyleType:"none"}}>
                         <li>  <a href="#" onClick={()=>mess?setMess(false):setMess(true)} onMouseOver={()=>setCol({backgroundColor:"", color:"blue"})} onMouseOut={()=>setCol({backgroundColor:"", color:"white"})} style={col}><i className="fas fa-address-book" style={{fontSize:"24px"}}>Messages</i></a></li>

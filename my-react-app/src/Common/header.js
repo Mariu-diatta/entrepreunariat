@@ -13,7 +13,7 @@ const  Header =()=>{
     const [col2, setCol2]=useState({color:'', 'statu':false})
     return(
       <>
-          <nav className='sticky-top flex-row u-grey-10' style={{position:"fixed", backgroundColor:"", width:"100%", paddingTop:"0px", marginTop:"0px"}}>
+          <nav className='sticky-top flex-row u-grey-10' style={{position:"", backgroundColor:"", width:"100%", paddingTop:"0px", marginTop:"0px"}}>
               <header className="sticky-bottom u-clearfix u-header u-header" id="sec-d5e0" >
                 <div className="row  u-sheet p-1">
                   <div className='col-lg-2'>
