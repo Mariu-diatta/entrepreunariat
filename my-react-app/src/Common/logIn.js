@@ -4,10 +4,9 @@ import Aderant from './pageAderant.js';
 import {Navigate} from 'react-router-dom';
 
 function LogIn({valueHeaderState, changeHeaderState}){
+
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
-    // const [isConected, setIsConected] = useState(false);
-    // useEffect(()=>setIsConected(localStorage.getItem("etatConection")),[])
 
     const handleSubmit = (e)=>{
           e.preventDefault();
@@ -24,13 +23,11 @@ function LogIn({valueHeaderState, changeHeaderState}){
           fetch(
             'http://127.0.0.1:5000/login',
             requestOptions
-          ).then(response =>
+          ).then(res => res.json()). then (response =>
             {
               console.log(response);
-              // setIsConected(response['ok']);
-              console.log(response['ok']);
-              localStorage.setItem("etatConection",true);
-              changeHeaderState(true)
+              response['RESULTAT']?localStorage.setItem("etatConection",true):localStorage.setItem("etatConection",false)
+              changeHeaderState(response['RESULTAT'])
           });
     };
 

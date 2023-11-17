@@ -5,7 +5,7 @@ const Register =()=>{
 
         const [name, setName] = useState("");
         const [pname, setPname] = useState("");
-        const [genre, setGenre]= useState("");
+        const [genre, setGenre]= useState("Homme");
         const [ville, setVille]= useState("");
         const [tel, setTel]= useState("");
         const [mail, setMail]= useState("");
@@ -39,7 +39,9 @@ const Register =()=>{
             requestOptions
           ).then(Response=>{
             console.log(Response)
-            Response['ok']?setIsRegistered(true): console.log("erreur") });
+           // Response['ok']?setIsRegistered(true): console.log("erreur") 
+          }
+           );
         };
 
         return(

@@ -21,33 +21,31 @@ function  Header({valueHeaderState, changeHeaderState}){
                       <img src={logo} className=""  style={{  height: "50px", width: "50px" }}/>
                     </a>
                   </div>
-                  <nav className="col-lg-6 u-menu-1 " style={{paddingTop:"20px", marginBottom:"0px"}}>
+                  <nav className="col-lg-6 u-menu-1 " style={{paddingTop:"20px", marginBottom:"0px"}}>  
                     <div className="u-custom-menu u-nav-container" >
                       <ul className="u-nav u-unstyled u-nav-1">
-                          <li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: '10px 20px'}}><Link to="/" onMouseOut={()=>setCol({'color':"black", 'statut': false})} onMouseOver={()=>setCol({'color':"blue", 'statut': false})} style={col}>Accueil</Link></a>
-                          </li><li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: "10px 20px"}}><Link to="/a_propos" onMouseOut={()=>setCol1({'color':"black", 'statut': false})} onMouseOver={()=>setCol1({'color':"blue", 'statut': false})} style={col1}>A propos</Link></a>
-                          </li>
-                            <li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: "10px 20px", color:"green"}}><Link to="/contact" onMouseOut={()=>setCol2({'color':"black", 'statut': false})} onMouseOver={()=>setCol2({'color':"blue", 'statut': false})} style={col2}>{valueHeaderState?<a></a>:<a>Contact</a>}</Link></a>
-                          </li>
-                    
-                      <li className="u-nav-item">
+                        <li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: '10px 20px'}}><Link to="/" onMouseOut={()=>setCol({'color':"black", 'statut': false})} onMouseOver={()=>setCol({'color':"blue", 'statut': false})} style={col}>Accueil</Link></a>
+                        </li><li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: "10px 20px"}}><Link to="/a_propos" onMouseOut={()=>setCol1({'color':"black", 'statut': false})} onMouseOver={()=>setCol1({'color':"blue", 'statut': false})} style={col1}>A propos</Link></a>
+                        </li>
+                          <li className="u-nav-item"><a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: "10px 20px", color:"green"}}><Link to="/contact" onMouseOut={()=>setCol2({'color':"black", 'statut': false})} onMouseOver={()=>setCol2({'color':"blue", 'statut': false})} style={col2}>{valueHeaderState?<a></a>:<a>Contact</a>}</Link></a>
+                        </li>
+                        <li className="u-nav-item">
                           <a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding: "10px 20px", color:"green"}}>
                           {
-                           valueHeaderState?<Link to="/admin"> Compte </Link>:<Link to="/inscription">Inscription</Link>   
+                          valueHeaderState?<Link to="/admin"> Compte </Link>:<Link to="/inscription">Inscription</Link>   
                           }
                           </a>
-                      </li>                    
-                      <li className="u-nav-item">
-                        <a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding:"10px 20px" }}>
-                          <button className="button-sucess btn">
-                            {
-                              valueHeaderState? <Link to="/zero" onClick={()=>changeHeaderState(false)}>  Deconnecter </Link>:<Link to="/login"> LogIn</Link>
-                            }
-                          </button>
-                        </a>
-                      </li>
-                    
-                    </ul>
+                        </li>                    
+                        <li className="u-nav-item">
+                          <a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding:"10px 20px" }}>
+                            <button className="button-sucess btn">
+                              {
+                                valueHeaderState? <Link to="/zero" onClick={()=>changeHeaderState(false)}>  Deconnecter </Link>:<Link to="/login"> LogIn</Link>
+                              }
+                            </button>
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                   </nav>
                 </div>

@@ -1,6 +1,6 @@
 
 create table user(
-  Cle int NOT NULL AUTO_INCREMENT,
+  Cle int primary key NOT NULL ,
   Nom_user varchar(255) ,
   Prenom_user varchar(255),
   Ville_user varchar(255),
@@ -9,9 +9,7 @@ create table user(
   Mail_user varchar(255)  UNIQUE,
   Passe_user varchar(255)  UNIQUE ,
   Message_user varchar(255),
-  statut_adh   varchar(255) DEFAULT 'adhérant',
-  primary key(Cle)
+  statut_adh   varchar(255)
 );
 
-insert into user values (1, "DIATTA", "Marius", "Dakar", "Femme", "0745688657", "mariusgdiatta@gmail.com","Jules1993", "message", 'admin' );
-insert into user values (2, "DIATTA1", "Marius1", "Dakar", "Homme", "0755688657", "mariusgdiatta1@gmail.com","Jules19931", "message1", 'adhérant');
+insert into user values (1, 'DIATTA', 'Marius', 'Dakar', 'Femme', '0745688657', 'mariusgdiatta@gmail.com','Jules1993', 'message', 'admin' );
