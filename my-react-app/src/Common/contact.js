@@ -28,7 +28,7 @@ function Contact(){
                   <textarea name={textarea} value={textarea} onChange={(e)=>setTextarea(e.target.value)} placeholder="Enter your message" rows="4" cols="50" id="message-e4cc"  className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-3" required=""></textarea>
                 </div>
                 <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4">
-                  <button type="submit" value="submit" className="u-active-palette-3-base u-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-radius-50 u-btn-1">Valider</button>
+                  <button type="submit" value="submit" className="u-active-palette-3-base u-grey-80 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-radius-50 u-btn-1">Valider</button>
                 </div>
                 <div className="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
                 <div className="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>

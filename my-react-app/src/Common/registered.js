@@ -101,7 +101,7 @@ const Register =()=>{
                         </div>
 
                         <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4">
-                          <button type="submit" value="submit" maxLength="30"   className="u-active-palette-3-base u-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-radius-50 u-btn-1">Valider</button >
+                          <button type="submit" value="submit" maxLength="30"   className="u-active-palette-3-base u-grey-80 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-radius-50 u-btn-1">Valider</button >
                         </div>
 
                     </form>
