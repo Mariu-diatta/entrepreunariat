@@ -10,8 +10,8 @@ function Contact(){
           console.log([name,email,textarea]);
    };
    return(
-        <section className="u-align-center u-clearfix  u-section-6" id="sec-b06d">
-          <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <section className="u-align-center u-clearfix  u-section-6 u-grey-10" id="sec-b06d">
+          {/* <div className="u-clearfix u-sheet u-valign-middle u-sheet-1"> */}
             <h2 className="u-text u-text-1">Contactez nous!</h2>
             <div className="u-form u-form-1">
               <form onSubmit={handleSubmit}  className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
@@ -36,7 +36,7 @@ function Contact(){
                 <input type="hidden" name="formServices" value="07f310ba1624bad464ca70695831d5d8"/>
               </form>
             </div>
-          </div>
+          {/* </div> */}
         </section>
     )
 }

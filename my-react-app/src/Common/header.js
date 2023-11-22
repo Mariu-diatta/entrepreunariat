@@ -13,12 +13,12 @@ function  Header({valueHeaderState, changeHeaderState}){
 
     return(
       <>
-          <nav className='sticky-top flex-row u-grey-25' style={{position:"", backgroundColor:"", width:"100%", paddingTop:"0px", marginTop:"0px",zIndex:120}}>
+          <nav className='sticky-top flex-row u-grey-30' style={{position:"", backgroundColor:"", width:"100%", paddingTop:"0px", marginTop:"0px",zIndex:120}}>
               <header className="u-clearfix u-header u-header" id="sec-d5e0" >
                 <div className="row  p-0 " style={{marginLeft:"12px"}}>
                   <nav className='col-lg-2 '>
                     <a href="#" className="" style={{paddingDown:"0px"}}>
-                      <img src={logo} className="m-3"  style={{  height: "auto", width: "40%" }}/>
+                      <img src={logo} className="m-1"  style={{  height: "auto", width: "40%" }}/>
                     </a>
                   </nav>
                   <nav className="col-lg-6 u-menu-1 " style={{paddingTop:"20px", marginBottom:"0px"}}>  
@@ -38,11 +38,11 @@ function  Header({valueHeaderState, changeHeaderState}){
                         </li>                    
                         <li className="u-nav-item">
                           <a className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-light-1 u-text-palette-1-base" style={{padding:"10px 20px" }}>
-                            <button className="button-sucess btn">
+                            {/* <button className="button-sucess btn"> */}
                               {
                                 valueHeaderState? <Link to="/login" onClick={()=>changeHeaderState(false)}><h6>Deconnecter</h6></Link>:<Link to="/login"><h6>Connecter</h6></Link>
                               }
-                            </button>
+                            {/* </button> */}
                           </a>
                         </li>
                       </ul>

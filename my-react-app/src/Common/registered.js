@@ -45,10 +45,10 @@ const Register =()=>{
         };
 
         return(
-        <div className="container  p-4  u-align-center   u-section-6" >
-            <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div className="p-4 u-align-center u-section-6 u-grey-10" >
+            {/* <div className="u-clearfix u-sheet u-valign-middle u-sheet-1 "> */}
                 <h2 className="u-text u-text-1 p-2" >Inscrivez-vous!</h2>
-                <div className="u-form u-form-1">
+                <div className="u-form u-form-1 ">
                     <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
                         
                         <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
@@ -106,7 +106,7 @@ const Register =()=>{
 
                     </form>
                 </div>
-            </div>
+            {/* </div> */}
             {    
               isRegistered?<Navigate to="/login"/>:console.log("Je suis pas redirigé")
             }
