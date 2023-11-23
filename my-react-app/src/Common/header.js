@@ -54,7 +54,7 @@ function  Header(props){
                               (props.valueHeaderState)?
                               <LogoutButton onClick={cancelConnect} />
                               :
-                              <Link to="/admin"><h6>Connecter</h6></Link>
+                              <Link to="/login"><h6>Connecter</h6></Link>
                             }
                             </a>
                           </li>

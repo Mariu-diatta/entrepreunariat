@@ -50,10 +50,10 @@ function LogIn(props){
                       <button type="submit" value="submit" className="u-active-palette-3-base  u-grey-80 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-radius-50 u-btn-1">Valider</button>
                     </div>
                 </form>
-                  {
-                    props.valueHeaderState?<Navigate to="/admin"/>:<Navigate to="/login"/>
-                  }
             </div>
+            {
+               props.valueHeaderState?<Navigate to="/admin"/>:<Navigate to="/login"/>
+            }
         </div>
     )
 }
