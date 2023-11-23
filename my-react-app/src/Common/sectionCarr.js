@@ -8,7 +8,7 @@ import im3 from "../accueil/Site1/images/553566.jpg";
 
 function  SectionCarr() {
         return(
-            <Carousel>
+            <Carousel className=''>
                 <div style={{height: "500px", width: "100%"}} >
                     <img src={im3} />
                     <p className="">Je suis le fou de fou</p>

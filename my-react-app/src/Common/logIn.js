@@ -3,7 +3,7 @@ import Admin  from './pageAdmin.js';
 import Aderant from './pageAderant.js';
 import {Navigate} from 'react-router-dom';
 
-function LogIn({valueHeaderState, changeHeaderState}){
+function LogIn(props){
 
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
@@ -25,9 +25,11 @@ function LogIn({valueHeaderState, changeHeaderState}){
             requestOptions
           ).then(res => res.json()). then (response =>
             {
-              console.log(response);
-              response['RESULTAT']?localStorage.setItem("etatConection",true):localStorage.setItem("etatConection",false)
-              changeHeaderState(response['RESULTAT'])
+              if(response['RESULTAT']){
+                localStorage.setItem("etatConection",true);
+                props.changeHeaderState(true);
+                <Navigate to="/admin"/>
+              }else {localStorage.setItem("etatConection",false); <Navigate to="/login"/>}
           });
     };
 
@@ -48,10 +50,10 @@ function LogIn({valueHeaderState, changeHeaderState}){
                       <button type="submit" value="submit" className="u-active-palette-3-base  u-grey-80 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-radius-50 u-btn-1">Valider</button>
                     </div>
                 </form>
+                  {
+                    props.valueHeaderState?<Navigate to="/admin"/>:<Navigate to="/login"/>
+                  }
             </div>
-            {    
-              valueHeaderState?<Navigate to="/admin"/>:console.log("Je suis pas redirigé")
-            }
         </div>
     )
 }
