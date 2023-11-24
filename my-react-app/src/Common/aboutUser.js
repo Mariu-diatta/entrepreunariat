@@ -1,7 +1,7 @@
 import Section from "./section";
 const AboutUser = ()=>{
     return(
-        <div className="p-5">
+        <div className="p-0">
              <Section />
         </div>
     )

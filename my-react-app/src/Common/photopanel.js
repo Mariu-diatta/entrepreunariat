@@ -4,9 +4,9 @@ const Photopanel=(props)=>{
     return(
          <div className="u-size-30">
             <div className="u-layout-col">
-              <div className="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="500">
-                <div className="u-container-layout u-container-layout-1">
-                  <img src={props.image} alt="" className="u-align-left u-expanded-width u-image u-image-1" data-image-width="966" data-image-height="920"/>
+              <div  data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="500">
+                <div className="u-container-layout">
+                  <img src={props.image} alt="" className="u-align-left u-expanded-width u-image u-image-1" data-image-width="966" data-image-height="950"/>
                 </div>
               </div>
               <div className="u-align-left u-container-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">

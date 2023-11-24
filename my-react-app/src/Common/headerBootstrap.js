@@ -63,7 +63,7 @@ const cancelConnect=()=>{
   return (
     <>
       {/* {[false, 'sm', 'md', 'lg', 'xl', 'xxl'].map((expand) => ( */}
-        <Navbar key={'lg'} expand={'lg'} className="sticky-top bg-body-tertiary mb-0">
+        <Navbar key={'lg'} expand={'lg'} className="sticky-top bg-body-tertiary p-0">
           <Container fluid>
             <Navbar.Brand href="#">
             <img src={logo} alt="..." width={50} height={50}/>
@@ -80,7 +80,7 @@ const cancelConnect=()=>{
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-5" >
+                <Nav className="justify-content-end flex-grow-1 " >
                   <Link className='pe-4' to="/" style={change?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor} onMouseOut={changeColor}>Accueil</Link>
                   <Link className='pe-4' to="/a_propos" style={change3?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor3} onMouseOut={changeColor3}>A propos</Link>
                     {
@@ -91,11 +91,11 @@ const cancelConnect=()=>{
                         (props.valueHeaderState)?<LogoutButton onClick={cancelConnect}/>:<Link style={change2?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor2} onMouseOut={changeColor2} className='pe-4' to="/login" >Connecter</Link>
                     }
                 </Nav>
-                <Form className="d-flex pe-5">
+                <Form className="d-flex mr-2">
                   <Form.Control
                     type="search"
                     placeholder="recherche"
-                    className="me-0"
+                    className="pe-2 pr-3"
                     aria-label="Search"
                   />
                   <Button variant="" style={{backgroundColor:'grey', marginLeft:'0px'}}>Search</Button>

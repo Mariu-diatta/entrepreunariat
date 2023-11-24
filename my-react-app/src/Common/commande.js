@@ -5,7 +5,7 @@ import im1 from "../accueil/Site1/images/3q6.jpg"
 const Commande =()=>{
     return(
         <>
-            <section className="row" style={{paddingLeft:"12%"}} >
+            <section className="row " style={{paddingLeft:"10%", paddingTop:"1%", paddingBottom:"5%"}} >
                         <div className="row">
                             <div className="col-lg-5">
                                 <div className="row">
