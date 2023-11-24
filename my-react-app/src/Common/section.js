@@ -4,7 +4,6 @@ import '../accueil/Site1/nicepage.css'
 import '../accueil/Site1/LogIn.css'
 import im1 from "../accueil/Site1/images/3454.jpg"
 import im2 from "../accueil/Site1/images/6457.jpg"
-import im3 from "../accueil/Site1/images/553566.jpg"
 import PhotoPanel from "./photopanel.js"
 import PhotoPanel1 from "./photopanel1.js"
 const titre ="Management consulting"
@@ -22,8 +21,8 @@ function Section(){
                 </div>
               </div>
             </div>
-      </div>
-    </section>
+        </div>
+      </section>
 )}
 
 export default Section;

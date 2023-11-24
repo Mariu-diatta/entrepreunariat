@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Section from "./section";
-import {Navigate, Outlet, Link} from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
+import Footer from "./footer";
+import Vertical from "./verticalMenu";
 
 
 
@@ -20,10 +22,10 @@ const Admin =(props)=>{
                 (props.valueHeaderState)? 
 
                 <div className="row flex-row"> 
-                    <div className="col-lg-2 u-grey-80" style={{zIndex:0, backgroundColor:"", marginLeft:"0px"}}>
+                    <div className="col-lg-2 u-grey-80" style={{zIndex:0}}>
                         
                             <nav className=" sticky-top flex-row " style={{zIndex:0, paddingTop:"20px"}}>
-                                <p className="" style={{paddingLeft:"30px", paddingTop:"30px"}}>Activité</p>
+                                {/* <p className="" style={{paddingLeft:"30px", paddingTop:"30px"}}>Activité</p>
                                 <ul style={{listStyleType:"none"}}>
                                     <li>  <a href="#" onClick={()=>mess?setMess(false):setMess(true)} onMouseOver={()=>setCol({backgroundColor:"", color:"blue"})} onMouseOut={()=>setCol({backgroundColor:"", color:"white"})} style={col}><i className="fas fa-address-book" style={{fontSize:"24px"}}>Messages</i></a></li>
                                 { 
@@ -59,12 +61,16 @@ const Admin =(props)=>{
                                                 </ul>
                                             </nav>: <nav></nav>
                                     }
-                                </ul>
+                                </ul> */}
+                                
                             </nav>
+                            
                     </div>
-                    <div className="col-lg-8 m-4 ">
-                            <Section />
-                    </div>  
+                    <div className="col-lg-8 ">
+                            <Section/>
+            
+                            
+                    </div> <Footer/> 
                 </div>
 
                 :<Navigate to="/login"/>

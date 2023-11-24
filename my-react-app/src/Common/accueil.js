@@ -2,18 +2,20 @@
 import SectionU from './sectionU.js'
 import Carrous from './carrouselBoostrap.js'
 import Section from './section.js'
+import Footer from './footer.js'
 
 
 const Accueil =() => {
     return(
         <div style={{paddingLeft:"", paddingRight:""}}>
-            <div  className="u-grey-30 " style={{paddingLeft:"80px", paddingRight:"80px", paddingTop:"40px",  paddingBottom:"10px"}}>
+            <div  className=" " style={{}}>
                 <Carrous />
             </div>
-            <div  style={{paddingLeft:"80px", paddingRight:"80px"}}>
+            <div  style={{paddingLeft:"10%", paddingRight:"10%"}}>
                 <SectionU/>
                 <Section/>
             </div>
+            <Footer/>
         </div>
     )
 }

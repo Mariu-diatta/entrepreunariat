@@ -1,14 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Test from './test.js'
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from './Common/footer.js'
-import Header from './Common/header.js'
 import Contact from './Common/contact.js'
-import Section from './Common/section.js'
 import Accueil from './Common/accueil.js'
-import SectionCarr from './Common/sectionCarr.js'
 import LogIn from './Common/logIn.js'
 import Register from './Common/registered.js'
 import About from './Common/about.js'
@@ -17,6 +11,7 @@ import Aderant from './Common/pageAderant.js';
 import Commande from './Common/commande.js';
 import AboutUser from './Common/aboutUser.js';
 import ZeroPage from './Common/zero.js';
+import HeaderBoot from './Common/headerBootstrap.js';
 import { Component, useEffect, useState } from 'react';
 
 class  App extends Component{
@@ -39,7 +34,7 @@ class  App extends Component{
     return (
         <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Header changeHeaderState={changeHeaderState} valueHeaderState={valueHeaderState} />}>
+              <Route path="/" element={<HeaderBoot changeHeaderState={changeHeaderState} valueHeaderState={valueHeaderState} />}>
                 <Route index element={<Accueil/>}/>
                 <Route path="/a_propos" element={<About/>}/>
                 <Route path="/contact" element={<Contact/>}/>
@@ -52,7 +47,7 @@ class  App extends Component{
                 <Route path="/zero" element={<ZeroPage/>}/>
               </Route>
             </Routes>
-            <Footer/>
+            {/* <Footer/> */}
         </BrowserRouter>
     );
         
