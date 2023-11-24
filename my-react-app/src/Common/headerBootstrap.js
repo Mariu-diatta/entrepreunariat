@@ -50,6 +50,8 @@ const changeColor3=()=>{
   }else  setChange3(true)
 }
 
+
+
 const cancelConnect=()=>{
 
     if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
@@ -84,7 +86,7 @@ const cancelConnect=()=>{
                   <Link className='pe-4' to="/" style={change?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor} onMouseOut={changeColor}>Accueil</Link>
                   <Link className='pe-4' to="/a_propos" style={change3?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor3} onMouseOut={changeColor3}>A propos</Link>
                     {
-                        (props.valueHeaderState)?<Link style={change1?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor1} onMouseOut={changeColor1} className='pe-4' to={"/admin"} >Compte</Link>:<Link style={change1?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor1} onMouseOut={changeColor1} className='pe-4' to="/inscription" >Inscription</Link> 
+                        (props.valueHeaderState)?<Link style={change1?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor1} onMouseOut={changeColor1} className='pe-4' to="/admin" >Compte</Link>:<Link style={change1?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor1} onMouseOut={changeColor1} className='pe-4' to="/inscription" >Inscription</Link> 
                     }
                 
                     {       
