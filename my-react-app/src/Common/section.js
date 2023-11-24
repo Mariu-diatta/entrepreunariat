@@ -11,7 +11,7 @@ const contenu="Duis aute irure dolor in reprehenderit in voluptate velit esse ci
 
 function Section(){
     return(
-      <section className="  u-clearfix u-section-5" id="carousel_ba86" >
+      <section className="  u-clearfix u-section-5 p-5 " id="carousel_ba86" >
           <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
             <div className="u-clearfix u-expanded-width u-gutter-20 u-layout-wrap u-layout-wrap-1">
               <div className="u-gutter-0 u-layout">
