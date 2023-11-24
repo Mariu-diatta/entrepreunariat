@@ -12,7 +12,7 @@ import Commande from './Common/commande.js';
 import AboutUser from './Common/aboutUser.js';
 import ZeroPage from './Common/zero.js';
 import HeaderBoot from './Common/headerBootstrap.js';
-import { Component, useEffect, useState } from 'react';
+import { Component} from 'react';
 
 class  App extends Component{
    constructor(props){
@@ -47,7 +47,6 @@ class  App extends Component{
                 <Route path="/zero" element={<ZeroPage/>}/>
               </Route>
             </Routes>
-            {/* <Footer/> */}
         </BrowserRouter>
     );
         

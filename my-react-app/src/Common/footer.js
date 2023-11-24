@@ -44,13 +44,13 @@ function Footer(){
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
                 <h6 className="text-uppercase fw-bold mb-4">
-                  <i className="fas fa-gem me-3"></i>KeurTier
+                  <i className="fas fa-gem me-3"></i>SaBussnes
                 </h6>
 
                 <p >
-                  Nous avons comme objectifs  de faciliter la mise en relation entre locataires et propriétaires de biens  immobiliers d'une part et d'autre part
-                  l'accompagnement de ces derniers. Notre but est aussi de permettre à la population d'avoir accès à un logements sein et de contrer les fraudes autour du logement.
-                </p>
+                La plateforme novatrice décrite vise à révolutionner le paysage commercial en regroupant les activités de petits 
+                commerces au sein d'un espace centralisé. Son objectif principal est d'offrir une visibilité accrue à ces commerces 
+                locaux, souvent méconnus, tout en simplifiant le processus de commercialisation de leurs produits..                </p>
 
               </div>
 
@@ -61,10 +61,14 @@ function Footer(){
               </h6>
 
               <p>
-                <Link href="#!" className="text-reset">Proposez vos services immobiliers en quelques minutes</Link>
+                <Link href="#!" className="text-reset">Vous permettre de commercialiser vos marchandises</Link>
               </p>
               <p>
-                <Link href="#!" className="text-reset">Trouvez du logement sans frais et en quelques secondes</Link>
+                <Link href="#!" className="text-reset">Trouvez des clients plus facilement</Link>
+              </p>
+
+              <p>
+                <Link href="#!" className="text-reset">Placer vos marchandises dans les nos différentes boutiques</Link>
               </p>
 
               </div>
@@ -113,7 +117,7 @@ function Footer(){
 
         <div className="text-center p-4 " style={{backgroundColor: "rgba(0, 0, 0, 0.05"}}>
           © 2021 Copyright:
-          <a className="text-reset fw-bold" href="#">KeurTier.com</a>
+          <a className="text-reset fw-bold" href="#">SaBussnes.com</a>
         </div>
       </footer>	
     </nav>

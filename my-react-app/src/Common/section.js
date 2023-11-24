@@ -7,14 +7,15 @@ import im2 from "../accueil/Site1/images/6457.jpg"
 import PhotoPanel from "./photopanel.js"
 import PhotoPanel1 from "./photopanel1.js"
 const titre ="Management consulting"
-const contenu="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum "
+const contenu="La plateforme novatrice décrite vise à révolutionner le paysage commercial en regroupant les activités de petits commerces au sein d'un espace centralisé. Son objectif principal est d'offrir une visibilité accrue à ces commerces locaux, souvent méconnus, tout en simplifiant le processus de commercialisation de leurs produits. Grâce à cette consolidation, les consommateurs peuvent découvrir une variété de produits locaux en un seul endroit, favorisant ainsi l'achat local et renforçant les liens au sein de la communauté. Cette initiative prometteuse contribue non seulement à stimuler l'économie locale, mais elle offre également aux petits commerces une plateforme numérique"
++ "moderne pour prospérer dans un environnement de plus en plus numérisé. "
 
 function Section(){
     return(
-      <section className="  u-clearfix u-section-5 p-5 " id="carousel_ba86" >
+      <section className="  u-clearfix u-section-5  " id="carousel_ba86" style={{paddingLeft:"10%", paddingRight:"10%", paddingTop:"0px"}}>
           <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
             <div className="u-clearfix u-expanded-width u-gutter-20 u-layout-wrap u-layout-wrap-1">
-              <div className="u-gutter-0 u-layout">
+              <div className="u-gutter-0 u-layout p-4">
                 <div className="u-layout-row">
                   <PhotoPanel title={titre} image={im1} contenu={contenu} />
                   <PhotoPanel1 image={im2} contenu={contenu} utile={'ok'}/>
