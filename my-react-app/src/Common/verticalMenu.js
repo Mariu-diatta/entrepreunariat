@@ -19,7 +19,7 @@ const VerticalMenu=()=>{
                 <h5 style={{paddingLeft:"30px", paddingTop:"10px"}}>Activité</h5>
                 <ul className=" sticky-top flex-row ">
 
-                    <li>  <a href="#" onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}>Messages</a></li>
+                    <li>  <a href="#" onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small>Messages</small></a></li>
                     { 
                         (messageActivate)?
                         <nav>
@@ -31,7 +31,7 @@ const VerticalMenu=()=>{
                 
                     }
 
-                    <li > <a href="#" onClick={()=>adherantActivate?setAdherantActivate(false):setAdherantActivate(true)}  onMouseOver={()=>setcouleurAdherant(couleurBlue)} onMouseOut={()=>setcouleurAdherant(couleurWhite)} style={couleurAdherant}>Adherants</a></li>
+                    <li > <a href="#" onClick={()=>adherantActivate?setAdherantActivate(false):setAdherantActivate(true)}  onMouseOver={()=>setcouleurAdherant(couleurBlue)} onMouseOut={()=>setcouleurAdherant(couleurWhite)} style={couleurAdherant}><small>Adherants</small></a></li>
                     {  
                         (adherantActivate)?
                         <nav>
@@ -42,7 +42,7 @@ const VerticalMenu=()=>{
                         </nav>:<nav></nav>
                     }
                     
-                    <li > <a href="#" onClick={()=>commandeActivate?setCommandeActivate(false):setCommandeActivate(true)} onMouseOver={()=>setCouleurCommande(couleurBlue)} onMouseOut={()=>setCouleurCommande(couleurWhite)}  style={couleurCommande} >Commandes</a></li>
+                    <li > <a href="#" onClick={()=>commandeActivate?setCommandeActivate(false):setCommandeActivate(true)} onMouseOver={()=>setCouleurCommande(couleurBlue)} onMouseOut={()=>setCouleurCommande(couleurWhite)}  style={couleurCommande}><small>Commandes</small></a></li>
                     {                        
                         (commandeActivate)?
                         <nav>

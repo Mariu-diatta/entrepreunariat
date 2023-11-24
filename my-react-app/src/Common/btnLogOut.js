@@ -9,17 +9,12 @@ const maCouleur=[
 
 const LogoutButton=(props)=>{
 
-  const [change4, setChange4]=useState(false)
+  const [change4, setChange4]=useState(maCouleur[1])
 
-  const changeColor4=()=>{
-    if (change4) {
-        setChange4(false)
-    }else  setChange4(true)
-  }
 
   return (
-    <Link to='#' className=' pe-4 '  style={change4?maCouleur[0]:maCouleur[1]} onMouseOver={changeColor4} onMouseOut={changeColor4} onClick={props.onClick}>
-      Déconnexion
+    <Link to='#' className=' pe-4 '  style={change4} onMouseOver={()=>setChange4(maCouleur[0])} onMouseOut={()=>setChange4(maCouleur[1])} onClick={props.onClick}>
+      <small>Déconnexion</small>
     </Link>
   );
 }
