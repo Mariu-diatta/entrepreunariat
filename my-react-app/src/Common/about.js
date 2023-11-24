@@ -2,8 +2,8 @@ import Section from './section.js'
 const About = () =>{
     return(
         <>
-            <div className='p-5' >
-                <Section utile={true}/>
+            <div className='' >
+                <Section/>
             </div>
         </>
     )

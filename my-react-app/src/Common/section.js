@@ -15,7 +15,7 @@ function Section(){
       <section className="  u-clearfix u-section-5  " id="carousel_ba86" style={{paddingLeft:"10%", paddingRight:"10%", paddingTop:"0px"}}>
           <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
             <div className="u-clearfix u-expanded-width u-gutter-20 u-layout-wrap u-layout-wrap-1">
-              <div className="u-gutter-0 u-layout p-4">
+              <div className="u-gutter-0 u-layout ">
                 <div className="u-layout-row">
                   <PhotoPanel title={titre} image={im1} contenu={contenu} />
                   <PhotoPanel1 image={im2} contenu={contenu} utile={'ok'}/>
