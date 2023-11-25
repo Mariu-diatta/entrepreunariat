@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import {useState} from 'react';
 import {Navigate} from 'react-router-dom';
+import './../style.css'
 
 const Register =()=>{
 
@@ -43,52 +44,51 @@ const Register =()=>{
   };
 
   return(
-    <div className="p-4 u-align-center u-section-6 u-grey-10" >
-
-      <h4 className="u-text u-text-1 p-2" >Inscrivez-vous!</h4>
-      <div className="u-form u-form-1 ">
-          <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
+    <div className="u-align-center u-section-6 u-grey-10 p-3">
+      <div className="u-form u-form-1 registeredStye">
+          <h4 className="u-text u-text-1 "  style={{marginTop:'2%', paddingTop:'2%', marginBottom:'10%'}}>Inscrivez-vous!</h4>
+          <form onSubmit={handleSubmit} className=" u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
               
               <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                 <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Name</label>
-                <input name={name} value={name} onChange={(e)=>setName(e.target.value)} type="text"  placeholder="Nom" id="name-e4cc" maxLength="30" className="u-input" required="" wfd-id="id409" size="40"/>
+                <input name={name} value={name} onChange={(e)=>setName(e.target.value)} type="text"  placeholder="Nom" id="name-e4cc" maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="40"/>
               </div>
 
               <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                 <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Prénom</label>
-                <input name={pname} value={pname} onChange={(e)=>setPname(e.target.value)} type="text" placeholder="Prénom" id="name-e4cc1"  maxLength="30" className="u-input" required="" wfd-id="id409" size="40"/>
+                <input name={pname} value={pname} onChange={(e)=>setPname(e.target.value)} type="text" placeholder="Prénom" id="name-e4cc1"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="40"/>
               </div>
               
               <div className="u-align-center  u-form-group  ">
-                  <select name={genre} defaultValue={genre} onChange={(e)=>setGenre(e.target.value)} className='p-1 m-4' style={{width:"170px"}}>
-                    <option value="Homme">Homme</option>
-                    <option value="Femme" >Femme</option>
+                  <select name={genre} defaultValue={genre} onChange={(e)=>setGenre(e.target.value)} className='m-2 u-align-center' style={{width:"165px", backgroundColor:'white', border:'opx'}}>
+                    <option value="Homme"><small>Homme</small></option>
+                    <option value="Femme" ><small>Femme</small></option>
                   </select>
 
-                  <select name={ville} defaultValue={ville} onChange={(e)=>setVille(e.target.value)} className='p-1 m-4' style={{width:"170px"}}>
-                    <option value="Thies">Thies</option>
-                    <option value="Ziguinchor" >Ziguinchor</option>
+                  <select name={ville} defaultValue={ville} onChange={(e)=>setVille(e.target.value)} className='u-align-center ' style={{width:"165px" ,backgroundColor:'white', marginLeft:'7%', marginRight:'7%', border:'opx'}}>
+                    <option value="Thies"><small>Thies</small></option>
+                    <option value="Ziguinchor" ><small>Ziguinchor</small></option>
                   </select>
               
-                  <select name={profession} defaultValue={profession} onChange={(e)=>setProfession(e.target.value)} className='p-1 m-4' style={{width:"170px"}}>
-                    <option value="Thies">Vendeur</option>
-                    <option value="Ziguinchor" >Acheteur</option>
+                  <select name={profession} defaultValue={profession} onChange={(e)=>setProfession(e.target.value)} className='m-2 u-align-center' style={{width:"165px", backgroundColor:'white', border:'opx'}}>
+                    <option value="Thies"><small>Vendeur</small></option>
+                    <option value="Ziguinchor" ><small>Acheteur</small></option>
                   </select>
               </div>
 
               <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                 <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Téléphone</label>
-                <input name={tel} value={tel} onChange={(e)=>setTel(e.target.value)} type="tel" placeholder="Tel" id="name-e4cc2"  maxLength="30"  className="u-input" required="" wfd-id="id409" />
+                <input name={tel} value={tel} onChange={(e)=>setTel(e.target.value)} type="tel" placeholder="Tel" id="name-e4cc2"  maxLength="30"  className="u-align-center u-input" required="" wfd-id="id409" />
               </div>
 
               <div className="u-form-email u-form-group u-form-partition-factor-2 u-label-none u-form-group-2">
                 <label htmlFor="email-e4cc" className="u-label u-text-body-color u-label-2">Email</label>
-                <input name={mail} value={mail} onChange={(e)=>setMail(e.target.value)} type="email" placeholder="Enter a valid email address" id="email-e4cc"  maxLength="30" className="u-input"  wfd-id="id410"/>
+                <input name={mail} value={mail} onChange={(e)=>setMail(e.target.value)} type="email" placeholder="Enter a valid email address" id="email-e4cc"  maxLength="30" className="u-align-center u-input"  wfd-id="id410"/>
               </div>
 
               <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                 <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Mot de passe</label>
-                <input name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Mot de passe" id="name-e4cc2"  maxLength="30" className="u-input" required="" wfd-id="id409" size="2"/>
+                <input name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Mot de passe" id="name-e4cc2"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="2"/>
               </div>
 
               <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
@@ -98,11 +98,11 @@ const Register =()=>{
 
               <div className="u-form-group u-form-message u-label-none u-form-group-3">
                 <label htmlFor="message-e4cc" className="u-label u-text-body-color u-label-3">Message</label>
-                <textarea name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="500"  className="u-input" required=""></textarea>
+                <textarea name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="500"  className="u-align-center u-input" required=""></textarea>
               </div>
 
               <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4">
-                <button type="submit" value="submit" maxLength="30"   className="u-active-palette-3-base u-grey-80 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-radius-50 ">Valider</button >
+                <button type="submit" value="submit" maxLength="30"   className="u-align-center u-active-palette-3-base u-grey-80 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-radius-50 ">Valider</button >
               </div>
 
           </form>
