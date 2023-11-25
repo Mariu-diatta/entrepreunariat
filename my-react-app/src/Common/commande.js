@@ -66,7 +66,7 @@ const Commande =()=>{
                                         </div>
 
                                         <div className="row" style={{backgroundColor:"grey", textAlign:'center', paddingTop:'12px'}}>
-                                            <h6> Résumé de votre commande </h6>
+                                            <h6 style={{color:'white'}}> Résumé de votre commande </h6>
                                             {cars.map((car) => <p key={car.id}>{car.brand} </p>)}
                                         </div>
 

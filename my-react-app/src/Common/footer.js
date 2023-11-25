@@ -4,8 +4,8 @@ import {Link } from "react-router-dom";
 
 function Footer(){
   return(
-    <nav className='m-0'>	
-      <footer className="text-center text-lg-start bg-light text-muted  flex-row u-align-center u-clearfix u-grey-5 u-footer  mb-0 mt-3">
+    <nav className='m-0' >	
+      <footer className="text-center text-lg-start bg-light text-muted  flex-row u-align-center u-clearfix u-grey-5 u-footer  mb-0 mt-3" >
         <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom " style={{color:"grey", fontSize:"small"}}>
           
           <div className="me-5 d-none d-lg-block">
@@ -35,7 +35,7 @@ function Footer(){
           
         </section>
         
-        <section className='me-5' style={{color:"grey", fontSize:"medium"}}>
+        <section className='' style={{color:"grey", fontSize:"medium", backgroundColor:'black'}}>
 
           <div className="container text-center text-md-start mt-5">
 
@@ -44,68 +44,68 @@ function Footer(){
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
                 <h6 className="text-uppercase fw-bold mb-4">
-                  <i className="fas fa-gem me-3"></i>SaBussnes
+                  <i className="fas fa-gem me-3"><small>SaBussnes</small></i>
                 </h6>
 
-                <p >
+                <small>
                 La plateforme novatrice décrite vise à révolutionner le paysage commercial en regroupant les activités de petits 
                 commerces au sein d'un espace centralisé. Son objectif principal est d'offrir une visibilité accrue à ces commerces 
-                locaux, souvent méconnus, tout en simplifiant le processus de commercialisation de leurs produits..                </p>
+                locaux, souvent méconnus, tout en simplifiant le processus de commercialisation de leurs produits..                </small>
 
               </div>
 
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                
+                  <h6 className="text-uppercase fw-bold mb-4">
+                    <small>Services</small>
+                  </h6>
 
-              <h6 className="text-uppercase fw-bold mb-4">
-                Services
-              </h6>
+                  <p>
+                    <Link href="#!" className="text-reset"><small>Vous permettre de commercialiser vos marchandises</small></Link>
+                  </p>
+                  <p>
+                    <Link href="#!" className="text-reset"><small>Trouvez des clients plus facilement</small></Link>
+                  </p>
 
-              <p>
-                <Link href="#!" className="text-reset">Vous permettre de commercialiser vos marchandises</Link>
-              </p>
-              <p>
-                <Link href="#!" className="text-reset">Trouvez des clients plus facilement</Link>
-              </p>
-
-              <p>
-                <Link href="#!" className="text-reset">Placer vos marchandises dans les nos différentes boutiques</Link>
-              </p>
-
+                  <p>
+                    <Link href="#!" className="text-reset"><small>Placer vos marchandises dans les nos différentes boutiques </small></Link>
+                  </p>
+               
               </div>
 
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
                 <h6 className="text-uppercase fw-bold mb-4">
-                  Liens utils
+                <small>Liens utils</small>
                 </h6>
 
                 <p>
-                  <Link href="#!" className="text-reset">code du logements</Link>
+                  <Link href="#!" className="text-reset"><small>code du logements</small></Link>
                 </p>
 
                 <p>
-                  <Link href="#!" className="text-reset">Settings</Link>
+                  <Link href="#!" className="text-reset"><small>Settings</small></Link>
                 </p>
 
                 <p>
-                  <Link href="#!" className="text-reset">Orders</Link>
+                  <Link href="#!" className="text-reset"><small>Orders</small></Link>
                 </p>
 
                 <p>
-                  <Link href="#!" className="text-reset">Help</Link>
+                  <Link href="#!" className="text-reset"><small>Help</small></Link>
                 </p>
 
               </div>
 
               <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
-                <h6 className="text-uppercase fw-bold mb-4">Nous contacter</h6>
+                <h6 className="text-uppercase fw-bold mb-4"><small>Nous contacter</small></h6>
 
-                <p><i className="fas fa-home me-3 mr-2"></i>Campus Esp, Dk vdn, SN</p>
-                <p><i className="fas fa-envelope me-3 mr-2"></i>keurtiercome@esp.sn</p>
+                <p><i className="fas fa-home me-3 mr-2"></i><small>Campus Esp, Dk vdn, SN</small></p>
+                <p><i className="fas fa-envelope me-3 mr-2"></i><small>keurtiercome@esp.sn</small></p>
 
-                <p><i className="fas fa-phone me-3"></i>+221 770515417</p>
-                <p><i className="fas fa-print me-3"></i>+221 770515417</p>
+                <p><i className="fas fa-phone me-3"></i><small>+221 770515417</small></p>
+                <p><i className="fas fa-print me-3"></i><small>+221 770515417</small></p>
 
               </div>
 
@@ -116,8 +116,8 @@ function Footer(){
         </section>
 
         <div className="text-center p-4 " style={{backgroundColor: "rgba(0, 0, 0, 0.05"}}>
-          © 2021 Copyright:
-          <a className="text-reset fw-bold" href="#">SaBussnes.com</a>
+          <small>© 2021 Copyright:</small>
+          <a className="text-reset fw-bold" href="#"><small>SaBussnes.com</small></a>
         </div>
       </footer>	
     </nav>

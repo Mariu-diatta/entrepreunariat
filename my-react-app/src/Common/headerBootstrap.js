@@ -14,7 +14,7 @@ import {Outlet, Link} from 'react-router-dom';
 import LogoutButton from './btnLogOut'
 
 const maCouleur=[
-    {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'44%'},
+    {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'30%'},
     {color:'black', textAlign:'center'}
 ]
 
@@ -69,6 +69,7 @@ function HeaderBoot(props) {
                   placeholder="recherche"
                   className="mt-1 mb-1 pr-3"
                   aria-label="Search"
+                  maxLength={"45"}
                   style={{textAlign:'center', border:'opx'}}
                 />
                 <Button variant="" className='mt-1 mb-1 ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
