@@ -1,4 +1,8 @@
 /** grand  ecran **/
+.spacing_d{
+    padding-left: 10%;
+    padding-right: 10%;
+}
 
 .style_css{
     height: max-content;
