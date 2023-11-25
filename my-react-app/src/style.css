@@ -1,4 +1,10 @@
 /** grand  ecran **/
+
+.style_css{
+    height: max-content;
+    padding-bottom: auto;
+}
+
 @media screen and (min-width: 1000px){
 
     .position_sticky{

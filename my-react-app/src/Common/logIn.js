@@ -1,6 +1,4 @@
-import {useEffect, useState} from 'react'
-import Admin  from './pageAdmin.js';
-import Aderant from './pageAderant.js';
+import {useState} from 'react'
 import {Navigate} from 'react-router-dom';
 
 function LogIn(props){
@@ -34,6 +32,7 @@ function LogIn(props){
     };
 
     return(
+      <>
         <div className="  u-align-center u-clearfix  u-section-6 u-grey-10">
             <h4 className="u-text u-text-1">Connectez-vous!</h4>
             <div className="u-form u-form-1 ">
@@ -54,7 +53,8 @@ function LogIn(props){
             {
                props.valueHeaderState?<Navigate to="/admin"/>:<Navigate to="/login"/>
             }
-        </div>
+        </div>  
+      </>
     )
 }
 

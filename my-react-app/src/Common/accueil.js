@@ -4,10 +4,9 @@ import Carrous from './carrouselBoostrap.js'
 import Section from './section.js'
 import Footer from './footer.js'
 
-
 const Accueil =() => {
     return(
-        <div style={{paddingLeft:"", paddingRight:""}}>
+        <>
             <div  className=" " style={{}}>
                 <Carrous />
             </div>
@@ -16,7 +15,7 @@ const Accueil =() => {
                 <Section/>
             </div>
             <Footer/>
-        </div>
+        </>
     )
 }
 

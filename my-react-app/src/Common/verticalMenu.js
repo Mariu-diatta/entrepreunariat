@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import "./../style.css"
 const couleurBlue = {backgroundColor:"", color:"blue"}
 const couleurBlack= {backgroundColor:"", color:"black"}
 const couleurWhite = {backgroundColor:"", color:"black"}
+
 
 const VerticalMenu=()=>{
 
@@ -14,17 +16,17 @@ const VerticalMenu=()=>{
     const [messageActivate, setMessageActivate]=useState(false)
 
     return (
-        <div className="col-lg-2 u-grey-10">  
-            <nav className=" sticky-top flex-row " style={{zIndex:0, paddingTop:"20px"}}>
+        <div className="style_css sticky-top  col-lg-2 u-grey-10" >  
+            <nav className=" " style={{zIndex:"120", height:"100%"}}>
                 <h5 className="p-4">Activités</h5>
-                <ul className=" sticky-top flex-row ">
+                <ul className="  flex-row ">
 
                     <li>  <button className='btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}>Messages</button></li>
                     { 
                         (messageActivate)?
                         <nav>
                         <ul >
-                            <li> <Link to="#" className=" "><small>Nouveaux Messages</small></Link></li>
+                            <li> <Link to="/" className=" "><small>Nouveaux Messages</small></Link></li>
                             <li> <Link to="#" className=" "><small>Anciencs Messages</small></Link></li>
                         </ul>
                         </nav>: <nav> </nav>
@@ -35,10 +37,10 @@ const VerticalMenu=()=>{
                     {  
                         (adherantActivate)?
                         <nav>
-                                <ul >
-                                    <li> <Link to="#" className=" "><small>Nouveaux Adhérants</small></Link></li>
-                                    <li> <Link to="#" className=" "><small>Anciens Adhérants</small></Link></li>
-                                </ul>
+                            <ul >
+                                <li> <Link to="#" className=" "><small>Nouveaux Adhérants</small></Link></li>
+                                <li> <Link to="#" className=" "><small>Anciens Adhérants</small></Link></li>
+                            </ul>
                         </nav>:<nav></nav>
                     }
                     
