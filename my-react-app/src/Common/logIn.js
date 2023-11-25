@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {Navigate} from 'react-router-dom';
+import BtnSmt from './buttonSubmit';
 
 function LogIn(props){
 
@@ -38,15 +39,13 @@ function LogIn(props){
             <div className="u-form u-form-1 ">
                 <form onSubmit = {handleSubmit}   className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form " source="email">
                     <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                      {/* <label for="name-e4cc" className="u-label u-text-body-color u-label-1"></label> */}
                     <input  type="text" placeholder="Nom" id="name-e4cc" name={name} value={name} onChange={(e)=>setName(e.target.value)}  className=" u-input " maxlength="30"  required="" wfd-id="id409"/>
                     </div>
                     <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                      {/* <label for="name-e4cc" className="u-label u-text-body-color u-label-1">Mot de passe</label> */}
                       <input type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-input" maxlength="30"  required="" wfd-id="id409"/>
                     </div>
                     <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4">
-                      <button type="submit" value="submit" className="u-active-palette-3-base  u-grey-80 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-radius-50 ">Valider</button>
+                      <BtnSmt/>
                     </div>
                 </form>
             </div>
