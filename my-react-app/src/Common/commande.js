@@ -2,12 +2,12 @@ import im from "../accueil/Site1/images/3454.jpg";
 import BtnSmt from "./buttonSubmit";
 
 const cars = [
-    {prod:1,  lab:'Ford',qual:'bon'},
-    {prod:1,  lab:'Ford',qual:'bon'},
-    {prod:1,  lab:'Ford',qual:'bon'},
-    {prod:1,  lab:'Ford',qual:'bon'},
-    {prod:1,  lab:'Ford',qual:'bon'},
-    {prod:1,  lab:'Ford',qual:'bon'}
+    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:1,  lab:'Ford',prix:'100', qual:'bon'}
 ];
 
 const Commande =()=>{
@@ -24,24 +24,19 @@ const Commande =()=>{
                                     </div>
                                     <div className="u-align-left u-container-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
                                         
-                                            <ul className="row p-2  u-container-layout u-valign-top u-container-layout-1" style={{textAlign:'center'}}>
-                                                <h5 className="u-text u-text-1">Sélectionez vos produits.</h5>
-                                                <form style={{width:'100%', padding:12}}>
-                                                <table>
-                                                    <tr>
-                                                        <th className="p-4">produits</th>
-                                                        <th className="p-4">Quantité</th>
-                                                        <th className="p-4">Qualité</th>
-                                                        <th className="p-4"></th>
-                                                    </tr>
-                                                    {cars.map((car) =><tr><td className="spacing_d"> {car.prod} </td> <td className="spacing_d"> {car.lab} </td> <td className="spacing_d"> {car.qual} </td><td className="spacing_d"> {<input type="checkbox"/>} </td></tr>)}
-                                                </table>
-                                                <BtnSmt/>
-                                                </form>
-                                            </ul>
-                                           
-                                           
-                                        
+                                        <ul className="row p-2  u-container-layout u-valign-top u-container-layout-1" style={{textAlign:'center'}}>
+                                            <h5 className="u-text u-text-1">Sélectionez vos produits.</h5>
+                                            <div style={{width:'100%', padding:12}}>
+                                                <tr>
+                                                    <th className="p-3">produits</th>
+                                                    <th className="p-3">Quantité</th>
+                                                    <th className="p-3">Prix</th>
+                                                    <th className="p-3">Qualité</th>
+                                                    <th className="p-3"></th>
+                                                </tr>
+                                                {cars.map((car) =><tr><td className="spacing_d"> {car.prod} </td> <td className="spacing_d"> {car.lab} </td><td className="spacing_d"> {car.prix} </td> <td className="spacing_d"> {car.qual} </td><td className="spacing_d"> {<input type="checkbox"/>} </td></tr>)}
+                                            </div>
+                                        </ul>        
                                     </div>
                                 </div>
                             </div>
