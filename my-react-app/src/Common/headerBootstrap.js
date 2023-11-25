@@ -14,8 +14,8 @@ import {Outlet, Link} from 'react-router-dom';
 import LogoutButton from './btnLogOut'
 
 const maCouleur=[
-    {color:'blue'},
-    {color:'black'}
+    {color:'grey', backgroundColor:'white', textAlign:'center', borderRadius:'10px'},
+    {color:'black', textAlign:'center'}
 ]
 
 function HeaderBoot(props) {
@@ -38,7 +38,8 @@ function HeaderBoot(props) {
       <Navbar key={'lg'} expand={'lg'} className="sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
-          <img src={logo} alt="..." width={50} height={50}/>
+          {/* <img src={logo} alt="..." width={50} height={50}/> */}
+          <strong>Jobaal</strong>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           <Navbar.Offcanvas
@@ -52,25 +53,26 @@ function HeaderBoot(props) {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 " >
-                <Link className='pe-4' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])}><small>Accueil</small></Link>
-                <Link className='pe-4' to="/a_propos" style={change3} onMouseOver={()=>setChange3(maCouleur[0])} onMouseOut={()=>setChange3(maCouleur[1])}><small>A propos</small></Link>
+              <Nav className="justify-content-end flex-grow-1 " style={{textAlign:'center'}}>
+                <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])}><small>Accueil</small></Link>
+                <Link className='p-2 ' to="/a_propos" style={change3} onMouseOver={()=>setChange3(maCouleur[0])} onMouseOut={()=>setChange3(maCouleur[1])}><small>A propos</small></Link>
                   {
-                      (props.valueHeaderState)?<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='pe-4' to="/admin" ><small>Compte</small></Link>:<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='pe-4' to="/inscription" ><small>Inscription  </small></Link> 
+                      (props.valueHeaderState)?<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/admin" ><small>Compte</small></Link>:<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/inscription" ><small>S'inscrire</small></Link> 
                   }
               
                   {       
-                      (props.valueHeaderState)?<LogoutButton onClick={cancelConnect}/>:<Link style={change2} onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='pe-4' to="/login" ><small>Connecter</small></Link>
+                      (props.valueHeaderState)?<LogoutButton onClick={cancelConnect}/>:<Link style={change2} onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><small>Connexion</small></Link>
                   }
               </Nav>
-              <Form className="d-flex mr-2">
+              <Form className="d-flex " >
                 <Form.Control
                   type="search"
                   placeholder="recherche"
-                  className="pe-2 pr-3"
+                  className="mt-1 mb-1 pr-3"
                   aria-label="Search"
+                  style={{textAlign:'center', border:'opx'}}
                 />
-                <Button variant="" style={{backgroundColor:'grey', marginLeft:'0px'}}>Search</Button>
+                <Button variant="" className='mt-1 mb-1 ' style={{backgroundColor:'grey'}}>Search</Button>
               </Form>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

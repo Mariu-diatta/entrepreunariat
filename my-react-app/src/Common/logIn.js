@@ -37,7 +37,7 @@ function LogIn(props){
       <>
         <div className="u-align-center u-section-6 u-grey-10  " style={{paddingBottom:'10%', paddingTop:'5%'}}>
             <div className="u-form u-form-1 logInStye">
-                <h4 className="u-text u-text-1 " style={{paddingBottom:'5%', paddingTop:'3%'}}>Connectez-vous!</h4>
+                <h4 className="u-text u-text-1 " style={{paddingBottom:'5%', paddingTop:'3%'}}>Connexion!</h4>
                 <form onSubmit = {handleSubmit}   className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form " source="email">
                     <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                     <input  type="text" placeholder="Nom" id="name-e4cc" name={name} value={name} onChange={(e)=>setName(e.target.value)}  className="u-align-center u-input " maxlength="30"  required="" wfd-id="id409"/>

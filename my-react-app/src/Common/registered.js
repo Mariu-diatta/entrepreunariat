@@ -46,7 +46,7 @@ const Register =()=>{
   return(
     <div className="u-align-center u-section-6 u-grey-10 p-3">
       <div className="u-form u-form-1 registeredStye">
-          <h4 className="u-text u-text-1 "  style={{marginTop:'2%', paddingTop:'2%', marginBottom:'10%'}}>Inscrivez-vous!</h4>
+          <h4 className="u-text u-text-1 "  style={{marginTop:'2%', paddingTop:'2%', marginBottom:'10%'}}>S'inscrire!</h4>
           <form onSubmit={handleSubmit} className=" u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
               
               <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">

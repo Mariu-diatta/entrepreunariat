@@ -1,3 +1,4 @@
+import { useState } from "react";
 import im from "../accueil/Site1/images/3454.jpg";
 import BtnSmt from "./buttonSubmit";
 
@@ -11,6 +12,15 @@ const cars = [
 ];
 
 const Commande =()=>{
+    const [data, setData]=useState({})
+    
+    const AllData = []
+
+    const addData=(e)=>{
+        AllData.push(e.target.value);
+        alert("on m'a ajouté")
+    }
+
     return(
         <>
             <section className="row " style={{paddingLeft:"10%", paddingTop:"1%", paddingBottom:"5%"}} >
@@ -34,7 +44,7 @@ const Commande =()=>{
                                                     <th className="p-3">Qualité</th>
                                                     <th className="p-3"></th>
                                                 </tr>
-                                                {cars.map((car) =><tr><td className="spacing_d"> {car.prod} </td> <td className="spacing_d"> {car.lab} </td><td className="spacing_d"> {car.prix} </td> <td className="spacing_d"> {car.qual} </td><td className="spacing_d"> {<input type="checkbox"/>} </td></tr>)}
+                                                {cars.map((car) =><tr><td className="spacing_d"> {car.prod} </td> <td className="spacing_d"> {car.lab} </td><td className="spacing_d"> {car.prix} </td> <td className="spacing_d"> {car.qual} </td><td className="spacing_d"> {<input value={car.lab} onClick={addData} type="checkbox"/>} </td></tr>)}
                                             </div>
                                         </ul>        
                                     </div>
