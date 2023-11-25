@@ -14,7 +14,7 @@ import {Outlet, Link} from 'react-router-dom';
 import LogoutButton from './btnLogOut'
 
 const maCouleur=[
-    {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'10px'},
+    {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'44%'},
     {color:'black', textAlign:'center'}
 ]
 
@@ -38,8 +38,7 @@ function HeaderBoot(props) {
       <Navbar key={'lg'} expand={'lg'} className="sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
-          {/* <img src={logo} alt="..." width={50} height={50}/> */}
-          <strong>Jobaal</strong>
+          <strong style={{color:'black'}}>Jobaal</strong>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           <Navbar.Offcanvas
@@ -54,7 +53,7 @@ function HeaderBoot(props) {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 " style={{textAlign:'center'}}>
-                <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])}><small>Accueil</small></Link>
+                <Link className='p-2  ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])}><small>Accueil</small></Link>
                 <Link className='p-2 ' to="/a_propos" style={change3} onMouseOver={()=>setChange3(maCouleur[0])} onMouseOut={()=>setChange3(maCouleur[1])}><small>A propos</small></Link>
                   {
                       (props.valueHeaderState)?<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/admin" ><small>Compte</small></Link>:<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/inscription" ><small>S'inscrire</small></Link> 
@@ -72,7 +71,7 @@ function HeaderBoot(props) {
                   aria-label="Search"
                   style={{textAlign:'center', border:'opx'}}
                 />
-                <Button variant="" className='mt-1 mb-1 ' style={{backgroundColor:'grey'}}>Search</Button>
+                <Button variant="" className='mt-1 mb-1 ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
               </Form>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

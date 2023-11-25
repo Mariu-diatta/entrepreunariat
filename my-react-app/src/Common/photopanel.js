@@ -17,7 +17,7 @@ const Photopanel=(props)=>{
           <div className="u-container-layout u-valign-top u-container-layout-2">
             <h4 className="u-align-left u-text u-text-1">{props.title}</h4>
             <aside  className="u-align-left u-text u-text-2"><small>{props.contenu}</small></aside>
-            <button onClick={(e)=>!readmore?setReadmore(true):setReadmore(false)} className="u-active-black u-align-left u-border-active-white u-border-hover-white u-border-none u-btn u-btn-round u-button-style u-hover-black u-palette-3-base u-radius-50 u-text-active-white u-text-body-alt-color u-text-hover-white u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">{readmore?<div>réduire</div>:<div>Lire plus</div>}</button>
+            <button onClick={(e)=>!readmore?setReadmore(true):setReadmore(false)} className="u-btn  u-button-style u-radius-50 " data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">{readmore?<div>réduire</div>:<div>Lire plus</div>}</button>
             {readmore?<p><small>Je suis le contenue à lire de plus </small></p>:<p></p> }
           </div>
         </div>

@@ -56,13 +56,13 @@ const Commande =()=>{
                                     <h5> Enregistrer vos données pour valider l'opération.</h5>
                                     <form>
                                         <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1" style={{paddingLeft:'20%', paddingRight:'20%'}}>    
-                                            <input type="text" id="fname" name="fname"  className="u-align-center u-input" maxlength="20" placeholder="numéro"/><br/>
+                                            <input type="text" id="Nom" name="Nom"  className="u-align-center u-input" maxlength="20" placeholder="Nom"/><br/>
                                         </div>
                                         <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1" style={{paddingLeft:'20%', paddingRight:'20%'}}>
-                                            <input type="text" id="lname" name="lname" className="u-align-center u-input" maxlength="20" width={""} placeholder="nom" /><br/>
+                                            <input type="text" id="Prenom" name="Prenom" className="u-align-center u-input" maxlength="20" width={""} placeholder="Prénom" /><br/>
                                         </div>
                                         <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1" style={{paddingLeft:'20%', paddingRight:'20%'}}>
-                                            <input type="text" id="lname" name="lname" className="u-align-center u-input" maxlength="20" placeholder="numéro"/><br/>
+                                            <input type="text" id="numero" name="numero" className="u-align-center u-input" maxlength="20" placeholder="numéro"/><br/>
                                         </div>
 
                                         <div className="row" style={{backgroundColor:"grey", textAlign:'center', paddingTop:'12px'}}>
