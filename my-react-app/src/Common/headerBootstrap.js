@@ -14,7 +14,7 @@ import {Outlet, Link} from 'react-router-dom';
 import LogoutButton from './btnLogOut'
 
 const maCouleur=[
-    {color:'grey', backgroundColor:'white', textAlign:'center', borderRadius:'10px'},
+    {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'10px'},
     {color:'black', textAlign:'center'}
 ]
 
