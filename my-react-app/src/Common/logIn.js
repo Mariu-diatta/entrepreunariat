@@ -38,12 +38,12 @@ function LogIn(props){
         <div className="u-align-center u-section-6 u-grey-10  " style={{paddingBottom:'10%', paddingTop:'5%'}}>
             <div className="u-form u-form-1 logInStye">
                 <h4 className="u-text u-text-1 " style={{paddingBottom:'5%', paddingTop:'3%'}}>Connexion!</h4>
-                <form onSubmit = {handleSubmit}   className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form " source="email">
+                <form onSubmit = {handleSubmit}   className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
                     <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                    <input  type="text" placeholder="Nom" id="name-e4cc" name={name} value={name} onChange={(e)=>setName(e.target.value)}  className="u-align-center u-input " maxlength="30"  required="" wfd-id="id409"/>
+                    <input  type="text" placeholder="Nom" id="name-e4cc" name={name} value={name} onChange={(e)=>setName(e.target.value)}  className="u-align-center u-input " maxlength="30"  required="" wfd-id="id409" width="48" height="48" />
                     </div>
                     <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                      <input type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input" maxlength="30"  required="" wfd-id="id409"/>
+                      <input type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input" maxlength="30" width="48" required="" wfd-id="id409"/>
                     </div>
                     <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4">
                       <BtnSmt/>

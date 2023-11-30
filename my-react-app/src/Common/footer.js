@@ -9,7 +9,7 @@ function Footer(){
         <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom " style={{color:"grey", fontSize:"small"}}>
           
           <div className="me-5 d-none d-lg-block">
-            <span>Nous choisir c'est trouver un logement descent:</span>
+            <span>Faire passer votre business en ligne :</span>
           </div>
 
           <div>

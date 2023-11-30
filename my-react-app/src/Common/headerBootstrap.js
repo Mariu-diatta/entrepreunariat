@@ -38,7 +38,7 @@ function HeaderBoot(props) {
       <Navbar key={'lg'} expand={'lg'} className="sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
-          <strong style={{color:'black'}}>Jobaal</strong>
+          <strong style={{color:'black'}}>DorWar</strong>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           <Navbar.Offcanvas
@@ -72,7 +72,7 @@ function HeaderBoot(props) {
                   maxLength={"45"}
                   style={{textAlign:'center', border:'opx'}}
                 />
-                <Button variant="" className='mt-1 mb-1 ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
+                <Button variant="" className='mt-1 mb-1' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
               </Form>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

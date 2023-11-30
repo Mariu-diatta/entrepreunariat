@@ -1,24 +1,67 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import im from "../accueil/Site1/images/3454.jpg";
 import BtnSmt from "./buttonSubmit";
+import ProduitSelected from "./produitSelect";
 
 const cars = [
-    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
-    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
-    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
-    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
-    {prod:1,  lab:'Ford',prix:'100', qual:'bon'},
-    {prod:1,  lab:'Ford',prix:'100', qual:'bon'}
+    {prod:0,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:1,  lab:'grey',prix:'100', qual:'bon'},
+    {prod:2,  lab:'blue',prix:'100', qual:'bon'},
+    {prod:3,  lab:'red',prix:'100', qual:'bon'},
+    {prod:4,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:5,  lab:'Ford',prix:'100', qual:'bon'}
 ];
 
 const Commande =()=>{
-    const [data, setData]=useState({})
+    const [data, setData]=useState([])
+    const [valueIndex, setValueIndex]=useState(false)
     
-    const AllData = []
+    let index=2;
+    
+    let AllData = []
+
+    let value_=true;
 
     const addData=(e)=>{
-        AllData.push(e.target.value);
-        alert("on m'a ajouté")
+
+
+
+        for (let index = 0; index < AllData.length; index++) {
+            var element = AllData[index];
+            if (element==cars[e.target.value]) {
+                delete AllData[index];
+                alert("suppression réussie");
+                break;
+                value_=false;
+            }  
+        }
+        if (value_){
+           AllData.push(cars[e.target.value]); 
+          
+        }  
+        value_=true;  
+    }
+
+    useEffect(()=>{setData(AllData)},[1000])
+
+    const afficherTout=()=>{
+        if(AllData.length>index){
+            setData(AllData);
+            ++index;
+            setValueIndex(true);
+        }
+
+    }
+
+    const deletData=(e)=>{
+         for (let index = 0; index < AllData.length; index++) {
+            const element = AllData[index];
+            if (element==cars[e.target.value]) {
+                delete AllData[index];
+                alert("suppression réussie");
+            }
+            
+         }
     }
 
     return(
@@ -36,16 +79,16 @@ const Commande =()=>{
                                         
                                         <ul className="row p-2  u-container-layout u-valign-top u-container-layout-1" style={{textAlign:'center'}}>
                                             <h5 className="u-text u-text-1">Sélectionez vos produits.</h5>
-                                            <div style={{width:'100%', padding:12}}>
+                                            <table style={{width:'100%', padding:12}}>
                                                 <tr>
                                                     <th className="p-3">produits</th>
                                                     <th className="p-3">Quantité</th>
                                                     <th className="p-3">Prix</th>
-                                                    <th className="p-3">Qualité</th>
+                                                    <th className="p-3">Qualité</th>    
                                                     <th className="p-3"></th>
                                                 </tr>
-                                                {cars.map((car) =><tr><td className="spacing_d"> {car.prod} </td> <td className="spacing_d"> {car.lab} </td><td className="spacing_d"> {car.prix} </td> <td className="spacing_d"> {car.qual} </td><td className="spacing_d"> {<input value={car.lab} onClick={addData} type="checkbox"/>} </td></tr>)}
-                                            </div>
+                                                {cars.map((car) =><ProduitSelected prod={car.prod}  lab={car.lab} prix={car.prix} qual={car.qual}  onClick={addData} />)}
+                                            </table>
                                         </ul>        
                                     </div>
                                 </div>
@@ -67,10 +110,31 @@ const Commande =()=>{
 
                                         <div className="row" style={{backgroundColor:"grey", textAlign:'center', paddingTop:'12px'}}>
                                             <h6 style={{color:'white'}}> Résumé de votre commande </h6>
-                                            {cars.map((car) => <p key={car.id}>{car.brand} </p>)}
+                                            
+                                             <table>
+                                                <tr>
+                                                    <th className="p-3">produits</th>
+                                                    <th className="p-3">Quantité</th>
+                                                    <th className="p-3">Prix</th>
+                                                    <th className="p-3">Qualité</th>    
+                                                </tr>
+                                                
+                                                {
+                                                    data.map((elem)=>
+                                                       <tr>
+                                                            <td>{elem.prod}</td>
+                                                            <td>{elem.lab}</td>
+                                                            <td>{elem.prix}</td>
+                                                            <td>{elem.qual}</td>
+                                                        </tr>
+                                                    )
+                                                }
+                                               
+                                            </table>
+                                          
                                         </div>
 
-                                        <BtnSmt/>
+                                        <button className='btn btn-success p-2 m-2' type="button" onClick={afficherTout}>{valueIndex?'valider':'afficher'}</button >
                                     </form> 
                                 </div>
                          
