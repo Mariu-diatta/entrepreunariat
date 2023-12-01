@@ -7,10 +7,10 @@ import Footer from './footer.js'
 const Accueil =() => {
     return(
         <>
-            <div  className=" " style={{}}>
+            <div  className="" style={{}}>
                 <Carrous />
             </div>
-            <div  style={{paddingLeft:"10%", paddingRight:"10%"}}>
+            <div  style={{paddingLeft:"13%", paddingRight:"13%"}}>
                 <SectionU/>
                 <Section/>
             </div>
