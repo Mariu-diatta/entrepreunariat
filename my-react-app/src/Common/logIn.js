@@ -63,7 +63,7 @@ function LogIn(props){
 
     return(
       <>
-        <div className="u-align-center u-section-6 u-grey-10  " style={{paddingBottom:'10%', paddingTop:'5%' }}>
+        <div className="u-align-center u-section-6 u-grey-10 " style={{paddingBottom:'100%', paddingTop:'5%' , width:'100%'}}>
             <div className="u-form u-form-1 logInStye" >
               <h4 className="u-text u-alligne-center u-text-1 " style={{paddingBottom:'5%', paddingTop:'3%'}}>{passOublie?'Connexion!':"Mail de recupération"}</h4>
                {passOublie  ?
