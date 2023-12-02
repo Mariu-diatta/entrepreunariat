@@ -74,10 +74,10 @@ function LogIn(props){
                     <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                       <input type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input" maxlength="30"  required="" wfd-id="id409"/>
                     </div>
-                    <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4">                    
+                    <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4">  
+                      <BtnSmt/>      
+                      <br/>            
                       <small  className='btn n_link' onClick={()=>setPasseOublie(false)}>Mot de passe oublier? </small> <Link to={'/inscription'}> <small>S'inscrire.</small></Link>
-                      <br/>
-                      <BtnSmt/>
                     </div>
                 </form>:
                 <form onSubmit={handleSubmitPasse} >

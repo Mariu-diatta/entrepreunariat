@@ -1,4 +1,4 @@
-import {Navigate, Outlet, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useState } from 'react';
 
 
@@ -13,9 +13,11 @@ const LogoutButton=(props)=>{
 
 
   return (
-    <Link to='#' className=' pe-4 '  style={change4} onMouseOver={()=>setChange4(maCouleur[0])} onMouseOut={()=>setChange4(maCouleur[1])} onClick={props.onClick}>
-      <small>Déconnexion</small>
-    </Link>
+    <>
+      <Link to='#' className='p-2  '  style={change4} onMouseOver={()=>setChange4(maCouleur[0])} onMouseOut={()=>setChange4(maCouleur[1])} onClick={props.onClick}>
+        <small>Déconnexion</small>
+      </Link>
+    </>
   );
 }
 

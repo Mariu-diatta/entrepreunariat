@@ -12,6 +12,7 @@ import logo from "../accueil/Site1/images/logo_3.PNG"
 import {useState} from "react"
 import {Outlet, Link} from 'react-router-dom';
 import LogoutButton from './btnLogOut'
+import './../style.css'
 
 const maCouleur=[
     {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'30%'},
@@ -35,7 +36,7 @@ function HeaderBoot(props) {
 
   return (
     <>
-      <Navbar key={'lg'} expand={'lg'} className="sticky-top bg-body-tertiary p-0">
+      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
           <strong style={{color:'black'}}>DorWar</strong>
@@ -67,7 +68,7 @@ function HeaderBoot(props) {
                 <Form.Control
                   type="search"
                   placeholder="recherche"
-                  className="mt-1 mb-1 pr-3"
+                  className="mt-1 mb-1 pr-3 pl-3"
                   aria-label="Search"
                   maxLength={"45"}
                   style={{textAlign:'center', border:'opx'}}

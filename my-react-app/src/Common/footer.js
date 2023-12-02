@@ -115,7 +115,7 @@ function Footer(){
 
         </section>
 
-        <div className="text-center p-4 " style={{backgroundColor: "rgba(0, 0, 0, 0.05"}}>
+        <div className="text-center" style={{backgroundColor: "rgba(0, 0, 0, 0.05"}}>
           <small>© 2021 Copyright:</small>
           <a className="text-reset fw-bold" href="#"><small>SaBussnes.com</small></a>
         </div>

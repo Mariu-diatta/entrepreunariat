@@ -8,16 +8,16 @@ import im3 from "../accueil/Site1/images/553566.jpg";
 
 function  SectionCarr() {
         return(
-            <Carousel className='container u-alligne-center m-3'>
-                <div style={{height: "500px", width: "100%"}} >
-                    <img src={im1}  />
+            <Carousel className=' u-alligne-center m-3'>
+                <div style={{height: "500px", width: "60%"}} >
+                    <img className='p-2 u-alligne-center'  src={im1}  />
                     <p className="">Legend 2</p>
                 </div>
-                <div style={{height: "500px", width: "100%"}} >
-                    <img src={im3}  />
+                <div style={{height: "500px", width: "60%"}} >
+                    <img className='p-2 u-alligne-center' src={im3}  />
                     <p className="">Legend 3</p>
                 </div>
-                <div style={{height: "500px", width: "100%"}}>
+                <div style={{height: "500px", width: "60%"}}>
                 <div className='p-2 u-alligne-center'><img src={im2} /> </div>
                     <p className="">Legend 3</p>
                 </div>
