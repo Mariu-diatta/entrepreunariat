@@ -59,13 +59,12 @@ function SignUp(props){
 
     return(
       <> 
-
         <div className="u-align-center u-section-6 u-grey-10 " style={{paddingBottom:'100%', paddingTop:'1%' , width:'100%'}}>
             <div className="u-form u-form-1 logInStye" >
                
                 <form onSubmit = {handleSubmit} ref={formRef}  className="u-form-spacing-40  u-inner-form" source="email" style={{paddingLeft:'20%', paddingRight:'20%'}}>
                     <div className="u-form-group u-allign-center u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                     <h4 className="u-align-center  pt-3 " >inscription</h4>
+                     <h4 className="u-align-center  pt-3 " >Inscription!</h4>
                       <input ref={addInputs}  type="email" placeholder="email" id="name-e4cc" name={email} value={email} onChange={(e)=>setEmail(e.target.value)}  className="u-align-center u-input m-3" maxlength="30"  required="" wfd-id="id409"  height="48" />
  
                       <input ref={addInputs}   type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input m-3"  maxlength="30"  required="" wfd-id="id409"/>
