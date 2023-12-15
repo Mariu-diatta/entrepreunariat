@@ -53,22 +53,20 @@ function LogIn(props){
     return(
       <> 
 
-        <div className="u-align-center u-section-6 u-grey-10 " style={{paddingBottom:'100%', paddingTop:'5%' , width:'100%'}}>
+        <div className="u-align-center u-section-6 u-grey-10 " style={{paddingBottom:'100%', paddingTop:'1%' , width:'100%'}}>
             <div className="u-form u-form-1 logInStye" >
-              <h4 className="u-text u-alligne-center u-text-1 " style={{paddingBottom:'5%', paddingTop:'3%'}}>{passOublie?'Connexion!':"Mail de recupération"}</h4>
                
-                <form onSubmit = {handleSubmit} ref={formRef}  className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
+                <form onSubmit = {handleSubmit} ref={formRef}  className="u-clearfix u-form-spacing-40  u-inner-form " source="email" style={{paddingLeft:'20%', paddingRight:'20%'}}>
+                    <h4 className="u-alligne-center pt-3" >{passOublie?'Connexion!':"Mail de recupération"}</h4>
                     <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                    <input ref={addInputs}  type="email" placeholder="email" id="name-e4cc" name={email} value={email} onChange={(e)=>setEmail(e.target.value)}  className="u-align-center u-input " maxlength="30"  required="" wfd-id="id409"  height="48" />
-                    </div>
-                    <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                      <input ref={addInputs}   type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input" maxlength="30"  required="" wfd-id="id409"/>
+                      <input ref={addInputs}  type="email" placeholder="email" id="name-e4cc" name={email} value={email} onChange={(e)=>setEmail(e.target.value)}  className="u-align-center u-input m-3" maxlength="30"  required="" wfd-id="id409"  height="48" />
+                      <input ref={addInputs}   type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input m-3" maxlength="30"  required="" wfd-id="id409"/>
                     </div>
                     <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4"> 
                     <p style={{color:'red'}}>{validation}</p> 
+                    <p><small  className='n_link' onClick={()=>setPasseOublie(false)}>Mot de passe oublier? </small> <Link to={'/inscription'}> <small>S'inscrire.</small></Link> </p>
                       <BtnSmt/>      
-                      <br/>            
-                      <small  className='btn n_link' onClick={()=>setPasseOublie(false)}>Mot de passe oublier? </small> <Link to={'/inscription'}> <small>S'inscrire.</small></Link>
+                      <br/>   <br/>            
                     </div>
                 </form>
             </div>
