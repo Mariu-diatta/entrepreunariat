@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from './Common/contact.js'
 import Accueil from './Common/accueil.js'
 import LogIn from './Common/logIn.js'
-import Register from './Common/registered.js'
+import SignUp from './Common/registered.js'
 import About from './Common/about.js'
 import Admin  from './Common/pageAdmin.js';
 import Aderant from './Common/pageAderant.js';
@@ -18,7 +18,7 @@ class  App extends Component{
    constructor(props){
     super(props);
     this.state={
-      valueHeaderState:false
+      valueHeaderState:null
     };
     this.changeHeaderState=this.changeHeaderState.bind(this)
    }
@@ -38,7 +38,7 @@ class  App extends Component{
                 <Route index element={<Accueil/>}/>
                 <Route path="/a_propos" element={<About/>}/>
                 <Route path="/contact" element={<Contact/>}/>
-                <Route path="/inscription" element={<Register/>} />
+                <Route path="/inscription" element={<SignUp/>} />
                 <Route path="/login" element={<LogIn  changeHeaderState={changeHeaderState} valueHeaderState={valueHeaderState} />} />
                 <Route path="/adherant" element={<Aderant/>}/>
                 <Route path="/admin" element={<Admin changeHeaderState={changeHeaderState} valueHeaderState={valueHeaderState}/>}/>

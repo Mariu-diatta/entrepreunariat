@@ -10,9 +10,11 @@ import '../accueil/Site1/nicepage.css'
 import '../accueil/Site1/LogIn.css'
 import logo from "../accueil/Site1/images/logo_3.PNG"
 import {useState} from "react"
-import {Outlet, Link} from 'react-router-dom';
+import {Outlet, Link, useNavigate} from 'react-router-dom';
 import LogoutButton from './btnLogOut'
 import './../style.css'
+import { signOut } from 'firebase/auth';
+import { auth } from '../FirebaseUser/index.js';
 
 const maCouleur=[
     {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'30%'},
@@ -26,11 +28,17 @@ function HeaderBoot(props) {
   const [change2, setChange2]=useState(maCouleur[1])
   const [change3, setChange3]=useState(maCouleur[1])
 
-  const cancelConnect=()=>{
-    if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
-      if(props.valueHeaderState){
-        props.changeHeaderState(false)
+  const navigate=useNavigate()
+
+  const logOut = async()=>{
+    try {
+      if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
+        await signOut(auth)
+        props.changeHeaderState(null)
+        navigate("/")
       }
+    } catch (error) {
+      alert("erreur de déconnexion")
     }
   }
 
@@ -57,11 +65,11 @@ function HeaderBoot(props) {
                 <Link className='p-2  ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])}><small>Accueil</small></Link>
                 <Link className='p-2 ' to="/a_propos" style={change3} onMouseOver={()=>setChange3(maCouleur[0])} onMouseOut={()=>setChange3(maCouleur[1])}><small>A propos</small></Link>
                   {
-                      (props.valueHeaderState)?<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/admin" ><small>Compte</small></Link>:<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/inscription" ><small>S'inscrire</small></Link> 
+                      (props.valueHeaderState!==null)?<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/admin" ><small>Compte</small></Link>:<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/inscription" ><small>S'inscrire</small></Link> 
                   }
               
                   {       
-                      (props.valueHeaderState)?<LogoutButton onClick={cancelConnect}/>:<Link style={change2} onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><small>Connexion</small></Link>
+                      (props.valueHeaderState!==null) ?<LogoutButton onClick={logOut}/>:<Link style={change2} onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><small>Connexion</small></Link>
                   }
               </Nav>
               <Form className="d-flex " >

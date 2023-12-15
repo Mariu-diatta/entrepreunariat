@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import "./../style.css"
 const couleurBlue = {backgroundColor:"", color:"blue"}
-const couleurBlack= {backgroundColor:"", color:"black"}
+// const couleurBlack= {backgroundColor:"", color:"black"}
 const couleurWhite = {backgroundColor:"", color:"black"}
 
 

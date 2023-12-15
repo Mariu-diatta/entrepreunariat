@@ -1,97 +1,79 @@
-import {useState} from 'react'
-import {Navigate} from 'react-router-dom';
 import BtnSmt from './buttonSubmit';
 import './../style.css'
-import { Link } from 'react-router-dom';
+import {Link, Navigate } from 'react-router-dom';
+import {useState,  useRef} from 'react';
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from '../FirebaseUser/index.js';
 
 function LogIn(props){
-
-    const [name, setName] = useState("");
+    const signIn=(email, pwd)=>signInWithEmailAndPassword(auth, email, pwd)
+    const [email, setEmail]= useState("");
     const [password, setPassword] = useState("");
     const [passOublie, setPasseOublie]=useState(true)
+    const [validation, setValidation]=useState("")
+    const [token, setToken]=useState(null)
 
-    const handleSubmit = (e)=>{
-          e.preventDefault();
+    const inputs=useRef([])
 
-          const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              'Nom_user':name, 
-              'Passe_user':password,
-            })
-          };
+    const addInputs= el=>{ 
+      if(el && !inputs.current.includes(el)){
+        inputs.current.push(el)
+      }
+    }
 
-          fetch(
-            'http://127.0.0.1:5000/login',
-            requestOptions
-          ).then(res => res.json()). then (response =>
-            {
-              if(response['RESULTAT']){
-                localStorage.setItem("etatConection",true);
-                props.changeHeaderState(true);
-                <Navigate to="/admin"/>
-              }else {localStorage.setItem("etatConection",false); <Navigate to="/login"/>}
-          });
-    };
+    const formRef=useRef();
 
-    const handleSubmitPasse = (e)=>{
+    const handleSubmit = async (e)=>{
+      
       e.preventDefault();
 
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          'Nom_mail':name, 
-        })
-      };
+      if ((inputs.current[1].value.length || inputs.current[2].value.length)< 6){
+        setValidation("6 character min")
+        return;
+      }
 
-      fetch(
-        'http://127.0.0.1:5000/login',
-        requestOptions
-      ).then(res => res.json()). then (response =>
-        {
-          if(response['RESULTAT']){
-            setPasseOublie(true)
-          }else alert('Mote de passe incorect')
+      try{
+        const cred =  await signIn(
+          inputs.current[0].value,
+          inputs.current[1].value,
+        )
+        formRef.current.reset();
+        setValidation("")
+        setPassword("");
+        setEmail("");
+        console.log((cred['user'])['accessToken']);
+        setToken((cred['user'])['accessToken'])
+        props.changeHeaderState((cred['user'])['accessToken'])
+      }catch(error){
+           alert(error)
+      }
 
-          setTimeout(() => {
-            <Navigate to="/inscription"/>
-          }, 2000);
-      });
-};
+    };
 
     return(
-      <>
+      <> 
+
         <div className="u-align-center u-section-6 u-grey-10 " style={{paddingBottom:'100%', paddingTop:'5%' , width:'100%'}}>
             <div className="u-form u-form-1 logInStye" >
               <h4 className="u-text u-alligne-center u-text-1 " style={{paddingBottom:'5%', paddingTop:'3%'}}>{passOublie?'Connexion!':"Mail de recupération"}</h4>
-               {passOublie  ?
-                <form onSubmit = {handleSubmit}   className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
+               
+                <form onSubmit = {handleSubmit} ref={formRef}  className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
                     <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                    <input  type="text" placeholder="Nom" id="name-e4cc" name={name} value={name} onChange={(e)=>setName(e.target.value)}  className="u-align-center u-input " maxlength="30"  required="" wfd-id="id409"  height="48" />
+                    <input ref={addInputs}  type="email" placeholder="email" id="name-e4cc" name={email} value={email} onChange={(e)=>setEmail(e.target.value)}  className="u-align-center u-input " maxlength="30"  required="" wfd-id="id409"  height="48" />
                     </div>
                     <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                      <input type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input" maxlength="30"  required="" wfd-id="id409"/>
+                      <input ref={addInputs}   type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input" maxlength="30"  required="" wfd-id="id409"/>
                     </div>
-                    <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4">  
+                    <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4"> 
+                    <p style={{color:'red'}}>{validation}</p> 
                       <BtnSmt/>      
                       <br/>            
                       <small  className='btn n_link' onClick={()=>setPasseOublie(false)}>Mot de passe oublier? </small> <Link to={'/inscription'}> <small>S'inscrire.</small></Link>
                     </div>
-                </form>:
-                <form onSubmit={handleSubmitPasse} >
-                    <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                      <input type="email" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input" maxlength="30"  required="" wfd-id="id409"/>
-                    </div>
-                    <div className="p-2 u-align-center u-form-group u-form-submit u-label-none u-form-group-4">
-                      <BtnSmt/>
-                    </div>
                 </form>
-                }
             </div>
             {
-               props.valueHeaderState?<Navigate to="/admin"/>:<Navigate to="/login"/>
+               (props.valueHeaderState)?<Navigate to="/admin"/>:<Navigate to="/login"/> 
             }
         </div>  
       </>
