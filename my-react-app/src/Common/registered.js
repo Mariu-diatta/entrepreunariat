@@ -4,25 +4,49 @@ import {React,useState,  useRef} from 'react';
 import {
 createUserWithEmailAndPassword,
 } from 'firebase/auth';
-import { auth } from '../FirebaseUser/index.js';
+import { auth, db_} from '../FirebaseUser/index.js';
+import {collection, addDoc} from 'firebase/firestore';
+import { Navigate } from 'react-router-dom';
+
 
 
 function SignUp(props){
-  
-    const [email, setEmail] = useState("");
+    const [photo, setPhoto] = useState(null);   
+    const [name, setName] = useState("");
+    const [pname, setPname] = useState("");
+    const [genre, setGenre]= useState("Homme");
+    const [ville, setVille]= useState("Dakar");
+    const [tel, setTel]= useState("");
+    const [mail, setMail] = useState("");
     const [password, setPassword] = useState("");
-    const [password_, setPassword_] = useState("");
+    const [password1, setPassword1] = useState("");
+    const [message, setMessage]=useState("")
     const [validation, setValidation]=useState("")
+    const [isRegistered, setIsregistered]=useState("")
+    const [preview, setPreview] = useState(null);
 
     const singnUp=(email, pwd)=> createUserWithEmailAndPassword(auth, email, pwd)
 
     const inputs=useRef([])
 
-    const addInputs= el=>{ 
-      if(el && !inputs.current.includes(el)){
-        inputs.current.push(el)
+    const addInputs= e=>{ 
+      if(e && !inputs.current.includes(e)){
+        inputs.current.push(e)
       }
     }
+
+    const handleImageChange=(e)=>{
+     // alert('done')
+      const file = e.target.value;
+      setPhoto(file);
+      // const reader = new FileReader();
+      // reader.readAsDataURL(file);
+  
+      // reader.onload = () => {
+      //   setPreview(reader.result);
+      // };
+
+    };
 
     const formRef=useRef();
 
@@ -44,12 +68,25 @@ function SignUp(props){
         const cred =  await singnUp(
           inputs.current[0].value,
           inputs.current[1].value,
+          inputs.current[3].value,
 
         )
+
+      await addDoc(collection(db_, "users"), {
+          user:{name, pname, genre, ville, tel, mail, password, message, photo},
+          completed: false,
+      });
+
         formRef.current.reset();
         setPassword("");
-        setPassword_("");
-        setEmail("")
+        setPassword1("");
+        setMail("");
+        setGenre("");
+        setMessage("");
+        setPname("");
+        setName("");
+        setTel("");
+        setVille("");
 
       }catch(error){
 
@@ -61,17 +98,51 @@ function SignUp(props){
       <> 
         <div className="u-align-center u-section-6 u-grey-10 " style={{paddingBottom:'100%', paddingTop:'1%' , width:'100%'}}>
             <div className="u-form u-form-1 logInStye" >
-               
-                <form onSubmit = {handleSubmit} ref={formRef}  className="u-form-spacing-40  u-inner-form" source="email" style={{paddingLeft:'20%', paddingRight:'20%'}}>
-                    <div className="u-form-group u-allign-center u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
-                     <h4 className="u-align-center  pt-3 " >Inscription!</h4>
-                      <input ref={addInputs}  type="email" placeholder="email" id="name-e4cc" name={email} value={email} onChange={(e)=>setEmail(e.target.value)}  className="u-align-center u-input m-3" maxlength="30"  required="" wfd-id="id409"  height="48" />
- 
-                      <input ref={addInputs}   type="password" placeholder="Mot de passe" id="name-e4cc2" name={password}  value={password} onChange={(e)=>setPassword(e.target.value)}   className="u-align-center u-input m-3"  maxlength="30"  required="" wfd-id="id409"/>
-   
-                      <input ref={addInputs}   type="password" placeholder="confirmer mot de passe" id="name-e4cc2" name={password_}  value={password_} onChange={(e)=>setPassword_(e.target.value)}   className="u-align-center u-input m-3" maxlength="30"  required="" wfd-id="id409"/>
-                    </div>
-                    <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4 pb-3">  
+                  <h4 className="u-alligne-center pt-2 pb-2" >Inscription</h4>
+                  <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
+                      <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
+                        <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Name</label>
+                        <input name={name} value={name} onChange={(e)=>setName(e.target.value)} type="text"  placeholder="Nom" id="name-e4cc" maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" size="40"/>
+                      </div>
+                      <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
+                        <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Prénom</label>
+                        <input  name={pname} value={pname} onChange={(e)=>setPname(e.target.value)} type="text" placeholder="Prénom" id="name-e4cc1"  maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" size="40"/>
+                      </div>
+                      <div className="u-form-email u-form-group u-form-partition-factor-2 u-label-none u-form-group-2">
+                          <select name={genre} defaultValue={genre} onChange={(e)=>setGenre(e.target.value)} >
+                            <option value="Homme">Homme</option>
+                            <option value="Femme" >Femme</option>
+                          </select>
+                      </div>
+                      <div className="u-form-email u-form-group u-form-partition-factor-2 u-label-none u-form-group-2">
+                          <select name={ville} defaultValue={ville} onChange={(e)=>setVille(e.target.value)} >
+                            <option value="Thies">Thies</option>
+                            <option value="Ziguinchor" >Ziguinchor</option>
+                          </select>
+                      </div>
+                      <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
+                        <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Téléphone</label>
+                        <input name={tel} value={tel} onChange={(e)=>setTel(e.target.value)} type="tel" placeholder="Tel" id="name-e4cc2"  maxLength="30"  className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" />
+                      </div>
+                      <div className="u-form-email u-form-group u-form-partition-factor-2 u-label-none u-form-group-2">
+                        <label htmlFor="email-e4cc" className="u-label u-text-body-color u-label-2">Email</label>
+                        <input ref={addInputs}  name={mail} value={mail} onChange={(e)=>setMail(e.target.value)} type="email" placeholder="Enter a valid email address" id="email-e4cc"  maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-2"  wfd-id="id410"/>
+                      </div>
+                      <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
+                        <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Mot de passe</label>
+                        <input ref={addInputs} name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Mot de passe" id="name-e4cc2"  maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" size="2"/>
+                      </div>
+                      <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
+                        <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Téléphone</label>
+                        <input ref={addInputs} name={password1} value={password1} onChange={(e)=>setPassword1(e.target.value)} type="password" placeholder="Confirmer mot de passe" size="2"  id="name-e4cc2"  maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" />
+                      </div>
+                      <div className="u-form-group u-form-message u-label-none u-form-group-3">
+                        <label htmlFor="message-e4cc" className="u-label u-text-body-color u-label-3">Message</label>
+                        <textarea name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="100"  className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-3" required=""></textarea>
+                        <input  accept="image/*"  ref={addInputs} placeholder='profile' name={photo} value={photo} onChange={handleImageChange} type="file"  className='pt-2 ' style={{border:'0px'}}/>
+
+                      </div>
+                      <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4 pb-3">  
                     <p style={{color:'red'}}>{validation}</p>
                       <BtnSmt/>     
                       <br/>            
@@ -84,3 +155,4 @@ function SignUp(props){
 }
 
 export default SignUp;
+

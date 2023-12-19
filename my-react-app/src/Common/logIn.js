@@ -8,7 +8,7 @@ import { auth } from '../FirebaseUser/index.js';
 function LogIn(props){
 
     const signIn=(email, pwd)=>signInWithEmailAndPassword(auth, email, pwd)
-    
+
     const [email, setEmail]= useState("");
     const [password, setPassword] = useState("");
     const [passOublie, setPasseOublie]=useState(true)
@@ -42,7 +42,7 @@ function LogIn(props){
         setEmail("");
         props.changeHeaderState((cred['user'])['accessToken'])
       }catch(error){
-            alert(error)
+        alert("Erreur de login: vos données sont invalides")
       }
     };
 
