@@ -43,11 +43,11 @@ function HeaderBoot(props) {
   }
 
   return (
-    <>
+    <div className='row  '>
       <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
-          <strong style={{color:'black'}}>DorWar</strong>
+          <strong  style={{color:'black', paddingLeft:'20px'} }>Deal</strong>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           <Navbar.Offcanvas
@@ -81,14 +81,14 @@ function HeaderBoot(props) {
                   maxLength={"45"}
                   style={{textAlign:'center', border:'opx'}}
                 />
-                <Button variant="" className='mt-1 mb-1' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
+                <Button variant="" className='mt-1 mb-1 ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)', marginRight:'10px'}}><small>Search</small></Button>
               </Form>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
       <Outlet />
-    </>
+    </div>
   );
 }
 

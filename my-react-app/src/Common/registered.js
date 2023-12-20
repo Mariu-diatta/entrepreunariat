@@ -96,17 +96,17 @@ function SignUp(props){
 
     return(
       <> 
-        <div className="u-align-center u-section-6 u-grey-10 " style={{paddingBottom:'100%', paddingTop:'1%' , width:'100%'}}>
+        <div className="u-align-center u-section-6 u-grey-10 " style={{ paddingTop:'1%' , width:'100%'}}>
             <div className="u-form u-form-1 logInStye" >
                   <h4 className="u-alligne-center pt-2 pb-2" >Inscription</h4>
                   <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" source="email">
                       <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                         <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Name</label>
-                        <input name={name} value={name} onChange={(e)=>setName(e.target.value)} type="text"  placeholder="Nom" id="name-e4cc" maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" size="40"/>
+                        <input name={name} value={name} onChange={(e)=>setName(e.target.value)} type="text"  placeholder="Nom" id="name-e4cc" maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="40"/>
                       </div>
                       <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                         <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Prénom</label>
-                        <input  name={pname} value={pname} onChange={(e)=>setPname(e.target.value)} type="text" placeholder="Prénom" id="name-e4cc1"  maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" size="40"/>
+                        <input  name={pname} value={pname} onChange={(e)=>setPname(e.target.value)} type="text" placeholder="Prénom" id="name-e4cc1"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="40"/>
                       </div>
                       <div className="u-form-email u-form-group u-form-partition-factor-2 u-label-none u-form-group-2">
                           <select name={genre} defaultValue={genre} onChange={(e)=>setGenre(e.target.value)} >
@@ -122,23 +122,23 @@ function SignUp(props){
                       </div>
                       <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                         <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Téléphone</label>
-                        <input name={tel} value={tel} onChange={(e)=>setTel(e.target.value)} type="tel" placeholder="Tel" id="name-e4cc2"  maxLength="30"  className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" />
+                        <input name={tel} value={tel} onChange={(e)=>setTel(e.target.value)} type="tel" placeholder="Tel" id="name-e4cc2"  maxLength="30"  className="u-align-center u-input" required="" wfd-id="id409" />
                       </div>
                       <div className="u-form-email u-form-group u-form-partition-factor-2 u-label-none u-form-group-2">
                         <label htmlFor="email-e4cc" className="u-label u-text-body-color u-label-2">Email</label>
-                        <input ref={addInputs}  name={mail} value={mail} onChange={(e)=>setMail(e.target.value)} type="email" placeholder="Enter a valid email address" id="email-e4cc"  maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-2"  wfd-id="id410"/>
+                        <input ref={addInputs}  name={mail} value={mail} onChange={(e)=>setMail(e.target.value)} type="email" placeholder="Enter a valid email address" id="email-e4cc"  maxLength="30" className="u-align-center u-input"  wfd-id="id410"/>
                       </div>
                       <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                         <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Mot de passe</label>
-                        <input ref={addInputs} name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Mot de passe" id="name-e4cc2"  maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" size="2"/>
+                        <input ref={addInputs} name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Mot de passe" id="name-e4cc2"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="2"/>
                       </div>
                       <div className="u-form-group u-form-name u-form-partition-factor-2 u-label-none u-form-group-1">
                         <label htmlFor="name-e4cc" className="u-label u-text-body-color u-label-1">Téléphone</label>
-                        <input ref={addInputs} name={password1} value={password1} onChange={(e)=>setPassword1(e.target.value)} type="password" placeholder="Confirmer mot de passe" size="2"  id="name-e4cc2"  maxLength="30" className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-1" required="" wfd-id="id409" />
+                        <input ref={addInputs} name={password1} value={password1} onChange={(e)=>setPassword1(e.target.value)} type="password" placeholder="Confirmer mot de passe" size="2"  id="name-e4cc2"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" />
                       </div>
                       <div className="u-form-group u-form-message u-label-none u-form-group-3">
                         <label htmlFor="message-e4cc" className="u-label u-text-body-color u-label-3">Message</label>
-                        <textarea name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="100"  className="u-border-palette-3-base u-input u-input-rectangle u-text-body-color u-input-3" required=""></textarea>
+                        <textarea name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="100"  className="u-align-center u-input" required=""></textarea>
                         <input  accept="image/*"  ref={addInputs} placeholder='profile' name={photo} value={photo} onChange={handleImageChange} type="file"  className='pt-2 ' style={{border:'0px'}}/>
 
                       </div>

@@ -48,7 +48,7 @@ function LogIn(props){
 
     return(
       <> 
-        <div className="u-align-center u-section-6 u-grey-10 " style={{paddingBottom:'100%', paddingTop:'1%' , width:'100%'}}>
+        <div className="u-align-center u-section-6 u-grey-10 " style={{width:'100%'}}>
             <div className="u-form u-form-1 logInStye" >
                
                 <form onSubmit = {handleSubmit} ref={formRef}  className="u-clearfix u-form-spacing-40  u-inner-form " source="email" style={{paddingLeft:'20%', paddingRight:'20%'}}>

@@ -16,7 +16,7 @@ const VerticalMenu=()=>{
     const [messageActivate, setMessageActivate]=useState(false)
 
     return (
-        <div className="style_css sticky-top  col-lg-2 u-grey-10" >  
+        <div className="style_css sticky-top  col-lg-2 u-grey-10" style={{height:window.innerHeight}}>  
             <nav className=" " style={{zIndex:"120", height:"100%"}}>
                 <h5 className="p-4">Activités</h5>
                 <ul className="  flex-row ">
