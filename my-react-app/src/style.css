@@ -3,6 +3,11 @@
     box-shadow:1px 1px 1px 1px rgba(1, 1, 70, 0.2);
 }
 
+.Card-space + .Card-space{
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
 .Card-space{
     padding: 2px !important;
     border: 0px;
