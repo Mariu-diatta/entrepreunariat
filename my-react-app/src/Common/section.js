@@ -13,16 +13,14 @@ const contenu="La plateforme novatrice décrite vise à révolutionner le paysag
 function Section(){
     return(
       <section className="  u-clearfix u-section-5  " id="carousel_ba86" style={{paddingLeft:"10%", paddingRight:"10%"}}>
-          <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
-            <div className="u-clearfix u-expanded-width u-gutter-20 u-layout-wrap u-layout-wrap-1">
-              <div className="u-gutter-0 u-layout ">
-                <div className="u-layout-row">
-                  <PhotoPanel title={titre} image={im1} contenu={contenu} />
-                  <PhotoPanel1 image={im2} contenu={contenu} utile={'ok'}/>
+                <div className="row">
+                    <div className="col-lg-6 p-0 m-0">
+                      <PhotoPanel title={titre} image={im1} contenu={contenu}/>
+                    </div>
+                    <div className="col-lg-6 p-0 m-0">
+                    < PhotoPanel1 image={im2} contenu={contenu}/>
+                    </div>
                 </div>
-              </div>
-            </div>
-        </div>
       </section>
 )}
 

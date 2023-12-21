@@ -16,7 +16,7 @@ const Data=[
 
 function SectionU(){
   return(
-      <section  className=" u-align-center u-clearfix u-container-align-center  u-section-4 " id="carousel_d430" >
+      <section className="pb-0 mb-0">
           <h5 className="u-align-center u-text " data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><strong>Nos produits</strong></h5>
           <p className="u-align-center u-text " data-animation-name="customAnimationIn" data-animation-duration="1500"><small>Le Sénégal offre une richesse de produits locaux reflétant sa diversité culturelle et géographique. Voici un résumé de certains des produits locaux clés du Sénégal.</small></p>
               <div className="container" style={{paddingLeft:'5%', paddingRight:'6%'}}>   

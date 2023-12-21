@@ -10,7 +10,7 @@ const Accueil =() => {
             <div>
                 <Carrous />
             </div>
-            <div className='container-fluid p-3'>
+            <div className='container-fluid'>
                 <SectionU/>
                 <Section/>
             </div>
