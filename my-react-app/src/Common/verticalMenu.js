@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import "./../style.css"
 const couleurBlue = {backgroundColor:"", color:"blue"}
-// const couleurBlack= {backgroundColor:"", color:"black"}
+const couleurBlack= {backgroundColor:"", color:"black"}
 const couleurWhite = {backgroundColor:"", color:"black"}
 
 
@@ -18,7 +18,7 @@ const VerticalMenu=()=>{
     return (
 
         <nav className='sticky-top u-align-center style_css col-lg-2' >
-            <ul className="">
+            <ul>
                 <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small>Messages</small></button></li>
                 { 
                     (messageActivate)?

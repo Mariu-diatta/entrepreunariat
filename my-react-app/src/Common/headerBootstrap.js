@@ -43,7 +43,7 @@ function HeaderBoot(props) {
   }
 
   return (
-    <div className='row  '>
+    <div className='row style_head'>
       <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
