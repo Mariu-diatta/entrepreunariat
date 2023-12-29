@@ -17,7 +17,7 @@ const VerticalMenu=()=>{
 
     return (
 
-        <nav className='sticky-top u-align-center style_css col-lg-2' >
+        <nav className='.off_test sticky-top u-align-center style_css  col-lg-2'>
             <ul>
                 <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small>Messages</small></button></li>
                 { 

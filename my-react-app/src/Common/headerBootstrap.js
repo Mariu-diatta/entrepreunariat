@@ -15,6 +15,7 @@ import LogoutButton from './btnLogOut'
 import './../style.css'
 import { signOut } from 'firebase/auth';
 import { auth } from '../FirebaseUser/index.js';
+import ModalPop from './modal.js';
 
 const maCouleur=[
     {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'30%'},
@@ -49,11 +50,14 @@ function HeaderBoot(props) {
           <Navbar.Brand href="#">
           <strong  style={{color:'black', paddingLeft:'20px'} }>Deal</strong>
           </Navbar.Brand>
+          <Navbar className='off_classe'> 
+            <ModalPop/>
+          </Navbar>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${'lg'}`}
             aria-labelledby={`offcanvasNavbarLabel-expand-${'lg'}`}
-            placement="end"
+            placement="start"
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${'lg'}`}>
