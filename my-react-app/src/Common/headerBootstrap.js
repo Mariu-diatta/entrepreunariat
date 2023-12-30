@@ -51,7 +51,7 @@ function HeaderBoot(props) {
           <strong  style={{color:'black', paddingLeft:'20px'} }>Deal</strong>
           </Navbar.Brand>
           <Navbar className='off_classe'> 
-            <ModalPop/>
+            {(props.valueHeaderState!==null) ?<ModalPop/>:<nav></nav>}
           </Navbar>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           <Navbar.Offcanvas
