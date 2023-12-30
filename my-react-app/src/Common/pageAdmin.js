@@ -17,15 +17,15 @@ const Admin =(props)=>{
                         <div className="row">
                             <Section/>
                         </div>
-                    </div>
-                    <div className="pl-5 container class_footer">
-                            <Footer/>
-                    </div>  
+                    </div> 
                 </div>
 
                 :<Navigate to="/login"/>
             
             }
+            <div className="pl-5 container class_footer">
+                <Footer/>
+            </div> 
         </>
     )
      

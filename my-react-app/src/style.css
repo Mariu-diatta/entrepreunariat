@@ -1,3 +1,7 @@
+.class_pad{
+    text-align: center;
+}
+
 /** grand  ecran **/
 @media screen and (min-width: 1000px){
     .header_{
@@ -11,8 +15,13 @@
 
     .vert_menu_footer  .class_footer{
         padding-left:15% !important;
+        z-index: 1000;
     }
 
+    .class_footer{
+        padding-left:15% !important;
+        z-index: 1000;
+    }
 
 
     .style_css{
