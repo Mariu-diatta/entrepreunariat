@@ -44,8 +44,8 @@ function HeaderBoot(props) {
   }
 
   return (
-    <div className='row style_head'>
-      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0">
+    <div className='' style={{width:window.innerWidth}}>
+      <Navbar key={'lg'} expand={'lg'} className=" sticky-top bg-body-tertiary ">
         <Container fluid>
           <Navbar.Brand href="#">
           <strong  style={{color:'black', paddingLeft:'20px'} }>Deal</strong>
