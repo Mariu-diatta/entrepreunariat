@@ -6,16 +6,16 @@ import Footer from './footer.js'
 
 const Accueil =() => {
     return(
-        <>
+        <div className='container-fluid'>
             <div>
                 <Carrous />
             </div>
-            <div className='container-fluid'>
+            <div className='container'>
                 <SectionU/>
                 <Section/>
             </div>
             <Footer/>
-        </>
+        </div>
     )
 }
 

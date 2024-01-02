@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import im from "../accueil/Site1/images/3454.jpg";
 import BtnSmt from "./buttonSubmit";
 import ProduitSelected from "./produitSelect";
+import { useContext } from "react";
 
 const cars = [
     {prod:0,  lab:'Ford',prix:'100', qual:'bon'},
@@ -66,7 +67,7 @@ const Commande =()=>{
 
     return(
         <>
-            <section className="row " style={{paddingLeft:"10%", paddingTop:"1%", paddingBottom:"5%"}} >
+            <section className="container-fluid " style={{ paddingTop:"1%", paddingBottom:"5%"}} >
                         <div className="row">
                             <div className="col-lg-5">
                                 <div className="row">
@@ -77,7 +78,7 @@ const Commande =()=>{
                                     </div>
                                     <div className="u-align-left u-container-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
                                         
-                                        <ul className="row p-2  u-container-layout u-valign-top u-container-layout-1" style={{textAlign:'center'}}>
+                                        <ul className="row  u-container-layout u-valign-top u-container-layout-1" style={{textAlign:'center'}}>
                                             <h5 className="u-text u-text-1">Sélectionez vos produits.</h5>
                                             <table style={{width:'100%', padding:12}}>
                                                 <tr>

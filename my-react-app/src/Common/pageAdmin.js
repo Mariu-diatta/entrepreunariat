@@ -23,7 +23,7 @@ const Admin =(props)=>{
                 :<Navigate to="/login"/>
             
             }
-            <div className="class_footer">
+            <div className="  class_footer">
                 <Footer/>
             </div> 
         </>

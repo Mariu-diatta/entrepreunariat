@@ -28,6 +28,7 @@ function HeaderBoot(props) {
   const [change1, setChange1]=useState(maCouleur[1])
   const [change2, setChange2]=useState(maCouleur[1])
   const [change3, setChange3]=useState(maCouleur[1])
+  const [pageCompte, setPageCompte]=useState(false)
 
   const navigate=useNavigate()
 
@@ -43,15 +44,23 @@ function HeaderBoot(props) {
     }
   }
 
+  const privatepage=()=>{
+      setPageCompte(true)
+  }
+
+  const notprivatepage=()=>{
+    setPageCompte(false)
+  }
+
   return (
-    <div className='' style={{width:window.innerWidth}}>
-      <Navbar key={'lg'} expand={'lg'} className=" sticky-top bg-body-tertiary ">
+    <div className='row style_head'>
+      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
           <strong  style={{color:'black', paddingLeft:'20px'} }>Deal</strong>
           </Navbar.Brand>
           <Navbar className='off_classe'> 
-            {(props.valueHeaderState!==null) ?<ModalPop/>:<nav></nav>}
+            {(props.valueHeaderState!==null) && pageCompte?<ModalPop/>:<nav></nav>}
           </Navbar>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           <Navbar.Offcanvas
@@ -66,10 +75,10 @@ function HeaderBoot(props) {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 " style={{textAlign:'center'}}>
-                <Link className='p-2  ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])}><small>Accueil</small></Link>
-                <Link className='p-2 ' to="/a_propos" style={change3} onMouseOver={()=>setChange3(maCouleur[0])} onMouseOut={()=>setChange3(maCouleur[1])}><small>A propos</small></Link>
+                <Link className='p-2  ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small>Accueil</small></Link>
+                <Link className='p-2 ' to="/a_propos" style={change3} onMouseOver={()=>setChange3(maCouleur[0])} onMouseOut={()=>setChange3(maCouleur[1])} onClick={notprivatepage}><small>A propos</small></Link>
                   {
-                      (props.valueHeaderState!==null)?<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/admin" ><small>Compte</small></Link>:<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/inscription" ><small>S'inscrire</small></Link> 
+                      (props.valueHeaderState!==null)?<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/admin" onClick={privatepage} ><small>Compte</small></Link>:<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/inscription" ><small>S'inscrire</small></Link> 
                   }
               
                   {       
