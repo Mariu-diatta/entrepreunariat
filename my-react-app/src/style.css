@@ -1,6 +1,13 @@
 .class_pad{
     text-align: center;
 }
+.off_test {
+    z-index: 300;
+}
+
+.nav-footer{
+    z-index: 30000;
+}
 
 /** grand  ecran **/
 @media screen and (min-width: 1000px){
@@ -19,20 +26,20 @@
     }
 
     .class_footer{
-        padding-left:13% !important;
-        z-index: 1000;
+        padding-left:0% !important;
+        z-index:200;
     }
 
 
     .style_css{
-        z-index: 100;
+        z-index: 10000;
         width: 200px;
         height: 100%;
         background-color:white;
         position:fixed;
         top: 0px;
         bottom: 0px;
-        padding-top:30px;
+        padding-top:10px;
     }
 
     .style_css + .class_pad{
@@ -118,7 +125,7 @@
         height:0% !important;
         display: None;
         flex-direction: row;
-        z-index:1 !important;
+        z-index:10000 !important;
         text-align: center;
         padding-top: 10px;
         /* padding-left: 1%; */

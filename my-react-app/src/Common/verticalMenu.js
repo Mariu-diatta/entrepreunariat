@@ -8,16 +8,17 @@ const couleurWhite = {backgroundColor:"", color:"black"}
 
 const VerticalMenu=()=>{
 
-    const [couleurCommande, setCouleurCommande]=useState(couleurWhite)
-    const [couleurAdherant, setcouleurAdherant]=useState(couleurWhite)
-    const [couleurMessage, setCouleurMessage]=useState(couleurWhite)
-    const [commandeActivate, setCommandeActivate]=useState(false)
-    const [adherantActivate, setAdherantActivate]=useState(false)
-    const [messageActivate, setMessageActivate]=useState(false)
+        const [couleurCommande, setCouleurCommande]=useState(couleurWhite)
+        const [couleurAdherant, setcouleurAdherant]=useState(couleurWhite)
+        const [couleurMessage, setCouleurMessage]=useState(couleurWhite)
+        const [commandeActivate, setCommandeActivate]=useState(false)
+        const [adherantActivate, setAdherantActivate]=useState(false)
+        const [messageActivate, setMessageActivate]=useState(false)
 
     return (
 
-        <nav className='.off_test sticky-top u-align-center style_css  col-lg-2'>
+        <nav className=' sticky-top u-align-center style_css  col-lg-2'>
+            <strong  style={{color:'black', paddingLeft:'20px'} }>Deal</strong>
             <ul>
                 <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small>Messages</small></button></li>
                 { 
