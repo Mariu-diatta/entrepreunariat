@@ -23,7 +23,7 @@ function ModalPop() {
   return (
     <>
       <Button variant="" onClick={handleShow}>
-        Activités
+      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
       </Button>
 
       <Modal show={show} onHide={handleClose}>
