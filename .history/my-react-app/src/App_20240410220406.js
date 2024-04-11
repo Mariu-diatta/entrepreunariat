@@ -7,7 +7,7 @@ import LogIn from './Common/logIn.js'
 import SignUp from './Common/registered.js'
 import About from './Common/about.js'
 import Admin  from './Common/Admin/pageAdmin.js';
-import Aderant from './Common/User/pageAderant.js';
+import Aderant from './Common/pageAderant.js';
 import Commande from './Common/commande.js';
 import AboutUser from './Common/aboutUser.js';
 import ZeroPage from './Common/zero.js';

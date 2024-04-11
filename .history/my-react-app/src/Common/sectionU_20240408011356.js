@@ -1,5 +1,5 @@
 import im from "../accueil/Site1/images/3q6.jpg"
-import Photopanel2 from "./Produit/photopanel2.js"
+import Photopanel2 from "./photopanel2.js"
 import {Row,Col} from 'react-bootstrap'
 
 const Data=[

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import im from "../accueil/Site1/images/3454.jpg";
 import BtnSmt from "./buttonSubmit";
-import ProduitSelected from "./Produit/produitSelect";
+import ProduitSelected from "./produitSelect";
 import { useContext } from "react";
 
 const cars = [
