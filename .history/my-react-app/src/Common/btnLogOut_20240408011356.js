@@ -15,7 +15,7 @@ const LogoutButton=(props)=>{
   return (
     <>
       <Link to='#' className='p-2  '  style={change4} onMouseOver={()=>setChange4(maCouleur[0])} onMouseOut={()=>setChange4(maCouleur[1])} onClick={props.onClick}>
-        <small><i className="fa" aria-hidden="true">Déconnexion</i></small>
+        <small>Déconnexion</small>
       </Link>
     </>
   );

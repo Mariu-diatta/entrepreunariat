@@ -49,11 +49,11 @@ const VerticalMenu=()=>{
                 {                        
                     (commandeActivate)?
                     <nav style={{backgroundColor:'white'}}>
-                        <ul className="p-0 m-0">
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes réalisées</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes programées</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes en cours</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes prêtes</i></small></Link></li>
+                        <ul>
+                            <li> <Link to="#" ><small>Commandes réalisées</small></Link></li>
+                            <li> <Link to="#" ><small>Commandes programées</small></Link></li>
+                            <li> <Link to="#" ><small>Commandes en cours</small></Link></li>
+                            <li> <Link to="#" ><small>Commandes prêtes</small></Link></li>
                         </ul>
                     </nav>: <nav></nav>
                 } 

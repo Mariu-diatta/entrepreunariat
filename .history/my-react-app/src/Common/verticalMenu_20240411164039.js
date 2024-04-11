@@ -20,13 +20,13 @@ const VerticalMenu=()=>{
         <nav className=' sticky-top u-align-center style_css  col-lg-2'>
             <strong  style={{color:'black', paddingLeft:'20px'} }>Deal</strong>
             <ul>
-                <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small><i className="fa fa-commenting" aria-hidden="true"> Messages</i></small></button></li>
+                <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small><i className="fa fa-users" aria-hidden="true"> Messages</i></small></button></li>
                 { 
                     (messageActivate)?
                     <nav style={{backgroundColor:'white'}}>
                     <ul >
-                        <li> <Link to="/" ><small><i className="fa" aria-hidden="true">Nouveaux Messages</i></small></Link></li>
-                        <li> <Link to="#" ><small><i className="fa" aria-hidden="true"> Messages</i></small></Link></li>
+                        <li> <Link to="/" ><small>Nouveaux Messages</small></Link></li>
+                        <li> <Link to="#" ><small>Anciencs Messages</small></Link></li>
                     </ul>
                     </nav>: <nav> </nav>
             
@@ -39,21 +39,21 @@ const VerticalMenu=()=>{
                     <nav style={{backgroundColor:'white'}}>
                         <ul >
                             <li> <Link to="#" ><small><i className="fa" aria-hidden="true"> Nouveaux Adhérants</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa " aria-hidden="true"> Adhérants</i></small></Link></li>
+                            <li> <Link to="#" ><small><i className="fa fa-users" aria-hidden="true"> Adhérants</i></small></Link></li>
                         </ul>
                     </nav>:<nav></nav>
                 }
             </ul>
             <ul>
-                <li > <button className='code_u btn' onClick={()=>commandeActivate?setCommandeActivate(false):setCommandeActivate(true)} onMouseOver={()=>setCouleurCommande(couleurBlue)} onMouseOut={()=>setCouleurCommande(couleurWhite)}  style={couleurCommande}><small><i className="fa fa-coffee" aria-hidden="true"> Commandes</i></small></button></li>
+                <li > <button className='code_u btn' onClick={()=>commandeActivate?setCommandeActivate(false):setCommandeActivate(true)} onMouseOver={()=>setCouleurCommande(couleurBlue)} onMouseOut={()=>setCouleurCommande(couleurWhite)}  style={couleurCommande}><small>Commandes</small></button></li>
                 {                        
                     (commandeActivate)?
                     <nav style={{backgroundColor:'white'}}>
-                        <ul className="p-0 m-0">
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes réalisées</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes programées</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes en cours</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes prêtes</i></small></Link></li>
+                        <ul>
+                            <li> <Link to="#" ><small>Commandes réalisées</small></Link></li>
+                            <li> <Link to="#" ><small>Commandes programées</small></Link></li>
+                            <li> <Link to="#" ><small>Commandes en cours</small></Link></li>
+                            <li> <Link to="#" ><small>Commandes prêtes</small></Link></li>
                         </ul>
                     </nav>: <nav></nav>
                 } 
