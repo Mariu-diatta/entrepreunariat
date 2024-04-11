@@ -20,7 +20,7 @@ const VerticalMenu=()=>{
         <nav className=' sticky-top u-align-center style_css  col-lg-2'>
             <strong  style={{color:'black', paddingLeft:'20px'} }>Deal</strong>
             <ul>
-                <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small><i className="fa fa-commenting" aria-hidden="true"> Messages</i></small></button></li>
+                <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small><i className="fa fa-commenting fa-2x" aria-hidden="true"></i> Messages</small></button></li>
                 { 
                     (messageActivate)?
                     <nav style={{backgroundColor:'white'}}>
@@ -33,7 +33,7 @@ const VerticalMenu=()=>{
                 }
             </ul>
             <ul>
-                <li > <button className='code_u btn' onClick={()=>adherantActivate?setAdherantActivate(false):setAdherantActivate(true)}  onMouseOver={()=>setcouleurAdherant(couleurBlue)} onMouseOut={()=>setcouleurAdherant(couleurWhite)} style={couleurAdherant}><small><i className="fa fa-users" aria-hidden="true"> Adherants</i></small></button></li>
+                <li > <button className='code_u btn' onClick={()=>adherantActivate?setAdherantActivate(false):setAdherantActivate(true)}  onMouseOver={()=>setcouleurAdherant(couleurBlue)} onMouseOut={()=>setcouleurAdherant(couleurWhite)} style={couleurAdherant}><small><i className="fa fa-users fa-2x" aria-hidden="true"></i> Adherants</small></button></li>
                 {  
                     (adherantActivate)?
                     <nav style={{backgroundColor:'white'}}>
@@ -45,7 +45,7 @@ const VerticalMenu=()=>{
                 }
             </ul>
             <ul>
-                <li > <button className='code_u btn' onClick={()=>commandeActivate?setCommandeActivate(false):setCommandeActivate(true)} onMouseOver={()=>setCouleurCommande(couleurBlue)} onMouseOut={()=>setCouleurCommande(couleurWhite)}  style={couleurCommande}><small><i className="fa fa-coffee" aria-hidden="true"> Commandes</i></small></button></li>
+                <li > <button className='code_u btn' onClick={()=>commandeActivate?setCommandeActivate(false):setCommandeActivate(true)} onMouseOver={()=>setCouleurCommande(couleurBlue)} onMouseOut={()=>setCouleurCommande(couleurWhite)}  style={couleurCommande}><small><i className="fa fa-coffee fa-2x" aria-hidden="true"></i> Commandes</small></button></li>
                 {                        
                     (commandeActivate)?
                     <nav style={{backgroundColor:'white'}}>
