@@ -4,15 +4,15 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import '../accueil/Site1/A-propos.css'
-import '../accueil/Site1/Accueil.css'
-import '../accueil/Site1/nicepage.css'
-import '../accueil/Site1/LogIn.css'
-import logo from "../accueil/Site1/images/logo_3.PNG"
-import {useState} from "react"
+import '../accueil/Site1/A-propos.css';
+import '../accueil/Site1/Accueil.css';
+import '../accueil/Site1/nicepage.css';
+import '../accueil/Site1/LogIn.css';
+import logo from "../accueil/Site1/images/logo_3.PNG";
+import {useState} from "react";
 import {Outlet, Link, useNavigate} from 'react-router-dom';
-import LogoutButton from './btnLogOut'
-import './../style.css'
+import LogoutButton from './bootstrapUI/btnLogOut.js';
+import './../style.css';
 import { signOut } from 'firebase/auth';
 import { auth } from '../FirebaseUser/index.js';
 import ModalPop from './modal.js';
@@ -67,7 +67,7 @@ function HeaderBoot(props) {
             id={`offcanvasNavbar-expand-${'lg'}`}
             aria-labelledby={`offcanvasNavbarLabel-expand-${'lg'}`}
             placement="start"
-          >
+          > 
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${'lg'}`}>
               <img src={logo} alt="..." width={100}/>

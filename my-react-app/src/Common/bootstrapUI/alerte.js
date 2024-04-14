@@ -1,6 +1,6 @@
 import Alert from 'react-bootstrap/Alert';
 
-function appAlert() {
+function bootstrapAlert() {
   return (
     <>
       {[
@@ -21,4 +21,4 @@ function appAlert() {
   );
 }
 
-export default appAlert;
+export default bootstrapAlert;

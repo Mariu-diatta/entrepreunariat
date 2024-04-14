@@ -5,7 +5,7 @@ const couleurBlue = {backgroundColor:"", color:"blue"}
 const couleurBlack= {backgroundColor:"", color:"black"}
 const couleurWhite = {backgroundColor:"", color:"black"}
 
-
+{/**Site pour les fa icon https://fontawesome.com/v4/icon/ellipsis-v */}
 const VerticalMenu=()=>{
 
         const [couleurCommande, setCouleurCommande]=useState(couleurWhite)

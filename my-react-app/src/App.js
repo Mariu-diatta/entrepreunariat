@@ -1,11 +1,11 @@
 
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Contact from './Common/contact.js'
-import Accueil from './Common/accueil.js'
-import LogIn from './Common/logIn.js'
-import SignUp from './Common/registered.js'
-import About from './Common/about.js'
+import Contact from './Common/contact.js';
+import Accueil from './Common/accueil.js';
+import LogIn from './Common/logIn.js';
+import SignUp from './Common/registered.js';
+import About from './Common/about.js';
 import Admin  from './Common/Admin/pageAdmin.js';
 import Aderant from './Common/User/pageAderant.js';
 import Commande from './Common/commande.js';
@@ -13,6 +13,7 @@ import AboutUser from './Common/aboutUser.js';
 import ZeroPage from './Common/zero.js';
 import HeaderBoot from './Common/headerBootstrap.js';
 import { Component} from 'react';
+//import  ActiveExample from './Common/ListGroup.js';
 
 class  App extends Component{
    constructor(props){
