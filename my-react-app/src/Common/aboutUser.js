@@ -1,8 +1,8 @@
-import Section from "./section";
+import MainSection from "./mainSection";
 const AboutUser = ()=>{
     return(
         <div className="p-0">
-             <Section />
+             <MainSection/>
         </div>
     )
 }

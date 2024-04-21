@@ -2,10 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./../style.css";
 const couleurBlue = {backgroundColor:"", color:"blue"};
-const couleurBlack= {backgroundColor:"", color:"black"};
 const couleurWhite = {backgroundColor:"", color:"black"};
 
-{/**Site pour les fa icon https://fontawesome.com/v4/icon/ellipsis-v */};
+/**Site pour les fa icon https://fontawesome.com/v4/icon/ellipsis-v */
 const VerticalMenu=()=>{
 
         const [couleurCommande, setCouleurCommande]=useState(couleurWhite);
@@ -18,7 +17,7 @@ const VerticalMenu=()=>{
     return (
 
         <nav className=' sticky-top u-align-center style_css  col-lg-2'>
-            <strong  style={{color:'black', paddingLeft:'0px'} }>Deal</strong>
+            <strong  style={{color:'black', paddingLeft:'0px'} }>Sen-B</strong>
             <ul>
                 <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small><i className="fa fa-commenting fa-2x" aria-hidden="true">{"_"}</i>Messages</small></button></li>
                 { 

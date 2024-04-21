@@ -1,6 +1,6 @@
-import im from "../accueil/Site1/images/3q6.jpg"
-import Photopanel2 from "./Produit/photopanel2.js"
-import {Row,Col} from 'react-bootstrap'
+import im from "../accueil/Site1/images/3q6.jpg";
+import ContainerRignt from "./Produit/ContainerRignt.js";
+import {Row,Col} from 'react-bootstrap';
 
 const Data=[
     [im, "Automation Projects"],
@@ -12,7 +12,7 @@ const Data=[
     [im, "Automation Projects"],
     [im, "Automation Projects"],
     [im, "Automation Projects"],
-]
+];
 
 function SectionU(){
   return(
@@ -24,7 +24,7 @@ function SectionU(){
                     {
                         Data.map(data=>                                                               
                             <Col className="pt-2"> 
-                                <Photopanel2
+                                <ContainerRignt
                                     title={data[1]} image={data[0]}
                                 />
                             </Col>                                  

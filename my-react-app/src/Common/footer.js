@@ -28,7 +28,7 @@ function Footer(){
             <a Link="" className="me-4 text-reset">
               <i className="fa fa-linkedin ml-2"></i>
             </a>
-            <a Link="" className="me-4 text-reset">
+            <a Link="/home" className="me-4 text-reset">
               <i className="fa fa-github ml-2"></i>
             </a>
           </div>
@@ -44,7 +44,7 @@ function Footer(){
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
                 <h6 className="text-uppercase fw-bold mb-4">
-                  <i className="fa fa-gem me-3"><small>SaBussnes</small></i>
+                  <i className="fa fa-gem me-3"><small>Sen-B</small></i>
                 </h6>
 
                 <small>
@@ -61,14 +61,14 @@ function Footer(){
                   </h6>
 
                   <p>
-                    <Link href="#!" className="text-reset"><small>Vous permettre de commercialiser vos marchandises</small></Link>
+                    <Link href="#!" className="text-reset"><small>Vous permettre de commercialiser vos marchandises.</small></Link>
                   </p>
                   <p>
-                    <Link href="#!" className="text-reset"><small>Trouvez des clients plus facilement</small></Link>
+                    <Link href="#!" className="text-reset"><small>Trouvez des clients plus facilement et en toute sécurité.</small></Link>
                   </p>
 
                   <p>
-                    <Link href="#!" className="text-reset"><small>Placer vos marchandises dans les nos différentes boutiques </small></Link>
+                    <Link href="#!" className="text-reset"><small>Placer vos marchandises dans nos différentes boutiques. </small></Link>
                   </p>
                
               </div>
@@ -102,7 +102,7 @@ function Footer(){
                 <h6 className="text-uppercase fw-bold mb-4"><small>Nous contacter</small></h6>
 
                 <p><i className="fa fa-home me-3 mr-2"></i><small>Campus Esp, Dk vdn, SN</small></p>
-                <p><i className="fa fa-envelope me-3 mr-2"></i><small>keurtiercome@esp.sn</small></p>
+                <p><i className="fa fa-envelope me-3 mr-2"></i><small>SenBusness@esp.sn</small></p>
 
                 <p><i className="fa fa-phone me-3"></i><small>+221 770515417</small></p>
                 <p><i className="fa fa-print me-3"></i><small>+221 770515417</small></p>
@@ -117,7 +117,7 @@ function Footer(){
 
         <div className="text-center" style={{backgroundColor: "rgba(0, 0, 0, 0.05"}}>
           <small>© 2021 Copyright:</small>
-          <a className="text-reset fw-bold" href="#"><small>SaBussnes.com</small></a>
+          <a className="text-reset fw-bold" href="/hom"><small>Sen-B.com</small></a>
         </div>
       </footer>	
     </nav>

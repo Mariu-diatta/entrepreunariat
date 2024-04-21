@@ -1,5 +1,5 @@
 
-import Section from "../section";
+import MainSection from "../mainSection";
 import {Navigate} from 'react-router-dom';
 import Footer from "../footer";
 import VerticalMenu from "../verticalMenu";
@@ -15,7 +15,7 @@ const Admin =(props)=>{
                     <VerticalMenu/>
                     <div className="col-lg-10 class_pad">
                         <div className="row">
-                            <Section/>
+                            <MainSection/>
                         </div>
                     </div> 
                 </div>

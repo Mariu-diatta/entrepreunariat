@@ -5,9 +5,9 @@ import  './../../style.css'
 const couleur ="rgb(248,245,244)";
 const couleurInit ="white";
 
-const Photopanel2 = (props)=>{
+const ContainerRight = (props)=>{
 
-    const [couleurImageActivate, setCouleurImage] =useState(false)
+    const [couleurImageActivate, setCouleurImage] =useState(false);
 
     return(
         <div className='Card-space card  ' onMouseOut={()=> setCouleurImage(false)} onMouseOver={()=> setCouleurImage(true)} style={{backgroundColor:couleurImageActivate?couleur:couleurInit, width:'310px', height:'350px', paddingBottom:""}}>
@@ -24,7 +24,7 @@ const Photopanel2 = (props)=>{
     )
 }
 
-export default Photopanel2;
+export default ContainerRight;
 
 
 

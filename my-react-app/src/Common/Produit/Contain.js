@@ -1,4 +1,4 @@
-const Photopanel1=(props)=>{
+const Contain=(props)=>{
     return(
       <div className="u-size-30"  >
        
@@ -21,4 +21,4 @@ const Photopanel1=(props)=>{
     )
 }
 
-export default Photopanel1;
+export default Contain;

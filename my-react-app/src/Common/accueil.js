@@ -1,8 +1,8 @@
 
-import SectionU from './sectionU.js'
-import Carrous from './carrouselBoostrap.js'
-import Section from './section.js'
-import Footer from './footer.js'
+import SectionU from './sectionU.js';
+import Carrous from './carrouselBoostrap.js';
+import MainSection from './mainSection.js';
+import Footer from './footer.js';
 
 const Accueil =() => {
     return(
@@ -12,7 +12,7 @@ const Accueil =() => {
             </div>
             <div className='container'>
                 <SectionU/>
-                <Section/>
+                <MainSection/>
             </div>
             <Footer/>
         </div>

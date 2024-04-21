@@ -1,9 +1,9 @@
-import Section from './section.js'
+import MainSection from './mainSection.js';
 const About = () =>{
     return(
         <>
             <div className='p-0' >
-                <Section/>
+                <MainSection/>
             </div>
         </>
     )

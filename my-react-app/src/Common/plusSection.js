@@ -1,8 +1,8 @@
-import {useState} from 'react'
+import {useState} from 'react';
 
-const Photopanel=(props)=>{
+const PlusSection=(props)=>{
 
-  const [readmore, setReadmore]=useState(false)
+  const [readmore, setReadmore]=useState(false);
 
   return(
     
@@ -26,4 +26,4 @@ const Photopanel=(props)=>{
   )
 }
 
-export default Photopanel;
+export default PlusSection;
