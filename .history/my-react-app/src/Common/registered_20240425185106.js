@@ -34,8 +34,15 @@ function SignUp(props){
 
 
     const handleImageChange=(e)=>{
+     // alert('done')
       const file = e.target.value;
       setPhoto(file);
+      // const reader = new FileReader();
+      // reader.readAsDataURL(file);
+  
+      // reader.onload = () => {
+      //   setPreview(reader.result);
+      // };
 
     };
 

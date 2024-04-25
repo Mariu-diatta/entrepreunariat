@@ -32,10 +32,22 @@ function SignUp(props){
 
     const inputs=useRef([]);
 
+    const addInputs= e=>{ 
+      if(e && !inputs.current.includes(e)){
+        inputs.current.push(e);
+      }
+    };
 
     const handleImageChange=(e)=>{
+     // alert('done')
       const file = e.target.value;
       setPhoto(file);
+      // const reader = new FileReader();
+      // reader.readAsDataURL(file);
+  
+      // reader.onload = () => {
+      //   setPreview(reader.result);
+      // };
 
     };
 

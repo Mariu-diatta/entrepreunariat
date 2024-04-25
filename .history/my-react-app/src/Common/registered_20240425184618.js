@@ -14,28 +14,39 @@ import Row from 'react-bootstrap/esm/Row.js';
 
 
 function SignUp(props){
-    const null_string="";
     const [photo, setPhoto] = useState(null);   
-    const [name, setName] = useState( null_string);
-    const [pname, setPname] = useState( null_string);
-    const [genre, setGenre]= useState( null_string);
-    const [ville, setVille]= useState( null_string);
-    const [tel, setTel]= useState( null_string);
-    const [mail, setEmail] = useState( null_string);
-    const [password, setPassword] = useState( null_string);
-    const [password1, setPassword1] = useState( null_string);
-    const [message, setMessage]=useState( null_string);
-    const [validation, setValidation]=useState( null_string);
+    const [name, setName] = useState("");
+    const [pname, setPname] = useState("");
+    const [genre, setGenre]= useState("Homme");
+    const [ville, setVille]= useState("Dakar");
+    const [tel, setTel]= useState("");
+    const [mail, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [password1, setPassword1] = useState("");
+    const [message, setMessage]=useState("");
+    const [validation, setValidation]=useState("");
    
 
     const singnUp=(email, pwd)=> createUserWithEmailAndPassword(auth, email, pwd);
 
     const inputs=useRef([]);
 
+    const addInputs= e=>{ 
+      if(e && !inputs.current.includes(e)){
+        inputs.current.push(e);
+      }
+    };
 
     const handleImageChange=(e)=>{
+     // alert('done')
       const file = e.target.value;
       setPhoto(file);
+      // const reader = new FileReader();
+      // reader.readAsDataURL(file);
+  
+      // reader.onload = () => {
+      //   setPreview(reader.result);
+      // };
 
     };
 
@@ -114,7 +125,7 @@ function SignUp(props){
               </Row>
 
               <Row>
-                <FloatingLabel controlId="name-e4cc2" label="Votre genre" className="form-floating md-form p-1 col-lg-6 mb-3 ">
+                <FloatingLabel controlId="name-e4cc2" label="Genre" className="form-floating md-form p-1 col-lg-6 mb-3 ">
                     <Form.Select  aria-label="Choix du genre" name={genre} defaultValue={genre} onChange={(e)=>setGenre(e.target.value)} >
                       <option>Selectionnez</option>
                       <option value="Homme">Homme</option>
@@ -122,7 +133,7 @@ function SignUp(props){
                     </Form.Select>
                 </FloatingLabel>
                 <FloatingLabel controlId="name-e4cc3" label="Votre ville"  className="form-floating md-form p-1 col-lg-6 mb-3 ">
-                    <Form.Select aria-label="Choix de la ville" name={ville} defaultValue={ville} onChange={(e)=>setVille(e.target.value)} >
+                    <Form.Select aria-label="Choix du genre" name={ville} defaultValue={ville} onChange={(e)=>setVille(e.target.value)} >
                       <option>Selectionnez</option>
                       <option value="Thies">Thies</option>
                       <option value="Ziguinchor" >Ziguinchor</option>
