@@ -5,7 +5,6 @@ import {useState} from 'react';
 import axiosInstance from './axios';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 
 function LogIn(props) {
 
@@ -44,8 +43,10 @@ function LogIn(props) {
 
 
   return (
+
+
     <div >
-      <Row>
+      <div className='row'>
         <div className='col-lg-4'>
         </div>
         <div className='col-lg-4'>
@@ -53,7 +54,7 @@ function LogIn(props) {
         </div>
         <div className='col-lg-4'>
         </div>
-      </Row>
+      </div>
       <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
         {
           passOublie?
@@ -105,9 +106,8 @@ function LogIn(props) {
       {
         //(props.valueHeaderState)?<Navigate to="/admin"/>:<Navigate to="/login"/> 
       }
-    </div>
+      </div>
   );
-  
 }
 
 export default LogIn;

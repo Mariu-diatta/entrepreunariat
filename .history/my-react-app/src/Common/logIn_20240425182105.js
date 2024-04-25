@@ -45,7 +45,7 @@ function LogIn(props) {
 
   return (
     <div >
-      <Row>
+      <div className='row'>
         <div className='col-lg-4'>
         </div>
         <div className='col-lg-4'>
@@ -53,7 +53,7 @@ function LogIn(props) {
         </div>
         <div className='col-lg-4'>
         </div>
-      </Row>
+      </div>
       <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
         {
           passOublie?

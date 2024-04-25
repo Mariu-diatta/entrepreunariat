@@ -8,7 +8,6 @@ import { auth, db_} from '../FirebaseUser/index.js';
 import {collection, addDoc} from 'firebase/firestore';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/esm/Row.js';
 
 
 
@@ -159,17 +158,17 @@ function SignUp(props){
                 </FloatingLabel>
               </div>
 
-              <Row>
+              <div className='row'>
                 <FloatingLabel controlId="name-e4cc8" label="Votre description" className="form-floating md-form p-1 mb-3 ">
-                  <Form.Control as="textarea" name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="100"  className="u-align-center u-input" style={{ height: '100px' }} required />
+                  <textarea name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="100"  className="u-align-center u-input" required=""></textarea>
                 </FloatingLabel>
-              </Row>
+              </div>
               
-              <Row>
-                <FloatingLabel controlId="name-e4cc8" label="Votre photo " className="form-floating md-form p-1 mb-3 ">
-                  <Form.Control  type="file" accept="image/*"   placeholder='profile' name={photo} value={photo} onChange={handleImageChange} />
+              <div className='row'>
+                <FloatingLabel controlId="name-e4cc8" label="Votre photo " className="form-floating md-form p-1 col-lg-6 mb-3 ">
+                  <Form.Control  accept="image/*"   placeholder='profile' name={photo} value={photo} onChange={handleImageChange} type="file"  className='pt-2 ' style={{border:'0px'}}/>
                 </FloatingLabel>
-              </Row>
+              </div>
 
               <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4 pb-3">  
                 <p style={{color:'red'}}>{validation}</p>

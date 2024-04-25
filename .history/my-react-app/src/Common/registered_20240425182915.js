@@ -166,8 +166,8 @@ function SignUp(props){
               </Row>
               
               <Row>
-                <FloatingLabel controlId="name-e4cc8" label="Votre photo " className="form-floating md-form p-1 mb-3 ">
-                  <Form.Control  type="file" accept="image/*"   placeholder='profile' name={photo} value={photo} onChange={handleImageChange} />
+                <FloatingLabel controlId="name-e4cc8" label="Votre photo " className="form-floating md-form p-1 col-lg-6 mb-3 ">
+                  <Form.Control  accept="image/*"   placeholder='profile' name={photo} value={photo} onChange={handleImageChange} type="file"  className='pt-2 ' style={{border:'0px'}}/>
                 </FloatingLabel>
               </Row>
 

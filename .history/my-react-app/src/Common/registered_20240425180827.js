@@ -8,7 +8,6 @@ import { auth, db_} from '../FirebaseUser/index.js';
 import {collection, addDoc} from 'firebase/firestore';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/esm/Row.js';
 
 
 
@@ -126,50 +125,48 @@ function SignUp(props){
 
               <div className='row'>
                 <FloatingLabel controlId="name-e4cc2" label="Genre" className="form-floating md-form p-1 col-lg-6 mb-3 ">
-                    <Form.Select  aria-label="Choix du genre" name={genre} defaultValue={genre} onChange={(e)=>setGenre(e.target.value)} >
-                      <option>Selectionnez</option>
+                    <select name={genre} defaultValue={genre} onChange={(e)=>setGenre(e.target.value)} >
                       <option value="Homme">Homme</option>
                       <option value="Femme" >Femme</option>
-                    </Form.Select>
+                    </select>
                 </FloatingLabel>
                 <FloatingLabel controlId="name-e4cc3" label="Votre ville"  className="form-floating md-form p-1 col-lg-6 mb-3 ">
-                    <Form.Select name={ville} defaultValue={ville} onChange={(e)=>setVille(e.target.value)} >
-                      <option>Selectionnez</option>
+                    <select name={ville} defaultValue={ville} onChange={(e)=>setVille(e.target.value)} >
                       <option value="Thies">Thies</option>
                       <option value="Ziguinchor" >Ziguinchor</option>
-                    </Form.Select>
+                    </select>
                 </FloatingLabel>
               </div>
 
               <div className='row'>
-                <FloatingLabel controlId="name-e4cc4"  label="numéro de tel" className="form-floating md-form p-1 col-lg-6 mb-3 ">
+                <FloatingLabel controlId="name-e4cc4"  label="numéro de tel" className="">
                   <Form.Control id="name-e4cc4" name={tel} value={tel} onChange={(e)=>setTel(e.target.value)} type="tel" placeholder="Tel"  maxLength="30"  className="form-floating md-form p-1 col-lg-6 mb-3 " required/>
                 </FloatingLabel>
-                <FloatingLabel controlId="name-e4cc5"  label="Votre email" className="form-floating md-form p-1 col-lg-6 mb-3 ">
+                <FloatingLabel controlId="name-e4cc5"  label="Votre email" className="u-form-email u-form-group u-form-partition-factor-2 u-label-none u-form-group-2">
                   <Form.Control   name={mail} value={mail} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter a valid email address" id="email-e4cc"  maxLength="30" className="form-floating md-form p-1 col-lg-6 mb-3 " required/>
                 </FloatingLabel>
               </div>
               
               <div className='row'>
-                <FloatingLabel controlId="name-e4cc6" label="Votre mot de passe" className="form-floating md-form p-1 col-lg-6 mb-3 ">
+                <FloatingLabel controlId="name-e4cc6" label="Votre mot de passe" className="">
                   <Form.Control  name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Mot de passe" id="name-e4cc2"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="2"/>
                 </FloatingLabel>
-                <FloatingLabel controlId="name-e4cc7" label="Confirmez votre mot de passe" className="form-floating md-form p-1 col-lg-6 mb-3 ">
+                <FloatingLabel controlId="name-e4cc7" label="Confirmez votre mot de passe" className="">
                   <Form.Control  name={password1} value={password1} onChange={(e)=>setPassword1(e.target.value)} type="password" placeholder="Confirmer mot de passe" size="2"  id="name-e4cc2"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" />
                 </FloatingLabel>
               </div>
 
-              <Row>
-                <FloatingLabel controlId="name-e4cc8" label="Votre description" className="form-floating md-form p-1 mb-3 ">
-                  <Form.Control as="textarea" name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="100"  className="u-align-center u-input" style={{ height: '100px' }} required />
+              <div className='row'>
+                <FloatingLabel controlId="name-e4cc8" label="Votre description" className="u-form-group u-form-message u-label-none u-form-group-3">
+                  <textarea name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="100"  className="u-align-center u-input" required=""></textarea>
                 </FloatingLabel>
-              </Row>
+              </div>
               
-              <Row>
-                <FloatingLabel controlId="name-e4cc8" label="Votre photo " className="form-floating md-form p-1 mb-3 ">
-                  <Form.Control  type="file" accept="image/*"   placeholder='profile' name={photo} value={photo} onChange={handleImageChange} />
+              <div className='row'>
+                <FloatingLabel controlId="name-e4cc8" label="Votre photo "  className="u-form-group u-form-message u-label-none u-form-group-3">
+                  <Form.Control  accept="image/*"   placeholder='profile' name={photo} value={photo} onChange={handleImageChange} type="file"  className='pt-2 ' style={{border:'0px'}}/>
                 </FloatingLabel>
-              </Row>
+              </div>
 
               <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4 pb-3">  
                 <p style={{color:'red'}}>{validation}</p>

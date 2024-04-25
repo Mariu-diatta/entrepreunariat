@@ -5,7 +5,6 @@ import {useState} from 'react';
 import axiosInstance from './axios';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 
 function LogIn(props) {
 
@@ -44,8 +43,10 @@ function LogIn(props) {
 
 
   return (
-    <div >
-      <Row>
+
+
+    <div  style={{paddingTop:'5%', minWidth:'300px'}}>
+      <div className='row'>
         <div className='col-lg-4'>
         </div>
         <div className='col-lg-4'>
@@ -53,7 +54,7 @@ function LogIn(props) {
         </div>
         <div className='col-lg-4'>
         </div>
-      </Row>
+      </div>
       <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
         {
           passOublie?
@@ -63,17 +64,16 @@ function LogIn(props) {
             </div>
 
             <div className='col-lg-4'>
-              <div className='form-floating md-form p-1'>
-                <FloatingLabel controlId="floatingInput"  label="Votre email"  className="mb-3"  >
-                  <Form.Control id="floatingInput" name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="  u-align-center u-input" />
-                </FloatingLabel>
-              </div>
-              <div className='form-floating md-form p-1'>
-                <FloatingLabel controlId="floatingPassword1" label="Votre mot de pass" className='mb-3'>
-                  <Form.Control  id="floatingPassword1" name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Votre mot de pass"  maxLength="30" className="  u-align-center u-input" />
-                </FloatingLabel>
+              <FloatingLabel controlId="floatingInput"  label="Email address"  className="mb-3">
+                <input  name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="  u-align-center u-input" />
+                <label htmlFor="floatingInput" > <i class="fas fa-envelope-open pr-4"></i>  Adresse email</label>
+              </FloatingLabel>
+              <div className='form-floating md-form p-3'>
+                <input  id="floatingPassword1" name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Votre mot de pass"  maxLength="30" className="  u-align-center u-input" />
+                <label htmlFor="floatingPassword1"><i class="fa fa-unlock-alt pr-4" aria-hidden="true"> </i> Mot de passe</label>
               </div>
             </div>
+
             <div className='col-lg-4'>
             </div>
           </div>
@@ -105,9 +105,8 @@ function LogIn(props) {
       {
         //(props.valueHeaderState)?<Navigate to="/admin"/>:<Navigate to="/login"/> 
       }
-    </div>
+      </div>
   );
-  
 }
 
 export default LogIn;

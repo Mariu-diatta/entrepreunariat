@@ -5,7 +5,6 @@ import {useState} from 'react';
 import axiosInstance from './axios';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 
 function LogIn(props) {
 
@@ -45,7 +44,7 @@ function LogIn(props) {
 
   return (
     <div >
-      <Row>
+      <div className='row'>
         <div className='col-lg-4'>
         </div>
         <div className='col-lg-4'>
@@ -53,7 +52,7 @@ function LogIn(props) {
         </div>
         <div className='col-lg-4'>
         </div>
-      </Row>
+      </div>
       <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
         {
           passOublie?
@@ -67,7 +66,7 @@ function LogIn(props) {
                 <FloatingLabel controlId="floatingInput"  label="Votre email"  className="mb-3"  >
                   <Form.Control id="floatingInput" name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="  u-align-center u-input" />
                 </FloatingLabel>
-              </div>
+             
               <div className='form-floating md-form p-1'>
                 <FloatingLabel controlId="floatingPassword1" label="Votre mot de pass" className='mb-3'>
                   <Form.Control  id="floatingPassword1" name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Votre mot de pass"  maxLength="30" className="  u-align-center u-input" />
@@ -107,7 +106,7 @@ function LogIn(props) {
       }
     </div>
   );
-  
+
 }
 
 export default LogIn;
