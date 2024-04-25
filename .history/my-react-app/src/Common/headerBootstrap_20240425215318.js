@@ -70,7 +70,7 @@ function HeaderBoot(props) {
 
           <Navbar.Toggle style={{backgroundColor:'white'}}  aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
-          <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
+          <Navbar.Brand className='row' style={{paddingLeft:'20px'}}>
               <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
                 <Button variant='outline-primary' style={{border:'0px', color:'white'}}> Commerçants</Button>
               
@@ -91,40 +91,53 @@ function HeaderBoot(props) {
 
             <Offcanvas.Body>
 
-              <Nav style={{paddingLeft:'100px'}}>
-                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true"> Accueil</i> </small></Link>
-                  
-                  <Dropdown >
-                    <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'blue'}}>
-                      <Button variant='outline-primary' style={{border:'0px'}}>À propos</Button>
-                    </Dropdown.Toggle>
+             {/* <div className='row' > */}
+                {/* <div className='d-flex flex-row col-md-2 p-2' style={{color:'white', marginRight:'100px'}}>
+                  <Button variant='outline-primary' style={{border:'0px', color:'white'}}> Commerçants</Button>
+                
+                  <Button variant='outline-primary' style={{border:'0px' , color:'white'}}> Acheteurs</Button>
+                 </div> */}
+                {/* <div className='col-md-8 ' >
+                  <div className='row'>
+                    <div  className=" col-lg-6"> */}
+                      <Nav className='pr-4' style={{paddingRight:'12px'}}>
+                          <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true"> Accueil</i> </small></Link>
+                          <Dropdown >
+                            <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'blue'}}>
+                              <Button variant='outline-primary' style={{border:'0px'}}>À propos</Button>
+                            </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="/a_propos">Action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                  {
-                      (props.valueHeaderState!==null)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px'}}>S'inscrire</Button></small></Link> 
-                  }
-                  {       
-                      (props.valueHeaderState!==null) ?<LogoutButton onClick={logOut}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary'>Connexion</Button></Link>
-                  }
-              </Nav>
-
-              <Form className="d-flex  flex-row " >
-                <Form.Control
-                  type="search"
-                  placeholder="recherche"
-                  className="mt-1 mb-1 p-2"
-                  left
-                  aria-label="Search"
-                  maxLength={"45"}
-                  style={{textAlign:'center', border:'opx'}}
-                />
-                <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
-              </Form>
+                            <Dropdown.Menu>
+                              <Dropdown.Item href="/a_propos">Action</Dropdown.Item>
+                              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            </Dropdown.Menu>
+                          </Dropdown>
+                          {
+                              (props.valueHeaderState!==null)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px'}}>S'inscrire</Button></small></Link> 
+                          }
+                          {       
+                              (props.valueHeaderState!==null) ?<LogoutButton onClick={logOut}/>:<Link style={change2} onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary'>Connexion</Button></Link>
+                          }
+                      </Nav>
+                    {/* </div>
+                    <div  className=" col-lg-6"> */}
+                      <Form className="d-flex  flex-row " >
+                        <Form.Control
+                          type="search"
+                          placeholder="recherche"
+                          className="mt-1 mb-1 "
+                          left
+                          aria-label="Search"
+                          maxLength={"45"}
+                          style={{textAlign:'center', border:'opx'}}
+                        />
+                        <Button variant="success" className='mt-1 mb-1 ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
+                      </Form>
+                    {/* </div>
+                  </div> */}
+                {/* </div> */}
+              {/* </div> */}
 
             </Offcanvas.Body>
 

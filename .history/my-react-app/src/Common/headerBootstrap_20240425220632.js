@@ -113,19 +113,7 @@ function HeaderBoot(props) {
                   }
               </Nav>
 
-              <Form className="d-flex  flex-row " >
-                <Form.Control
-                  type="search"
-                  placeholder="recherche"
-                  className="mt-1 mb-1 p-2"
-                  left
-                  aria-label="Search"
-                  maxLength={"45"}
-                  style={{textAlign:'center', border:'opx'}}
-                />
-                <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
-              </Form>
-
+              
             </Offcanvas.Body>
 
           </Navbar.Offcanvas>:''

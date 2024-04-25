@@ -109,7 +109,7 @@ function HeaderBoot(props) {
                       (props.valueHeaderState!==null)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px'}}>S'inscrire</Button></small></Link> 
                   }
                   {       
-                      (props.valueHeaderState!==null) ?<LogoutButton onClick={logOut}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary'>Connexion</Button></Link>
+                      (props.valueHeaderState!==null) ?<LogoutButton onClick={logOut}/>:<Link style={change2} onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary'>Connexion</Button></Link>
                   }
               </Nav>
 
@@ -117,13 +117,13 @@ function HeaderBoot(props) {
                 <Form.Control
                   type="search"
                   placeholder="recherche"
-                  className="mt-1 mb-1 p-2"
+                  className="mt-1 mb-1 "
                   left
                   aria-label="Search"
                   maxLength={"45"}
                   style={{textAlign:'center', border:'opx'}}
                 />
-                <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
+                <Button variant="success" className='mt-1 mb-1 ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
               </Form>
 
             </Offcanvas.Body>

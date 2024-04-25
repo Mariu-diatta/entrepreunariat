@@ -117,7 +117,7 @@ function HeaderBoot(props) {
                 <Form.Control
                   type="search"
                   placeholder="recherche"
-                  className="mt-1 mb-1 p-2"
+                  className="mt-1 mb-1 "
                   left
                   aria-label="Search"
                   maxLength={"45"}
