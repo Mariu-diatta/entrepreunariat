@@ -83,6 +83,7 @@ function LogIn(props) {
           <div className='col-lg-4'>
           </div>
           <div className='col-lg-4 '>
+            <p style={{color:'red'}}>{validation}</p> 
             {passOublie?<p> <small  className='n_link btn' onClick={()=>setPasseOublie(false)}> Mot de passe oublier?</small><Link to={'/inscription'}> <small>S'inscrire.</small></Link>  </p>: <small></small>} 
             <p id='monid' style={{color:'red'}}> </p>     
             <BtnSmt/>      

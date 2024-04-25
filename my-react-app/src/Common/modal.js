@@ -1,23 +1,22 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { Link } from "react-router-dom"
-import "./../style.css"
-const couleurBlue = {backgroundColor:"", color:"blue"}
-const couleurBlack= {backgroundColor:"", color:"black"}
-const couleurWhite = {backgroundColor:"", color:"black"}
+import { Link } from "react-router-dom";
+import "./../style.css";
+const couleurBlue = {backgroundColor:"", color:"blue"};
+//const couleurBlack= {backgroundColor:"", color:"black"};
+const couleurWhite = {backgroundColor:"", color:"black"};
 
 function ModalPop() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);    
-  const [couleurCommande, setCouleurCommande]=useState(couleurWhite)
-  const [couleurAdherant, setcouleurAdherant]=useState(couleurWhite)
-  const [couleurMessage, setCouleurMessage]=useState(couleurWhite)
-  const [commandeActivate, setCommandeActivate]=useState(false)
-  const [adherantActivate, setAdherantActivate]=useState(false)
-  const [messageActivate, setMessageActivate]=useState(false)
+  const [couleurCommande, setCouleurCommande]=useState(couleurWhite);   
+  const [couleurAdherant, setcouleurAdherant]=useState(couleurWhite);
+  const [couleurMessage, setCouleurMessage]=useState(couleurWhite);
+  const [commandeActivate, setCommandeActivate]=useState(false);
+  const [adherantActivate, setAdherantActivate]=useState(false);
+  const [messageActivate, setMessageActivate]=useState(false);
 
 
   return (

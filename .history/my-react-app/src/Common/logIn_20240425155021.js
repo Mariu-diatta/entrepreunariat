@@ -1,14 +1,16 @@
 import BtnSmt from './buttonSubmit';
 import './../style.css';
-import {Link} from 'react-router-dom';
-import {useState} from 'react';
+import {Link, Navigate } from 'react-router-dom';
+import {useState,  useRef} from 'react';
 import axiosInstance from './axios';
 
 function LogIn(props) {
 
+  const [validated, setValidated] = useState(false);
   const [Email, setEmail]= useState("");
   const [password, setPassword] = useState("");
   const [passOublie, setPasseOublie]=useState(true);
+  const [validation, setValidation]=useState("");
 
 
  const handleSubmit=(event)=>{
@@ -83,6 +85,7 @@ function LogIn(props) {
           <div className='col-lg-4'>
           </div>
           <div className='col-lg-4 '>
+            <p style={{color:'red'}}>{validation}</p> 
             {passOublie?<p> <small  className='n_link btn' onClick={()=>setPasseOublie(false)}> Mot de passe oublier?</small><Link to={'/inscription'}> <small>S'inscrire.</small></Link>  </p>: <small></small>} 
             <p id='monid' style={{color:'red'}}> </p>     
             <BtnSmt/>      
