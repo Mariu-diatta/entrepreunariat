@@ -72,9 +72,9 @@ function HeaderBoot(props) {
           
           <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
               <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
-                <Button variant='outline-primary' style={{border:'0px', color:'white'}}> Commerçants</Button>
+                <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
               
-                <Button variant='outline-primary' style={{border:'0px' , color:'white'}}> Acheteurs</Button>
+                <Button variant='outline-primary' style={{border:'0px' , color:'grey'}}> Acheteurs</Button>
                 </div> 
           </Navbar.Brand>
 
@@ -95,14 +95,14 @@ function HeaderBoot(props) {
                   <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}>Accueil</i> </small></Link>
                   
                   <Dropdown >
-                    <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'blue'}}>
-                      <Button variant='outline-primary' style={{border:'0px'}}>À propos</Button>
+                    <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'grey'}}>
+                      <Button variant='outline-primary' style={{border:'0px', color:'grey'}}>À propos</Button>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu style={{backgroundColor:'black'}}>
-                      <Dropdown.Item href="/a_propos">Action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                      <Dropdown.Item href="/a_propos" style={{color:'grey'}}>Action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-2" style={{color:'grey'}}>Another action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3" style={{color:'grey'}}>Something else</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                   {
