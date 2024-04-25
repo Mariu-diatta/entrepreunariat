@@ -1,6 +1,8 @@
 import BtnSmt from './buttonSubmit';
 import './../style.css';
 import {React,useState} from 'react';
+import { auth, db_} from '../FirebaseUser/index.js';
+import {collection, addDoc} from 'firebase/firestore';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/esm/Row.js';
@@ -21,6 +23,8 @@ function SignUp(props){
     const [password1, setPassword1] = useState( null_string);
     const [message, setMessage]=useState( null_string);
 
+  
+
     const handleImageChange=(e)=>{
       const file = e.target.value;
       setPhoto(file);
@@ -31,9 +35,15 @@ function SignUp(props){
       
       e.preventDefault();
 
+      addDoc(collection(db_, "users"), {
+          user:{name, pname, genre, ville, tel, mail, password, message, photo},
+          completed: false,
+      });
+
     };
 
     return(
+    
       <div >
         <div className="row">
           <div className='col-lg-4'>

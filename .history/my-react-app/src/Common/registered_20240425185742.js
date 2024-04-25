@@ -1,6 +1,7 @@
 import BtnSmt from './buttonSubmit';
 import './../style.css';
 import {React,useState} from 'react';
+import {collection, addDoc} from 'firebase/firestore';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/esm/Row.js';

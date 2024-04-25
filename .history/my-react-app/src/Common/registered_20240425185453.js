@@ -1,6 +1,11 @@
 import BtnSmt from './buttonSubmit';
 import './../style.css';
-import {React,useState} from 'react';
+import {React,useState,  useRef} from 'react';
+import {
+createUserWithEmailAndPassword,
+} from 'firebase/auth';
+import { auth, db_} from '../FirebaseUser/index.js';
+import {collection, addDoc} from 'firebase/firestore';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/esm/Row.js';
@@ -20,6 +25,10 @@ function SignUp(props){
     const [password, setPassword] = useState( null_string);
     const [password1, setPassword1] = useState( null_string);
     const [message, setMessage]=useState( null_string);
+    const [validation, setValidation]=useState( null_string);
+   
+
+    const singnUp=(email, pwd)=> createUserWithEmailAndPassword(auth, email, pwd);
 
     const handleImageChange=(e)=>{
       const file = e.target.value;
@@ -27,13 +36,19 @@ function SignUp(props){
 
     };
 
-    const handleSubmit =(e)=>{
+    const handleSubmit = async (e)=>{
       
       e.preventDefault();
+
+      await addDoc(collection(db_, "users"), {
+          user:{name, pname, genre, ville, tel, mail, password, message, photo},
+          completed: false,
+      });
 
     };
 
     return(
+    
       <div >
         <div className="row">
           <div className='col-lg-4'>
@@ -108,7 +123,7 @@ function SignUp(props){
               </Row>
 
               <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4 pb-3">  
-                <p style={{color:'red'}}></p>
+                <p style={{color:'red'}}>{validation}</p>
                 <BtnSmt/><br/> 
               </div> 
 
