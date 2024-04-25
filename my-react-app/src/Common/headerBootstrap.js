@@ -68,7 +68,7 @@ function HeaderBoot(props) {
             {(props.valueHeaderState!==null) && pageCompte?<ModalPop/>:<nav></nav>}
           </Navbar>
 
-          <Navbar.Toggle style={{backgroundColor:'white'}}  aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
+          <Navbar.Toggle style={{color:'', marginRight:'12px'}}  aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
           <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
               <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
