@@ -92,7 +92,7 @@ function HeaderBoot(props) {
             <Offcanvas.Body>
 
               <Nav style={{paddingLeft:'100px', backgroundColor:'black'}}>
-                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}> Accueil</i> </small></Link>
+                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}>Accueil</i> </small></Link>
                   
                   <Dropdown >
                     <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'blue'}}>
