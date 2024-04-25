@@ -116,7 +116,7 @@ function SignUp(props){
             <div className='col-lg-6'>
 
               <Row>
-                <FloatingLabel controlId="name-e4cc" label=" Vore nom"  className="form-floating md-form p-1 col-lg-6 mb-3 ">
+                <FloatingLabel controlId="name-e4cc" label=" Vore nom"  className="form-floating md-form p-1 col-lg-6 m-3 ">
                   <Form.Control id="name-e4cc" name={name} value={name} onChange={(e)=>setName(e.target.value)} type="text"  placeholder="Votre nom"  maxLength="30" className="u-align-center u-input" required/>
                 </FloatingLabel>
                 <FloatingLabel controlId="name-e4cc1" label="Votre prénom" className="form-floating md-form p-1 col-lg-6 mb-3  ">
