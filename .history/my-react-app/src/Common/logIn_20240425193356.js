@@ -91,7 +91,7 @@ function LogIn(props) {
           </div>
           
           }
-        <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4"> 
+        <div className="row u-align-center "> 
           <div className='col-lg-4'>
           </div>
           <div className='col-lg-4 '>

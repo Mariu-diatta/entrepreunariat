@@ -49,7 +49,7 @@ function LogIn(props) {
         <div className='col-lg-4'>
         </div>
         <div className='col-lg-4'>
-          {passOublie?<h4 style={{textAlign:'center'}}>Connexion!</h4>:<h4 style={{textAlign:'center'}}>Mot de pass oublié!</h4>}
+          <h4 style={{textAlign:'center'}}>Connexion!</h4>
         </div>
         <div className='col-lg-4'>
         </div>
@@ -65,7 +65,7 @@ function LogIn(props) {
             <div className='col-lg-4'>
               <div className='form-floating md-form p-1'>
                 <FloatingLabel controlId="floatingInput"  label="Votre email"  className="mb-3"  >
-                  <Form.Control id="floatingInput" name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="u-align-center u-input" />
+                  <Form.Control id="floatingInput" name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="  u-align-center u-input" />
                 </FloatingLabel>
               </div>
               <div className='form-floating md-form p-1'>
@@ -81,11 +81,9 @@ function LogIn(props) {
           <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4" >
               <div className='col-lg-4'>
               </div>
-              <div className='col-lg-4 form-floating md-form p-1'>
-                <FloatingLabel controlId="floatingPassword2" label="Votre mot de pass" className=' mb-3'>
-                  <Form.Control  id="floatingPassword2" name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
-                </FloatingLabel>
-              </div>
+              <FloatingLabel controlId="floatingPassword1" label="Votre mot de pass" className='mb-3'>
+              <Form.Control  name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
+              </FloatingLabel>
               <div className='col-lg-4'>
               </div>
           </div>
@@ -95,7 +93,7 @@ function LogIn(props) {
           <div className='col-lg-4'>
           </div>
           <div className='col-lg-4 '>
-            {passOublie?<p> <small  className=' btn' onClick={()=>setPasseOublie(false)}> Mot de passe oublier?</small><Link to={'/inscription'}> <small>S'inscrire.</small></Link>  </p>: <small></small>} 
+            {passOublie?<p> <small  className='n_link btn' onClick={()=>setPasseOublie(false)}> Mot de passe oublier?</small><Link to={'/inscription'}> <small>S'inscrire.</small></Link>  </p>: <small></small>} 
             <p id='monid' style={{color:'red'}}> </p>     
             <BtnSmt/>      
             <br/>     

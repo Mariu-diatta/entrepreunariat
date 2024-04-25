@@ -17,7 +17,6 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../FirebaseUser/index.js';
 import ModalPop from './modal.js';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Dropdown from 'react-bootstrap/Dropdown';
 
 
 const maCouleur=[
@@ -56,8 +55,8 @@ function HeaderBoot(props) {
   };
 
   return (
-    <div className='row style_head' style={{maxWidth:window.widt}}>
-      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0" style={{backgroundColor:'black important!'}}>
+    <div className='row style_head' style={{maxWidth:window.width}}>
+      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
           <strong  style={{color:'black', paddingLeft:'20px'} }>VirtualB</strong>
@@ -79,17 +78,15 @@ function HeaderBoot(props) {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 " style={{textAlign:'center'}}>
                 <Link className='p-2  ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}}><i className="fa fa-home fa-lg" aria-hidden="true"> Accueil</i> </small></Link>
-                  <Dropdown >
-                    <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'blue'}}>
-                      <Button variant='outline-primary' style={{border:'0px'}}>À propos</Button>
-                    </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="/a_propos">Action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                  <Link className='p-2 ' to="/a_propos" style={change3} onMouseOver={()=>setChange3(maCouleur[0])} onMouseOut={()=>setChange3(maCouleur[1])} onClick={notprivatepage}><small><i className="fa fa-lg" aria-hidden="true">A propos</i></small></Link>
+                  <FloatingLabel controlId="name-e4cc2" label="Votre genre" className="form-floating md-form p-1 col-lg-6 mb-3 ">
+                    <Form.Select  aria-label="Choix du genre" name={genre} defaultValue={genre} onChange={(e)=>setGenre(e.target.value)} >
+                      <option>Selectionnez</option>
+                      <option value="Homme">Homme</option>
+                      <option value="Femme" >Femme</option>
+                    </Form.Select>
+                </FloatingLabel>
                   {
                       (props.valueHeaderState!==null)?<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> </small></Link>:<Link style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])} className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px'}}>S'inscrire</Button></small></Link> 
                   }

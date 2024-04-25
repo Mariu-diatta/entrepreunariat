@@ -56,8 +56,8 @@ function HeaderBoot(props) {
   };
 
   return (
-    <div className='row style_head' style={{maxWidth:window.widt}}>
-      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0" style={{backgroundColor:'black important!'}}>
+    <div className='row style_head' style={{maxWidth:window.width}}>
+      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
           <strong  style={{color:'black', paddingLeft:'20px'} }>VirtualB</strong>
@@ -79,13 +79,15 @@ function HeaderBoot(props) {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 " style={{textAlign:'center'}}>
                 <Link className='p-2  ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}}><i className="fa fa-home fa-lg" aria-hidden="true"> Accueil</i> </small></Link>
-                  <Dropdown >
-                    <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'blue'}}>
-                      <Button variant='outline-primary' style={{border:'0px'}}>À propos</Button>
+
+                  <Link className='p-2 ' to="/a_propos" style={change3} onMouseOver={()=>setChange3(maCouleur[0])} onMouseOut={()=>setChange3(maCouleur[1])} onClick={notprivatepage}><small><i className="fa fa-lg" aria-hidden="true">A propos</i></small></Link>
+                  <Dropdown className='p-2' >
+                    <Dropdown.Toggle variant="" id="dropdown-basic">
+                      Dropdown Button
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item href="/a_propos">Action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                       <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                       <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                     </Dropdown.Menu>
