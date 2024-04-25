@@ -57,7 +57,7 @@ function HeaderBoot(props) {
 
   return (
     <div className='row ' style={{maxWidth:window.widt}}>
-      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top " style={{backgroundColor:'rgb(8,8,8)'}}>
+      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top " style={{backgroundColor:'black'}}>
         <Container fluid>
 
           <Navbar.Brand href="#" className='d-flex flex-row'>
@@ -91,8 +91,8 @@ function HeaderBoot(props) {
 
             <Offcanvas.Body>
 
-              <Nav style={{paddingLeft:'100px', backgroundColor:'black'}}>
-                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}> Accueil</i> </small></Link>
+              <Nav style={{paddingLeft:'100px'}}>
+                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true"> Accueil</i> </small></Link>
                   
                   <Dropdown >
                     <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'blue'}}>
@@ -106,7 +106,7 @@ function HeaderBoot(props) {
                     </Dropdown.Menu>
                   </Dropdown>
                   {
-                      (props.valueHeaderState!==null)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
+                      (props.valueHeaderState!==null)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px'}}>S'inscrire</Button></small></Link> 
                   }
                   {       
                       (props.valueHeaderState!==null) ?<LogoutButton onClick={logOut}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>

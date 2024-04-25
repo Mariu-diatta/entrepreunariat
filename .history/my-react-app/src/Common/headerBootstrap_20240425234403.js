@@ -57,7 +57,7 @@ function HeaderBoot(props) {
 
   return (
     <div className='row ' style={{maxWidth:window.widt}}>
-      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top " style={{backgroundColor:'rgb(8,8,8)'}}>
+      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top " style={{backgroundColor:'black'}}>
         <Container fluid>
 
           <Navbar.Brand href="#" className='d-flex flex-row'>
@@ -91,12 +91,12 @@ function HeaderBoot(props) {
 
             <Offcanvas.Body>
 
-              <Nav style={{paddingLeft:'100px', backgroundColor:'black'}}>
+              <Nav style={{paddingLeft:'100px'}}>
                   <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}> Accueil</i> </small></Link>
                   
                   <Dropdown >
                     <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'blue'}}>
-                      <Button variant='outline-primary' style={{border:'0px'}}>À propos</Button>
+                      <Button variant='outline-primary' style={{border:'0px', color:'white'}}>À propos</Button>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu style={{backgroundColor:'black'}}>
