@@ -32,10 +32,10 @@ function HeaderBoot(props) {
 
   const navigate=useNavigate();
 
-  const logOut = ()=>{
+  const logOut = async()=>{
     try {
       if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
-        signOut(auth);
+        await signOut(auth);
         props.changeHeaderState(null);
         navigate("/");
       }
@@ -57,7 +57,7 @@ function HeaderBoot(props) {
       <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top bg-body-tertiary p-0">
         <Container fluid>
           <Navbar.Brand href="#">
-          <strong  style={{color:'black', paddingLeft:'20px'} }>VirtualB</strong>
+          <strong  style={{color:'black', paddingLeft:'20px'} }>Sen-B</strong>
           </Navbar.Brand>
           <Navbar className='off_classe'> 
             {(props.valueHeaderState!==null) && pageCompte?<ModalPop/>:<nav></nav>}

@@ -14,33 +14,33 @@ function LogIn(props) {
   const [passOublie, setPasseOublie]=useState(true);
 
 
-  const handleSubmit=(event)=>{
+ const handleSubmit=(event)=>{
 
-      event.preventDefault();
-      const data= new FormData();
+    event.preventDefault();
+    const data= new FormData();
 
-      data.append("Email",Email);
-      data.append("password",password);
+    data.append("Email",Email);
+    data.append("password",password);
 
-      if (Email==="" ) {
-          document.getElementById('monid').innerHTML="email non rempli<br/>";
-      }else if(password===""){
-        document.getElementById('monid').innerHTML="mot de passe non rempli<br/>";
-      }else{
-              axiosInstance.post('api/token/', data).then((res)=>{
-              localStorage.setItem('access_token',res.data.access);
-              localStorage.setItem('refresh_token',res.data.refresh);
-              localStorage.setItem('Email',Email);
-              localStorage.setItem('password',password);
-              axiosInstance.defaults.headers.Authorization='JWT'+ localStorage.getItem('acces_token'); 
-              console.log({'access_token':res.data.access, 'refresh_token':res.data.refresh});
-          }).catch(error => {
-              console.log(error);
-              document.getElementById('monid').innerHTML="problème de connexion<br/>";
-          })   ;
-      }
+    if (Email==="" ) {
+        document.getElementById('monid').innerHTML="email non rempli<br/>";
+    }else if(password===""){
+       document.getElementById('monid').innerHTML="mot de passe non rempli<br/>";
+    }else{
+            axiosInstance.post('api/token/', data).then((res)=>{
+            localStorage.setItem('access_token',res.data.access);
+            localStorage.setItem('refresh_token',res.data.refresh);
+            localStorage.setItem('Email',Email);
+            localStorage.setItem('password',password);
+            axiosInstance.defaults.headers.Authorization='JWT'+ localStorage.getItem('acces_token'); 
+            console.log({'access_token':res.data.access, 'refresh_token':res.data.refresh});
+        }).catch(error => {
+            console.log(error);
+            document.getElementById('monid').innerHTML="problème de connexion<br/>";
+        })   ;
+    }
 
-  };
+};
 
 
   return (

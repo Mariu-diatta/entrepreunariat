@@ -1,7 +1,7 @@
 
 import MainSection from "../mainSection";
 import {Navigate} from 'react-router-dom';
-import Footer from "../footerBoostrap";
+import Footer from "../footer";
 import VerticalMenu from "../verticalMenu";
 
 const Admin =(props)=>{
