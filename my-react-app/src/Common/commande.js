@@ -21,13 +21,18 @@ import Button from 'react-bootstrap/Button';
 
     const [destinationArray, setDestinationArray] = useState([]);
 
+
+    const codeGénérique=(e)=>{
+        document.getElementById('monid').innerHTML="<div style={{fontFamily:'system-ui', textAlign:'center'}}>Bravo!!! Vous avez fait des choix.<br> Veullez vérifier votre portable pour renseigner le code.<br><form><input type='number'/> </form></div>";
+    };
+
     
     const handleSubmit=(e)=>{
 
         e.preventDefault();
 
         if (destinationArray.length!==0) {
-            document.getElementById('monid').innerHTML="Bravo!!! Vous avez fait des choix";
+            codeGénérique();
         }else{
             document.getElementById('mon_id').innerHTML="Il y n'a pas de choix";
         }
@@ -84,7 +89,7 @@ import Button from 'react-bootstrap/Button';
 
                                     <thead>
                                         <tr>
-                                            <th className="p-3">produits</th>
+                                            <th className="p-3">Produits</th>
                                             <th className="p-3">Quantité</th>
                                             <th className="p-3">Prix</th>
                                             <th className="p-3">Qualité</th>    
@@ -134,7 +139,7 @@ import Button from 'react-bootstrap/Button';
 
                                     <thead>
                                         <tr>
-                                            <th className="p-3">produits</th>
+                                            <th className="p-3">Produits</th>
                                             <th className="p-3">Quantité</th>
                                             <th className="p-3">Prix</th>
                                             <th className="p-3">Qualité</th> 
@@ -160,7 +165,7 @@ import Button from 'react-bootstrap/Button';
                                 
                             </div>
                             <p id="mon_id" style={{color:'red'}}></p>
-                            <p id="monid" style={{color:'grenn'}}></p>
+                            <p id="monid"  style={{fontFamily:'system-ui', textAlign:'center', color:'green'}}></p>
                             <button type="submit" className='btn btn-success p-2 m-2'> Valider</button >
                         
                         </form> 
