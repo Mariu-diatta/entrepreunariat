@@ -65,12 +65,12 @@ function LogIn(props) {
             <div className='col-lg-4'>
               <div className='form-floating md-form p-1'>
                 <FloatingLabel controlId="floatingInput"  label="Votre email"  className="mb-3"  >
-                  <Form.Control id="floatingInput" name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="u-align-center u-input" />
+                  <Form.Control  name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="u-align-center u-input" />
                 </FloatingLabel>
               </div>
               <div className='form-floating md-form p-1'>
                 <FloatingLabel controlId="floatingPassword1" label="Votre mot de pass" className='mb-3'>
-                  <Form.Control  id="floatingPassword1" name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Votre mot de pass"  maxLength="30" className="  u-align-center u-input" />
+                  <Form.Control   name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Votre mot de pass"  maxLength="30" className="  u-align-center u-input" />
                 </FloatingLabel>
               </div>
             </div>
@@ -83,7 +83,7 @@ function LogIn(props) {
               </div>
               <div className='col-lg-4 form-floating md-form p-1'>
                 <FloatingLabel controlId="floatingPassword2" label="Votre mot de pass" className=' mb-3'>
-                  <Form.Control  id="floatingPassword2" name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
+                  <Form.Control   name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
                 </FloatingLabel>
               </div>
               <div className='col-lg-4'>

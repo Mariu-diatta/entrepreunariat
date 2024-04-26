@@ -60,11 +60,11 @@ function SignUp(props){
               <Row>
 
                 <FloatingLabel controlId="name-e4cc" label=" Vore nom"  className="form-floating md-form p-1 col-lg-6 mb-3 ">
-                  <Form.Control id="name-e4cc" name={name} value={name} onChange={(e)=>setName(e.target.value)} type="text"  placeholder="Votre nom"  maxLength="30" className="u-align-center u-input" required/>
+                  <Form.Control  name={name} value={name} onChange={(e)=>setName(e.target.value)} type="text"  placeholder="Votre nom"  maxLength="30" className="u-align-center u-input" required/>
                 </FloatingLabel>
 
                 <FloatingLabel controlId="name-e4cc1" label="Votre prénom" className="form-floating md-form p-1 col-lg-6 mb-3  ">
-                  <Form.Control id="name-e4cc1" name={pname} value={pname} onChange={(e)=>setPname(e.target.value)} type="text" placeholder="Prénom"  maxLength="30" className="u-align-center u-input" required/>
+                  <Form.Control  name={pname} value={pname} onChange={(e)=>setPname(e.target.value)} type="text" placeholder="Prénom"  maxLength="30" className="u-align-center u-input" required/>
                 </FloatingLabel>
 
               </Row>
@@ -94,7 +94,7 @@ function SignUp(props){
               <Row>
 
                 <FloatingLabel controlId="name-e4cc4"  label="Numéro de tel" className="form-floating md-form p-1 col-lg-6 mb-3 ">
-                  <Form.Control id="name-e4cc4" name={tel} value={tel} onChange={(e)=>setTel(e.target.value)} type="tel" placeholder="Tel"  maxLength="30"  className="form-floating md-form p-1 col-lg-6 mb-3 " required/>
+                  <Form.Control  name={tel} value={tel} onChange={(e)=>setTel(e.target.value)} type="tel" placeholder="Tel"  maxLength="30"  className="form-floating md-form p-1 col-lg-6 mb-3 " required/>
                 </FloatingLabel>
 
                 <FloatingLabel controlId="name-e4cc5"  label="Votre email" className="form-floating md-form p-1 col-lg-6 mb-3 ">

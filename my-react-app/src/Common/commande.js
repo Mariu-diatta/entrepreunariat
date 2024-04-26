@@ -19,6 +19,11 @@ import Button from 'react-bootstrap/Button';
         {prod:5,  lab:'Ford',prix:'100', qual:'bon'}
     ]);
 
+    const [useData, setUseData]=useState({nom:'',prenom:'',numero:''});
+    const [nom, setNom]=useState('');
+    const [prenom, setPrenom]=useState('');
+    const [numero, setNumero]=useState('');
+
     const [destinationArray, setDestinationArray] = useState([]);
 
 
@@ -31,10 +36,18 @@ import Button from 'react-bootstrap/Button';
 
         e.preventDefault();
 
-        if (destinationArray.length!==0) {
-            codeGénérique();
+        setUseData({nom:nom,prenom:prenom,numero:numero});
+
+        if (useData.nom==='' || useData.nom==='' || useData.nom==='') {
+            console.log('Données utilisateur incomplètes');
         }else{
-            document.getElementById('mon_id').innerHTML="Il y n'a pas de choix";
+            if (destinationArray.length!==0) {
+                codeGénérique();
+                console.log(useData);
+            }else{
+                document.getElementById('mon_id').innerHTML="Il y n'a pas de choix";
+                console.log(useData);
+            }
         }
 
     };
@@ -120,15 +133,15 @@ import Button from 'react-bootstrap/Button';
 
                         <form onSubmit={handleSubmit}>
                             <FloatingLabel controlId="floatingPassword2" label="Votre nom" className=' mb-3'>
-                                <Form.Control  id="floatingPassword2" name="nom" value=""  type="nom" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
+                                <Form.Control  onChange={(e)=>setNom(e.target.value)} name={nom} value={nom}  type="text" placeholder="Enter a valid nom address"  maxLength="30" className="u-align-center u-input" />
                             </FloatingLabel>
 
                             <FloatingLabel controlId="floatingPassword2" label="Votre prénom" className=' mb-3'>
-                                <Form.Control  id="floatingPassword2" name="prenom" value=""  type="text" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
+                                <Form.Control   onChange={(e)=>setPrenom(e.target.value)} name={prenom} value={prenom}  type="text" placeholder="Enter a valid prenom address"  maxLength="30" className="u-align-center u-input" />
                             </FloatingLabel>
 
                             <FloatingLabel controlId="floatingPassword2" label="Votre numéro" className=' mb-3'>
-                                <Form.Control  id="floatingPassword2" name="tel" value=""  type="text" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
+                                <Form.Control  onChange={(e)=>setNumero(e.target.value)}  name={numero} value={numero} type="text" placeholder="Enter a valid numéro address"  maxLength="30" className="u-align-center u-input" />
                             </FloatingLabel>
 
                             <div className="row" style={{textAlign:'center', paddingTop:'12px'}}>
@@ -164,8 +177,12 @@ import Button from 'react-bootstrap/Button';
                                 </Table >
                                 
                             </div>
-                            <p id="mon_id" style={{color:'red'}}></p>
-                            <p id="monid"  style={{fontFamily:'system-ui', textAlign:'center', color:'green'}}></p>
+                                {
+                                    (destinationArray.length!==0)?
+                                    <p id="monid"  style={{fontFamily:'system-ui', textAlign:'center', color:'green'}}></p>
+                                    :
+                                    <p id="mon_id" style={{color:'red'}}></p>
+                                }
                             <button type="submit" className='btn btn-success p-2 m-2'> Valider</button >
                         
                         </form> 
