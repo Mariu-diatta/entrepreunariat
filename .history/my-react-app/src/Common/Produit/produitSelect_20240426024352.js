@@ -1,5 +1,3 @@
-import Button from 'react-bootstrap/Button';
-
 const ProduitSelected=(props)=>{
     
     return(
@@ -8,7 +6,7 @@ const ProduitSelected=(props)=>{
             <td className="spacing_d"> {props.lab} </td>
             <td className="spacing_d"> {props.prix} </td> 
             <td className="spacing_d"> {props.qual} </td>
-            <td className="spacing_d">{<Button   value={props.prod}  onClick={props.onClick}>v</Button>} </td>
+            <td className="spacing_d">{<input value={props.prod}  onClick={props.onClick} type="checkbox"/>} </td>
         </tr>
     )
 

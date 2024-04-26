@@ -46,12 +46,10 @@ function SignUp(props){
 
           <div className='col-lg-4'>
           </div>
-
+          
         </div>
         <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
-
           <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4 " >
-
             <div className='col-lg-3'>
             </div>
 
@@ -137,10 +135,8 @@ function SignUp(props){
               </div> 
 
             </div>
-
             <div className='col-lg-3'>
             </div>
-            
           </div>
         </form>  
       </div>  

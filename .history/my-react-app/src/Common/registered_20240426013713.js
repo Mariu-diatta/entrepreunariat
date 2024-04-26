@@ -36,22 +36,16 @@ function SignUp(props){
     return(
       <div >
         <div className="row">
-
           <div className='col-lg-4'>
           </div>
-
           <div className='col-lg-4'>
             <h4 style={{textAlign:'center'}}>Inscription!</h4>
           </div>
-
           <div className='col-lg-4'>
           </div>
-
         </div>
         <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
-
           <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4 " >
-
             <div className='col-lg-3'>
             </div>
 
@@ -100,35 +94,28 @@ function SignUp(props){
                 <FloatingLabel controlId="name-e4cc5"  label="Votre email" className="form-floating md-form p-1 col-lg-6 mb-3 ">
                   <Form.Control   name={mail} value={mail} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter a valid email address" id="email-e4cc"  maxLength="30" className="form-floating md-form p-1 col-lg-6 mb-3 " required/>
                 </FloatingLabel>
-
+                
               </Row>
               
               <Row>
-                
                 <FloatingLabel controlId="name-e4cc6" label="Votre mot de passe" className="form-floating md-form p-1 col-lg-6 mb-3 ">
                   <Form.Control  name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Mot de passe" id="name-e4cc2"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="2"/>
                 </FloatingLabel>
-
                 <FloatingLabel controlId="name-e4cc7" label="Confirmez votre mot de passe" className="form-floating md-form p-1 col-lg-6 mb-3 ">
                   <Form.Control  name={password1} value={password1} onChange={(e)=>setPassword1(e.target.value)} type="password" placeholder="Confirmer mot de passe" size="2"  id="name-e4cc2"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" />
                 </FloatingLabel>
-
               </Row>
 
               <Row>
-
                 <FloatingLabel controlId="name-e4cc8" label="Votre description" className="form-floating md-form p-1 mb-3 ">
                   <Form.Control as="textarea" name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="100"  className="u-align-center u-input" style={{ height: '100px' }} required />
                 </FloatingLabel>
-
               </Row>
               
               <Row>
-
                 <FloatingLabel controlId="name-e4cc8" label="Votre photo " className="form-floating md-form p-1 mb-3 ">
                   <Form.Control  type="file" accept="image/*"   placeholder='profile' name={photo} value={photo} onChange={handleImageChange} />
                 </FloatingLabel>
-
               </Row>
 
               <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4 pb-3">  
@@ -137,10 +124,8 @@ function SignUp(props){
               </div> 
 
             </div>
-
             <div className='col-lg-3'>
             </div>
-            
           </div>
         </form>  
       </div>  

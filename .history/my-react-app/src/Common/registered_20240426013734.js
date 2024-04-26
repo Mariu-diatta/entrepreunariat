@@ -36,22 +36,16 @@ function SignUp(props){
     return(
       <div >
         <div className="row">
-
           <div className='col-lg-4'>
           </div>
-
           <div className='col-lg-4'>
             <h4 style={{textAlign:'center'}}>Inscription!</h4>
           </div>
-
           <div className='col-lg-4'>
           </div>
-
         </div>
         <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
-
           <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4 " >
-
             <div className='col-lg-3'>
             </div>
 
@@ -128,7 +122,7 @@ function SignUp(props){
                 <FloatingLabel controlId="name-e4cc8" label="Votre photo " className="form-floating md-form p-1 mb-3 ">
                   <Form.Control  type="file" accept="image/*"   placeholder='profile' name={photo} value={photo} onChange={handleImageChange} />
                 </FloatingLabel>
-
+                
               </Row>
 
               <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4 pb-3">  
@@ -137,10 +131,8 @@ function SignUp(props){
               </div> 
 
             </div>
-
             <div className='col-lg-3'>
             </div>
-            
           </div>
         </form>  
       </div>  

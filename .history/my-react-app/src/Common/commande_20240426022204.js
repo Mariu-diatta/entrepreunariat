@@ -4,44 +4,68 @@ import ProduitSelected from "./Produit/produitSelect";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
-import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
 
+const cars = [
+    {prod:0,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:1,  lab:'grey',prix:'100', qual:'bon'},
+    {prod:2,  lab:'blue',prix:'100', qual:'bon'},
+    {prod:3,  lab:'red',prix:'100', qual:'bon'},
+    {prod:4,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:5,  lab:'Ford',prix:'100', qual:'bon'}
+];
 
 const Commande =()=>{
+    const [data, setData]=useState([]);
+    const [valueIndex, setValueIndex]=useState(false);
     
-   // Tableaux d'origine et de destination
-    const [sourceArray, setSourceArray] = useState( [
-        {prod:0,  lab:'Ford',prix:'100', qual:'bon'},
-        {prod:1,  lab:'grey',prix:'100', qual:'bon'},
-        {prod:2,  lab:'blue',prix:'100', qual:'bon'},
-        {prod:3,  lab:'red',prix:'100', qual:'bon'},
-        {prod:4,  lab:'Ford',prix:'100', qual:'bon'},
-        {prod:5,  lab:'Ford',prix:'100', qual:'bon'}
-    ]);
+    let index=2;
+    
+    let AllData = [];
 
-    const [destinationArray, setDestinationArray] = useState([]);
+    let value_=true;
 
-    // Fonction pour sélectionner un élément de la source et l'ajouter à la destination
-    const selectAndAddToDestination = (index) => {
-        // Copie de l'élément sélectionné depuis la source
-        const selectedElement = sourceArray[index];
-        // Copie de la sourceArray sans l'élément sélectionné
-        const updatedSourceArray = sourceArray.filter((_, i) => i !== index);
-        // Mise à jour des tableaux
-        setSourceArray(updatedSourceArray);
-        setDestinationArray(prevArray => [...prevArray, selectedElement]);
-        destinationArray.sort((a,b)=>a.prod-b.prod);
-        sourceArray.sort((a,b)=>a.prod-b.prod);
+    const addData=(e)=>{
+
+
+
+        for (let index = 0; index < AllData.length; index++) {
+            var element = AllData[index];
+            if (element===cars[e.target.value]) {
+                delete AllData[index];
+                alert("suppression réussie");
+                break;
+    
+            }  
+        }
+        if (value_){
+           AllData.push(cars[e.target.value]); 
+          
+        }  
+        value_=true;  
     };
 
-    const supprimerElement= (index) => {
-        const selectedElementToDelete=destinationArray[index];
-        const updateDestinationArray=destinationArray.filter((_,i)=>i!==index);
-        setDestinationArray(updateDestinationArray);
-        setSourceArray(prevArray => [...prevArray, selectedElementToDelete]);
-        destinationArray.sort((a,b)=>a.prod-b.prod);
-        sourceArray.sort((a,b)=>a.prod-b.prod);
+    useEffect(()=>{
+        setData(AllData);
+    },[1000]);
+
+    const afficherTout=()=>{
+        if(AllData.length>index){
+            setData(AllData);
+            ++index;
+            setValueIndex(true);
+        }
+
+    };
+
+    const deletData=(e)=>{
+         for (let index = 0; index < AllData.length; index++) {
+            const element = AllData[index];
+            if (element===cars[e.target.value]) {
+                delete AllData[index];
+                alert("suppression réussie");
+            }
+            
+         }
     };
 
     return(
@@ -56,9 +80,7 @@ const Commande =()=>{
                         <div className="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="500">
                             
                             <div className="u-container-layout u-container-layout-1">
-
-                                <Image src={im} alt="" className="u-align-left u-expanded-width u-image " width={200} height={300} rounded/>
-                            
+                                <img src={im} alt="" className="u-align-left u-expanded-width u-image " width={200} height={300}/>
                             </div>
 
                         </div>
@@ -83,10 +105,8 @@ const Commande =()=>{
 
                                     <tbody>
                                         {
-                                        sourceArray.map((car, index) =><ProduitSelected prod={car.prod}  lab={car.lab} prix={car.prix} qual={car.qual} onClick={() => selectAndAddToDestination(index)} />)
-            
+                                        cars.map((car) =><ProduitSelected prod={car.prod}  lab={car.lab} prix={car.prix} qual={car.qual}  onClick={addData} />)
                                         }
-                                        
                                     </tbody>
 
                                 </Table>
@@ -129,20 +149,18 @@ const Commande =()=>{
                                             <th className="p-3">Quantité</th>
                                             <th className="p-3">Prix</th>
                                             <th className="p-3">Qualité</th> 
-                                            <th className="p-3">Supprimer</th> 
                                         </tr>   
                                     </thead>
 
                                     <tbody>
                                         {
-                                            destinationArray.map((el,index)=>
+                                            data.map((elem)=>
 
-                                                <tr key={index}>
-                                                    <td>{el.prod}</td>
-                                                    <td>{el.lab}</td>
-                                                    <td>{el.prix}</td>
-                                                    <td>{el.qual}</td>
-                                                    <td><Button  style={{backgroundColor:'red'}} onClick={() =>supprimerElement(index)}>X</Button></td>
+                                                <tr>
+                                                    <td>{elem.prod}</td>
+                                                    <td>{elem.lab}</td>
+                                                    <td>{elem.prix}</td>
+                                                    <td>{elem.qual}</td>
                                                 </tr>
                                             )
                                         }
@@ -151,7 +169,7 @@ const Commande =()=>{
                                 
                             </div>
 
-                            <button className='btn btn-success p-2 m-2'> Valider</button >
+                            <button className='btn btn-success p-2 m-2' type="button" onClick={afficherTout}>{valueIndex?'valider':'afficher'}</button >
                         
                         </form> 
                     

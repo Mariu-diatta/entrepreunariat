@@ -5,44 +5,19 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
 
+const cars = [
+    {prod:0,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:1,  lab:'grey',prix:'100', qual:'bon'},
+    {prod:2,  lab:'blue',prix:'100', qual:'bon'},
+    {prod:3,  lab:'red',prix:'100', qual:'bon'},
+    {prod:4,  lab:'Ford',prix:'100', qual:'bon'},
+    {prod:5,  lab:'Ford',prix:'100', qual:'bon'}
+];
 
 const Commande =()=>{
-    
-   // Tableaux d'origine et de destination
-    const [sourceArray, setSourceArray] = useState( [
-        {prod:0,  lab:'Ford',prix:'100', qual:'bon'},
-        {prod:1,  lab:'grey',prix:'100', qual:'bon'},
-        {prod:2,  lab:'blue',prix:'100', qual:'bon'},
-        {prod:3,  lab:'red',prix:'100', qual:'bon'},
-        {prod:4,  lab:'Ford',prix:'100', qual:'bon'},
-        {prod:5,  lab:'Ford',prix:'100', qual:'bon'}
-    ]);
 
-    const [destinationArray, setDestinationArray] = useState([]);
-
-    // Fonction pour sélectionner un élément de la source et l'ajouter à la destination
-    const selectAndAddToDestination = (index) => {
-        // Copie de l'élément sélectionné depuis la source
-        const selectedElement = sourceArray[index];
-        // Copie de la sourceArray sans l'élément sélectionné
-        const updatedSourceArray = sourceArray.filter((_, i) => i !== index);
-        // Mise à jour des tableaux
-        setSourceArray(updatedSourceArray);
-        setDestinationArray(prevArray => [...prevArray, selectedElement]);
-        destinationArray.sort((a,b)=>a.prod-b.prod);
-        sourceArray.sort((a,b)=>a.prod-b.prod);
-    };
-
-    const supprimerElement= (index) => {
-        const selectedElementToDelete=destinationArray[index];
-        const updateDestinationArray=destinationArray.filter((_,i)=>i!==index);
-        setDestinationArray(updateDestinationArray);
-        setSourceArray(prevArray => [...prevArray, selectedElementToDelete]);
-        destinationArray.sort((a,b)=>a.prod-b.prod);
-        sourceArray.sort((a,b)=>a.prod-b.prod);
-    };
+    const [data, setData]=useState([]);
 
     return(
         <section className="container p-4 m-4" >
@@ -83,10 +58,8 @@ const Commande =()=>{
 
                                     <tbody>
                                         {
-                                        sourceArray.map((car, index) =><ProduitSelected prod={car.prod}  lab={car.lab} prix={car.prix} qual={car.qual} onClick={() => selectAndAddToDestination(index)} />)
-            
+                                        cars.map((car) =><ProduitSelected prod={car.prod}  lab={car.lab} prix={car.prix} qual={car.qual} />)
                                         }
-                                        
                                     </tbody>
 
                                 </Table>
@@ -129,20 +102,18 @@ const Commande =()=>{
                                             <th className="p-3">Quantité</th>
                                             <th className="p-3">Prix</th>
                                             <th className="p-3">Qualité</th> 
-                                            <th className="p-3">Supprimer</th> 
                                         </tr>   
                                     </thead>
 
                                     <tbody>
                                         {
-                                            destinationArray.map((el,index)=>
+                                            data.map((el)=>
 
-                                                <tr key={index}>
+                                                <tr>
                                                     <td>{el.prod}</td>
                                                     <td>{el.lab}</td>
                                                     <td>{el.prix}</td>
                                                     <td>{el.qual}</td>
-                                                    <td><Button  style={{backgroundColor:'red'}} onClick={() =>supprimerElement(index)}>X</Button></td>
                                                 </tr>
                                             )
                                         }

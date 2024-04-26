@@ -20,7 +20,6 @@ import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/Col';
 
-
 const maCouleur=[
     {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'5%', padding:'20px'},
     {color:'white', textAlign:'center'}
@@ -69,13 +68,13 @@ function HeaderBoot(props) {
             {(props.valueHeaderState!==null) && pageCompte?<ModalPop/>:<nav></nav>}
           </Navbar>
 
-          <Navbar.Toggle style={{color:'', marginRight:'12px'}}  aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
+          <Navbar.Toggle style={{backgroundColor:'white'}}  aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
           <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
               <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
-                <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
+                <Button variant='outline-primary' style={{border:'0px', color:'white'}}> Commerçants</Button>
               
-                <Button variant='outline-primary' style={{border:'0px' , color:'grey'}}> Acheteurs</Button>
+                <Button variant='outline-primary' style={{border:'0px' , color:'white'}}> Acheteurs</Button>
                 </div> 
           </Navbar.Brand>
 

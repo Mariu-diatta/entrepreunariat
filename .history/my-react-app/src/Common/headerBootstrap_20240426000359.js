@@ -20,7 +20,6 @@ import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/Col';
 
-
 const maCouleur=[
     {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'5%', padding:'20px'},
     {color:'white', textAlign:'center'}
@@ -69,13 +68,13 @@ function HeaderBoot(props) {
             {(props.valueHeaderState!==null) && pageCompte?<ModalPop/>:<nav></nav>}
           </Navbar>
 
-          <Navbar.Toggle style={{color:'', marginRight:'12px'}}  aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
+          <Navbar.Toggle style={{backgroundColor:'white'}}  aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
           <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
               <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
-                <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
+                <Button variant='outline-primary' style={{border:'0px', color:'white'}}> Commerçants</Button>
               
-                <Button variant='outline-primary' style={{border:'0px' , color:'grey'}}> Acheteurs</Button>
+                <Button variant='outline-primary' style={{border:'0px' , color:'white'}}> Acheteurs</Button>
                 </div> 
           </Navbar.Brand>
 
@@ -96,13 +95,13 @@ function HeaderBoot(props) {
                   <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}>Accueil</i> </small></Link>
                   
                   <Dropdown >
-                    <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'grey'}}>
-                      <Button variant='outline-primary' style={{border:'0px', color:'grey'}}>À propos</Button>
+                    <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'blue'}}>
+                      <Button variant='outline-primary' style={{border:'0px'}}>À propos</Button>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu style={{backgroundColor:'black'}}>
-                      <Dropdown.Item href="/a_propos" style={{color:'grey'}}>Action</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2" style={{color:'grey'}}>Another action</Dropdown.Item>
+                      <Dropdown.Item href="/a_propos" style={{color:'white'}}>Action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-2" style={{color:'white'}}>Another action</Dropdown.Item>
                       <Dropdown.Item href="#/action-3" style={{color:'grey'}}>Something else</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
