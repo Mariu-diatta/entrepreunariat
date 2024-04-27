@@ -57,11 +57,11 @@ function HeaderBoot(props) {
   };
 
   return (
-    <div className='row ' style={{maxWidth:window.widt}}>
+    <div className='row' style={{maxWidth:window.widt}}>
       <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top " style={{backgroundColor:'rgb(8,8,8)'}}>
         <Container fluid>
 
-          <Navbar.Brand href="#" className='d-flex flex-row'>
+          <Navbar.Brand href="#" className='d-flex justify-content-start'>
             <strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>
           </Navbar.Brand>
 
@@ -69,15 +69,15 @@ function HeaderBoot(props) {
             {(props.valueHeaderState!==null) && pageCompte?<ModalPop/>:<nav></nav>}
           </Navbar>
 
-          <Navbar.Toggle style={{color:'', marginRight:'12px'}}  aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
+          <Navbar.Toggle   aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
-          <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
+          {/* <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
               <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
                 <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
               
                 <Button variant='outline-primary' style={{border:'0px' , color:'grey'}}> Acheteurs</Button>
                 </div> 
-          </Navbar.Brand>
+          </Navbar.Brand> */}
 
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${'lg'}`}
@@ -90,9 +90,9 @@ function HeaderBoot(props) {
               </Offcanvas.Title>
             </Offcanvas.Header>
 
-            <Offcanvas.Body>
+            <Offcanvas.Body className='d-flex justify-content-end'>
 
-              <Nav style={{paddingLeft:'100px', backgroundColor:'black'}}>
+              <Nav style={{ backgroundColor:'black'}}>
                   <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}>Accueil</i> </small></Link>
                   
                   <Dropdown >
@@ -107,25 +107,24 @@ function HeaderBoot(props) {
                     </Dropdown.Menu>
                   </Dropdown>
                   {
-                      (props.valueHeaderState!==null)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
+                      (props.valueHeaderState!==null)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> Marius </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
                   }
                   {       
                       (props.valueHeaderState!==null) ?<LogoutButton onClick={logOut}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
                   }
+                <Form className="d-flex flex-row" style={{paddingRight:'5px'}}>
+                  <Form.Control
+                    type="search"
+                    placeholder="recherche"
+                    className="mt-1 mb-1 p-2"
+                    left
+                    aria-label="Search"
+                    maxLength={"45"}
+                    style={{textAlign:'center', border:'opx'}}
+                  />
+                  <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
+                </Form>
               </Nav>
-
-              <Form className="d-flex  flex-row " >
-                <Form.Control
-                  type="search"
-                  placeholder="recherche"
-                  className="mt-1 mb-1 p-2"
-                  left
-                  aria-label="Search"
-                  maxLength={"45"}
-                  style={{textAlign:'center', border:'opx'}}
-                />
-                <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
-              </Form>
 
             </Offcanvas.Body>
 

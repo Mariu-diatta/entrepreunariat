@@ -17,7 +17,7 @@ const VerticalMenu=()=>{
     return (
 
         <nav className=' sticky-top u-align-center style_css  col-lg-2'>
-            <strong  style={{color:'black', paddingLeft:'0px'} }>Sen-B</strong>
+            <strong  style={{color:'black', paddingLeft:'0px'} }>VirtualB</strong>
             <ul>
                 <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small><i className="fa fa-commenting fa-2x" aria-hidden="true">{"_"}</i>Messages</small></button></li>
                 { 
