@@ -71,13 +71,18 @@ function HeaderBoot(props) {
 
           <Navbar.Toggle   aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
-          {/* <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
-              <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
-                <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
-              
-                <Button variant='outline-primary' style={{border:'0px' , color:'grey'}}> Acheteurs</Button>
-                </div> 
-          </Navbar.Brand> */}
+          {  
+            (props.valueHeaderState!==null)?
+            <Navbar.Brand> </Navbar.Brand>
+            :
+            <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
+                <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
+                  <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
+                
+                  <Button variant='outline-primary' style={{border:'0px' , color:'grey'}}> Acheteurs</Button>
+                  </div> 
+            </Navbar.Brand>
+          }
 
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${'lg'}`}
