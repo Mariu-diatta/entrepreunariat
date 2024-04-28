@@ -59,6 +59,7 @@ function LogIn() {
       </Row>
 
       <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
+       
         {
           passOublie?
           <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4 " >
@@ -78,6 +79,7 @@ function LogIn() {
                 </FloatingLabel>
               </div>
             </div>
+            
             <div className='col-lg-4'>
             </div>
           </div>
@@ -94,7 +96,8 @@ function LogIn() {
               </div>
           </div>
           
-          }
+        }
+
         <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4"> 
           <div className='col-lg-4'>
           </div>
@@ -108,6 +111,7 @@ function LogIn() {
           </div>      
         </div>
       </form>
+
       {
         (isConnected)?<Navigate to="/admin"/>:<Navigate to="/login"/> 
       }

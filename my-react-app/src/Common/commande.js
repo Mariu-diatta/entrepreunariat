@@ -39,7 +39,7 @@ import Button from 'react-bootstrap/Button';
         setUseData({nom:nom,prenom:prenom,numero:numero});
 
         if (useData.nom==='' || useData.nom==='' || useData.nom==='') {
-            console.log('Données utilisateur incomplètes');
+            document.getElementById('mon_id').innerHTML="Données utilisateurs incomplètes";
         }else{
             if (destinationArray.length!==0) {
                 codeGénérique();

@@ -10,7 +10,7 @@ import '../accueil/Site1/nicepage.css';
 import '../accueil/Site1/LogIn.css';
 import logo from "../accueil/Site1/images/logo_3.PNG";
 import {useState, useContext, useEffect} from "react";
-import {Outlet, Link, useNavigate} from 'react-router-dom';
+import {Outlet, Link, Navigate} from 'react-router-dom';
 import LogoutButton from './bootstrapUI/btnLogOut.js';
 import './../style.css';
 import { signOut } from 'firebase/auth';
@@ -52,7 +52,11 @@ function HeaderBoot(props) {
   useEffect(()=>{
     if(localStorage.getItem('access_token')){
       login();
-    }else  logout();
+      <Navigate to="/admin"/>
+    }else  {
+      logout();
+      <Navigate to="/login"/> 
+    };
   }, initState);
 
   const notprivatepage=()=>{
