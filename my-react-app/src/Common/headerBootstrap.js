@@ -9,7 +9,7 @@ import '../accueil/Site1/Accueil.css';
 import '../accueil/Site1/nicepage.css';
 import '../accueil/Site1/LogIn.css';
 import logo from "../accueil/Site1/images/logo_3.PNG";
-import {useState, useContext} from "react";
+import {useState, useContext, useEffect} from "react";
 import {Outlet, Link, useNavigate} from 'react-router-dom';
 import LogoutButton from './bootstrapUI/btnLogOut.js';
 import './../style.css';
@@ -32,11 +32,28 @@ function HeaderBoot(props) {
   const [change2, setChange2]=useState(maCouleur[1]);
   const [change3, setChange3]=useState(maCouleur[1]);
   const [pageCompte, setPageCompte]=useState(false);
-  const {isConnected,login, logout}=useContext(ContextApp);
+  const {isConnected,login, logout, initState}=useContext(ContextApp);
   
   const privatepage=()=>{
       setPageCompte(true);
   };
+
+  const logOut=()=>{
+    try {
+      if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
+       logout();
+       console.log("Deconnecter: valeur de mon eta: "+this.initState());
+      } 
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(()=>{
+    if(localStorage.getItem('access_token')){
+      login();
+    }else  logout();
+  }, initState);
 
   const notprivatepage=()=>{
     setPageCompte(false);
@@ -52,12 +69,13 @@ function HeaderBoot(props) {
           </Navbar.Brand>
 
           <Navbar className='off_classe'> 
-            {(props.valueHeaderState!==null) && pageCompte?<ModalPop/>:<nav></nav>}
+            {(isConnected) && pageCompte?<ModalPop/>:<nav></nav>}
           </Navbar>
 
           <Navbar.Toggle   aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
           {  
+          
             (isConnected)?
             <Navbar.Brand> </Navbar.Brand>
             :
@@ -101,7 +119,7 @@ function HeaderBoot(props) {
                       (isConnected)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> Marius </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
                   }
                   {       
-                      (isConnected) ?<LogoutButton onClick={()=>logout()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
+                      (isConnected) ?<LogoutButton onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
                   }
                 <Form className="d-flex flex-row" style={{paddingRight:'5px'}}>
                   <Form.Control

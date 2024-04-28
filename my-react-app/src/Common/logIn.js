@@ -13,13 +13,12 @@ function LogIn() {
   const [Email, setEmail]= useState("");
   const [password, setPassword] = useState("");
   const [passOublie, setPasseOublie]=useState(true);
-  const {isConnected,login,logout}= useContext(ContextApp);
+  const {isConnected,login,logOut,initState}= useContext(ContextApp);
 
   const handleSubmit=(event)=>{
       
       event.preventDefault();
       const data= new FormData();
-
       data.append("Email",Email);
       data.append("password",password);
 
@@ -37,7 +36,6 @@ function LogIn() {
               console.log({'access_token':res.data.access, 'refresh_token':res.data.refresh});
               login();
               <Navigate to="/admin"/>
-              console.log(isConnected);
 
           }).catch(error => {
               console.log(error);
@@ -59,6 +57,7 @@ function LogIn() {
         <div className='col-lg-4'>
         </div>
       </Row>
+
       <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
         {
           passOublie?
@@ -112,6 +111,7 @@ function LogIn() {
       {
         (isConnected)?<Navigate to="/admin"/>:<Navigate to="/login"/> 
       }
+      
     </>
   );
   

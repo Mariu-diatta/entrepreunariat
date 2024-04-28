@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Contact from './Common/contact.js';
 import Accueil from './Common/accueil.js';
 import LogIn from './Common/logIn.js';
@@ -15,7 +15,6 @@ import HeaderBoot from './Common/headerBootstrap.js';
 import { Component} from 'react';
 import ContextApp from './Common/context.js';
 
-
 class  App extends Component{
 
    constructor(props){
@@ -26,32 +25,37 @@ class  App extends Component{
       };
       this.login=this.login.bind(this);
       this.logout=this.logout.bind(this);
+      this.initState=this.initState.bind(this);
+      this.logout=this.logout.bind(this);
    }
+
+
+  initState(){
+    const localstorage=localStorage.getItem('access_token');
+    return localstorage!==null?true:false;
+  }
 
   login (){
     this.setState({ isConnected:true});
   }
 
   logout(){
-    try {
-      if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
-       this.setState({ isConnected:false});
-       <Navigate to="/admin"/>
-      } 
-    } catch (error) {
-      console.log(error);
-    }
+    this.setState({ isConnected:false});
+    localStorage.clear();
   }
+
+
 
   render(){
 
     const logout=  this.logout;
     const login=  this.login;
     const isConnected=  this.state.isConnected;
+    const initState=this.initState;
 
     return (
 
-      <ContextApp.Provider value={{isConnected, login,logout}}>
+      <ContextApp.Provider value={{isConnected, login,logout,initState}}>
         <BrowserRouter>
             <Routes>
               <Route path="/" element={<HeaderBoot />}>
