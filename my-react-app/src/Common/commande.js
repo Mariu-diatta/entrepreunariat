@@ -6,6 +6,9 @@ import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
+import Stack from 'react-bootstrap/Stack';
+import AlertBootstrap from "./alertBootSrap";
 
 
    const Commande =()=>{
@@ -23,12 +26,32 @@ import Button from 'react-bootstrap/Button';
     const [nom, setNom]=useState('');
     const [prenom, setPrenom]=useState('');
     const [numero, setNumero]=useState('');
-
+    const [validerCommande, setValiderCommande]=useState(false);
+    const [summettreCommande, setSummettreCommande]=useState(false);
     const [destinationArray, setDestinationArray] = useState([]);
 
 
-    const codeGénérique=(e)=>{
-        document.getElementById('monid').innerHTML="<div style={{fontFamily:'system-ui', textAlign:'center'}}>Bravo!!! Vous avez fait des choix.<br> Veullez vérifier votre portable pour renseigner le code.<br><form><input type='number'/> </form></div>";
+    const codeGenerique=(e)=>{
+        ///document.getElementById('monid').innerHTML="<div style={{fontFamily:'system-ui', textAlign:'center'}}>Bravo!!! Vous avez fait des choix.<br> Veullez vérifier votre portable pour renseigner le code.<br><form><input type='number'/> </form></div>";
+        console.log("validation code");
+    };
+
+
+    // fonction annuler la commande
+    const commandAnnuler=()=>{
+        if(window.confirm("Voulez-vous vraiment annuler la commande?")){
+
+        }
+    };
+
+
+    //validation commande
+    const validate=(e)=>{
+        if(window.confirm("Voulez-vous vraiment valider la commande?")){
+            setValiderCommande(true);
+            codeGenerique();
+        }
+
     };
 
     
@@ -39,14 +62,16 @@ import Button from 'react-bootstrap/Button';
         setUseData({nom:nom,prenom:prenom,numero:numero});
 
         if (useData.nom==='' || useData.nom==='' || useData.nom==='') {
-            document.getElementById('mon_id').innerHTML="Données utilisateurs incomplètes";
+            // document.getElementById('mon_id').innerHTML="Données utilisateurs incomplètes";
+            console.log(" Données utilisateurs incomplètes ");
         }else{
             if (destinationArray.length!==0) {
-                codeGénérique();
-                console.log(useData);
+                codeGenerique();
+          
             }else{
-                document.getElementById('mon_id').innerHTML="Il y n'a pas de choix";
-                console.log(useData);
+                // document.getElementById('mon_id').innerHTML="Il y n'a pas de choix";
+                console.log(" Il y n'a pas de choix ");
+          
             }
         }
 
@@ -66,133 +91,150 @@ import Button from 'react-bootstrap/Button';
     };
 
     const supprimerElement= (index) => {
-        
         const selectedElementToDelete=destinationArray[index];
         const updateDestinationArray=destinationArray.filter((_,i)=>i!==index);
         setDestinationArray(updateDestinationArray);
         setSourceArray(prevArray => [...prevArray, selectedElementToDelete]);
         destinationArray.sort((a,b)=>a.prod-b.prod);
         sourceArray.sort((a,b)=>a.prod-b.prod);
+        
     };
 
     return(
         <section className="container p-4 m-4" >
+            { 
+                validerCommande?
+                <AlertBootstrap/>
+                :
+                <div className="row">
 
-            <div className="row">
+                    <div className="col-lg-5">
 
-                <div className="col-lg-5">
+                        <div className="row">
 
-                    <div className="row">
+                            <div className="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="500">
+                                
+                                <div className="u-container-layout u-container-layout-1">
+                                    <Image src={im} alt="" className="u-align-left u-expanded-width u-image " width={200} height={300} rounded/>
+                                </div>
 
-                        <div className="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="500">
-                            
-                            <div className="u-container-layout u-container-layout-1">
-                                <Image src={im} alt="" className="u-align-left u-expanded-width u-image " width={200} height={300} rounded/>
                             </div>
 
-                        </div>
-
-                        <div className="u-align-left u-container-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
-                            
-                            <ul className="row  u-container-layout u-valign-top u-container-layout-1" style={{textAlign:'center'}}>
+                            <div className="u-align-left u-container-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
                                 
-                                <h5 className="u-text u-text-1" style={{color:'grey'}}>Sélectionez vos produits.</h5>
+                                <ul className="row  u-container-layout u-valign-top u-container-layout-1" style={{textAlign:'center'}}>
+                                    
+                                    <h5 className="u-text u-text-1" style={{color:'grey'}}>Sélectionez vos produits.</h5>
 
-                                <Table >
+                                    <Table >
 
-                                    <thead>
-                                        <tr>
-                                            <th className="p-3">Produits</th>
-                                            <th className="p-3">Quantité</th>
-                                            <th className="p-3">Prix</th>
-                                            <th className="p-3">Qualité</th>    
-                                            <th className="p-3">Choix</th>
-                                        </tr>
-                                    </thead>
+                                        <thead>
+                                            <tr>
+                                                <th className="p-3">Produits</th>
+                                                <th className="p-3">Quantité</th>
+                                                <th className="p-3">Prix</th>
+                                                <th className="p-3">Qualité</th>    
+                                                <th className="p-3">Choix</th>
+                                            </tr>
+                                        </thead>
 
-                                    <tbody>
-                                        {
-                                            sourceArray.map((car, index) =><ProduitSelected prod={car.prod}  lab={car.lab} prix={car.prix} qual={car.qual} onClick={() => selectAndAddToDestination(index)} />)
-                                        }  
-                                    </tbody>
+                                        <tbody>
+                                            {
+                                                sourceArray.map((car, index) =><ProduitSelected prod={car.prod}  lab={car.lab} prix={car.prix} qual={car.qual} onClick={() => selectAndAddToDestination(index)} />)
+                                            }  
+                                        </tbody>
 
-                                </Table>
+                                    </Table>
 
-                            </ul> 
+                                </ul> 
 
+                            </div>
                         </div>
+
+                    </div>
+
+                    <div className="col-lg-6" >
+                        
+                        <div className="m-1 p-4 row" style={{textAlign:'center'}}>
+                            
+                            <h5 style={{color:'grey'}}> Enregistrer vos données pour valider l'opération.</h5>
+
+                            <form onSubmit={handleSubmit}>
+                                <FloatingLabel controlId="floatingPassword2" label="Votre nom" className=' mb-3'>
+                                    <Form.Control  onChange={(e)=>setNom(e.target.value)} name={nom} value={nom}  type="text" placeholder="Enter a valid nom address"  maxLength="30" className="u-align-center u-input" />
+                                </FloatingLabel>
+
+                                <FloatingLabel controlId="floatingPassword2" label="Votre prénom" className=' mb-3'>
+                                    <Form.Control   onChange={(e)=>setPrenom(e.target.value)} name={prenom} value={prenom}  type="text" placeholder="Enter a valid prenom address"  maxLength="30" className="u-align-center u-input" />
+                                </FloatingLabel>
+
+                                <FloatingLabel controlId="floatingPassword2" label="Votre numéro" className=' mb-3'>
+                                    <Form.Control  onChange={(e)=>setNumero(e.target.value)}  name={numero} value={numero} type="text" placeholder="Enter a valid numéro address"  maxLength="30" className="u-align-center u-input" />
+                                </FloatingLabel>
+
+                                <div className="row" style={{textAlign:'center', paddingTop:'12px'}}>
+                                
+                                    <h6 style={{color:'grey'}}> Résumé de votre commande </h6>
+                                    
+                                    <Table>
+
+                                        <thead>
+                                            <tr>
+                                                <th className="p-3">Produits</th>
+                                                <th className="p-3">Quantité</th>
+                                                <th className="p-3">Prix</th>
+                                                <th className="p-3">Qualité</th> 
+                                                <th className="p-3">Supprimer</th> 
+                                            </tr>   
+                                        </thead>
+
+                                        <tbody>
+                                            {
+                                                destinationArray.map((el,index)=>
+
+                                                    <tr key={index}>
+                                                        <td>{el.prod}</td>
+                                                        <td>{el.lab}</td>
+                                                        <td>{el.prix}</td>
+                                                        <td>{el.qual}</td>
+                                                        <td>{summettreCommande?<Badge bg="success">Success</Badge>:<Button  style={{backgroundColor:'red'}} onClick={() =>supprimerElement(index)}>X</Button>}</td>
+                                                    </tr>
+                                                )
+                                            }
+                                        </tbody>  
+                                    </Table >
+                                    
+                                </div>
+                                    {
+                                        (destinationArray.length!==0)?
+                                        <p id="monid"  style={{fontFamily:'system-ui', textAlign:'center', color:'green'}}></p>
+                                        :
+                                        <p id="mon_id" style={{color:'red'}}></p>
+                                    }
+
+                                    {   
+                                        (destinationArray.length!==0)?
+                                        <div>
+                                            {  
+                                                summettreCommande?                             
+                                                    <nav><button type="submit" className='btn btn-success p-2 m-2' onClick={validate}> Valider</button ><button type="submit" className='btn btn-danger p-2 m-2' onClick={commandAnnuler}> Supprimer</button ></nav>
+                                                    :
+                                                    <button type="submit" className='btn btn-success p-2 m-2' onClick={()=>setSummettreCommande(true)}> Soumettre</button >
+                                            }                                        
+                                        </div> 
+                                        :
+                                        <nav> 
+                                        </nav>     
+                                    }    
+
+                            </form> 
+                        
+                        </div>
+                    
                     </div>
 
                 </div>
-
-                <div className="col-lg-6" >
-                    
-                    <div className="m-1 p-4 row" style={{textAlign:'center'}}>
-                        
-                        <h5 style={{color:'grey'}}> Enregistrer vos données pour valider l'opération.</h5>
-
-                        <form onSubmit={handleSubmit}>
-                            <FloatingLabel controlId="floatingPassword2" label="Votre nom" className=' mb-3'>
-                                <Form.Control  onChange={(e)=>setNom(e.target.value)} name={nom} value={nom}  type="text" placeholder="Enter a valid nom address"  maxLength="30" className="u-align-center u-input" />
-                            </FloatingLabel>
-
-                            <FloatingLabel controlId="floatingPassword2" label="Votre prénom" className=' mb-3'>
-                                <Form.Control   onChange={(e)=>setPrenom(e.target.value)} name={prenom} value={prenom}  type="text" placeholder="Enter a valid prenom address"  maxLength="30" className="u-align-center u-input" />
-                            </FloatingLabel>
-
-                            <FloatingLabel controlId="floatingPassword2" label="Votre numéro" className=' mb-3'>
-                                <Form.Control  onChange={(e)=>setNumero(e.target.value)}  name={numero} value={numero} type="text" placeholder="Enter a valid numéro address"  maxLength="30" className="u-align-center u-input" />
-                            </FloatingLabel>
-
-                            <div className="row" style={{textAlign:'center', paddingTop:'12px'}}>
-                               
-                                <h6 style={{color:'grey'}}> Résumé de votre commande </h6>
-                                
-                                <Table>
-
-                                    <thead>
-                                        <tr>
-                                            <th className="p-3">Produits</th>
-                                            <th className="p-3">Quantité</th>
-                                            <th className="p-3">Prix</th>
-                                            <th className="p-3">Qualité</th> 
-                                            <th className="p-3">Supprimer</th> 
-                                        </tr>   
-                                    </thead>
-
-                                    <tbody>
-                                        {
-                                            destinationArray.map((el,index)=>
-
-                                                <tr key={index}>
-                                                    <td>{el.prod}</td>
-                                                    <td>{el.lab}</td>
-                                                    <td>{el.prix}</td>
-                                                    <td>{el.qual}</td>
-                                                    <td><Button  style={{backgroundColor:'red'}} onClick={() =>supprimerElement(index)}>X</Button></td>
-                                                </tr>
-                                            )
-                                        }
-                                    </tbody>  
-                                </Table >
-                                
-                            </div>
-                                {
-                                    (destinationArray.length!==0)?
-                                    <p id="monid"  style={{fontFamily:'system-ui', textAlign:'center', color:'green'}}></p>
-                                    :
-                                    <p id="mon_id" style={{color:'red'}}></p>
-                                }
-                            <button type="submit" className='btn btn-success p-2 m-2'> Valider</button >
-                        
-                        </form> 
-                    
-                    </div>
-                
-                </div>
-
-            </div>
-
+            }
         </section>
     )
 }
