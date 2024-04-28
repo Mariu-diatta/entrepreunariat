@@ -9,16 +9,15 @@ import '../accueil/Site1/Accueil.css';
 import '../accueil/Site1/nicepage.css';
 import '../accueil/Site1/LogIn.css';
 import logo from "../accueil/Site1/images/logo_3.PNG";
-import {useState} from "react";
+import {useState, useContext} from "react";
 import {Outlet, Link, useNavigate} from 'react-router-dom';
 import LogoutButton from './bootstrapUI/btnLogOut.js';
 import './../style.css';
 import { signOut } from 'firebase/auth';
 import { auth } from '../FirebaseUser/index.js';
 import ModalPop from './modal.js';
-import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Col from 'react-bootstrap/Col';
+import ContextApp from './context.js'; 
 
 
 const maCouleur=[
@@ -33,21 +32,8 @@ function HeaderBoot(props) {
   const [change2, setChange2]=useState(maCouleur[1]);
   const [change3, setChange3]=useState(maCouleur[1]);
   const [pageCompte, setPageCompte]=useState(false);
-
-  const navigate=useNavigate();
-
-  const logOut = ()=>{
-    try {
-      if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
-        signOut(auth);
-        props.changeHeaderState(null);
-        navigate("/");
-      }
-    } catch (error) {
-      alert("erreur de déconnexion");
-    }
-  };
-
+  const {isConnected,login, logout}=useContext(ContextApp);
+  
   const privatepage=()=>{
       setPageCompte(true);
   };
@@ -72,7 +58,7 @@ function HeaderBoot(props) {
           <Navbar.Toggle   aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
           {  
-            (props.valueHeaderState!==null)?
+            (isConnected)?
             <Navbar.Brand> </Navbar.Brand>
             :
             <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
@@ -112,10 +98,10 @@ function HeaderBoot(props) {
                     </Dropdown.Menu>
                   </Dropdown>
                   {
-                      (props.valueHeaderState!==null)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> Marius </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
+                      (isConnected)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> Marius </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
                   }
                   {       
-                      (props.valueHeaderState!==null) ?<LogoutButton onClick={logOut}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
+                      (isConnected) ?<LogoutButton onClick={()=>logout()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
                   }
                 <Form className="d-flex flex-row" style={{paddingRight:'5px'}}>
                   <Form.Control
@@ -133,7 +119,7 @@ function HeaderBoot(props) {
 
             </Offcanvas.Body>
 
-          </Navbar.Offcanvas>:''
+          </Navbar.Offcanvas>
 
         </Container>
         

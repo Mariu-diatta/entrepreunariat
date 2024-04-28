@@ -3,13 +3,17 @@ import MainSection from "../mainSection";
 import {Navigate} from 'react-router-dom';
 import Footer from "../footerBoostrap";
 import VerticalMenu from "../verticalMenu";
+import ContextApp from "../context.js";
+import { useContext } from "react";
 
 const Admin =(props)=>{
+
+    const {isConnected, login,logout}=useContext(ContextApp);
 
     return(
         <>
             {
-                (props.valueHeaderState)? 
+                (isConnected)? 
 
                 <div className="row flex-row vert_menu_footer"> 
                     <VerticalMenu/>

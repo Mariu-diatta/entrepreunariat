@@ -1,21 +1,22 @@
 import BtnSmt from './buttonSubmit';
 import './../style.css';
-import {Link} from 'react-router-dom';
-import {useState} from 'react';
+import {Link, Navigate} from 'react-router-dom';
+import {useState,useContext} from 'react';
 import axiosInstance from './axios';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import ContextApp from './context';
 
-function LogIn(props) {
+function LogIn() {
 
   const [Email, setEmail]= useState("");
   const [password, setPassword] = useState("");
   const [passOublie, setPasseOublie]=useState(true);
-
+  const {isConnected,login,logout}= useContext(ContextApp);
 
   const handleSubmit=(event)=>{
-
+      
       event.preventDefault();
       const data= new FormData();
 
@@ -34,6 +35,10 @@ function LogIn(props) {
               localStorage.setItem('password',password);
               axiosInstance.defaults.headers.Authorization='JWT'+ localStorage.getItem('acces_token'); 
               console.log({'access_token':res.data.access, 'refresh_token':res.data.refresh});
+              login();
+              <Navigate to="/admin"/>
+              console.log(isConnected);
+
           }).catch(error => {
               console.log(error);
               document.getElementById('monid').innerHTML="problème de connexion<br/>";
@@ -42,9 +47,9 @@ function LogIn(props) {
 
   };
 
-
   return (
-    <div >
+
+    <>
       <Row className='pt-4'>
         <div className='col-lg-4'>
         </div>
@@ -105,9 +110,9 @@ function LogIn(props) {
         </div>
       </form>
       {
-        //(props.valueHeaderState)?<Navigate to="/admin"/>:<Navigate to="/login"/> 
+        (isConnected)?<Navigate to="/admin"/>:<Navigate to="/login"/> 
       }
-    </div>
+    </>
   );
   
 }
