@@ -24,7 +24,6 @@ function SignUp(props){
     const handleImageChange=(e)=>{
       const file = e.target.value;
       setPhoto(file);
-
     };
 
     const handleSubmit =(e)=>{

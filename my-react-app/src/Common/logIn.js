@@ -28,12 +28,11 @@ function LogIn() {
         document.getElementById('monid').innerHTML="mot de passe non rempli<br/>";
       }else{
               axiosInstance.post('api/token/', data).then((res)=>{
-              localStorage.setItem('access_token',res.data.access);
-              localStorage.setItem('refresh_token',res.data.refresh);
-              localStorage.setItem('Email',Email);
-              localStorage.setItem('password',password);
-              axiosInstance.defaults.headers.Authorization='JWT'+ localStorage.getItem('acces_token'); 
-              console.log({'access_token':res.data.access, 'refresh_token':res.data.refresh});
+              sessionStorage.setItem('access_token',res.data.access);
+              sessionStorage.setItem('refresh_token',res.data.refresh);
+              sessionStorage.setItem('Email',Email);
+              sessionStorage.setItem('password',password);
+              axiosInstance.defaults.headers.Authorization='JWT'+ sessionStorage.getItem('acces_token'); 
               login();
               <Navigate to="/admin"/>
 

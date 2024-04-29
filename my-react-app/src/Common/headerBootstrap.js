@@ -50,7 +50,7 @@ function HeaderBoot(props) {
   };
 
   useEffect(()=>{
-    if(localStorage.getItem('access_token')){
+    if(sessionStorage.getItem('access_token')){
       login();
       <Navigate to="/admin"/>
     }else  {
