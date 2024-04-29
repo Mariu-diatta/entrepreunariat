@@ -73,12 +73,7 @@ function HeaderBoot(props) {
         <Container fluid>
 
           <Navbar.Brand href="#" className='d-flex justify-content-start'>
-            {
-              isConnected && pageCompte ?
-                <nav></nav>
-                :
-                <strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>
-            }
+            <strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>
           </Navbar.Brand>
 
           <Navbar className='off_classe'> 
@@ -86,13 +81,15 @@ function HeaderBoot(props) {
               (isConnected) && pageCompte?
                 <ModalPop/>
                 :
-                <nav></nav>}
+                <nav></nav>
+            }
           </Navbar>
 
           <Navbar.Toggle   aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
           {   
             (isConnected)?
+            
               <Navbar.Brand> 
               </Navbar.Brand>
               :
