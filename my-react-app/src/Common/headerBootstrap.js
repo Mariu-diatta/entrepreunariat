@@ -143,12 +143,12 @@ function HeaderBoot(props) {
                       (isConnected) ?<LogoutButton onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
                   }
 
-                <Form className="d-flex flex-row" style={{paddingRight:'5px'}}>
+                <Form className="d-flex flex-row" style={{paddingRight:'5px', paddingLeft:'10px'}}>
 
                   <Form.Control
                     type="search"
                     placeholder="recherche"
-                    className="mt-1 mb-1 p-2"
+                    className="mt-1 mb-1"
                     left
                     aria-label="Search"
                     maxLength={"45"}
