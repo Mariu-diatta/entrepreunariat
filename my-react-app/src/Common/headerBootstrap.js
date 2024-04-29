@@ -73,7 +73,7 @@ function HeaderBoot(props) {
         <Container fluid>
 
           <Navbar.Brand href="#" className='d-flex justify-content-start'>
-            {isConnected?<nav></nav>:<strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>}
+            {isConnected && pageCompte ?<nav></nav>:<strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>}
           </Navbar.Brand>
 
           <Navbar className='off_classe'> 
