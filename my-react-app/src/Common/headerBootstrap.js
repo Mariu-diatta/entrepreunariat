@@ -33,21 +33,7 @@ function HeaderBoot(props) {
   const [change3, setChange3]=useState(maCouleur[1]);
   const [pageCompte, setPageCompte]=useState(false);
   const {isConnected,login, logout}=useContext(ContextApp);
-  
-  const privatepage=()=>{
-      setPageCompte(true);
-  };
 
-  const logOut=()=>{
-    try {
-      if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
-       logout();
-       console.log("Deconnecter: valeur de mon eta: "+this.initState());
-      } 
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   //That part of the code is always rendering because it is in the header which is in evry page
   useEffect(()=>{
@@ -64,13 +50,28 @@ function HeaderBoot(props) {
     setPageCompte(false);
   };
 
+  const privatepage=()=>{
+    setPageCompte(true);
+  };
+
+  const logOut=()=>{
+    try {
+      if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
+      logout();
+      console.log("Deconnecter: valeur de mon eta: "+this.initState());
+      } 
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className='row' style={{maxWidth:window.widt}}>
       <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top " style={{backgroundColor:'rgb(8,8,8)'}}>
         <Container fluid>
 
           <Navbar.Brand href="#" className='d-flex justify-content-start'>
-            <strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>
+            {isConnected?<nav></nav>:<strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>}
           </Navbar.Brand>
 
           <Navbar className='off_classe'> 
