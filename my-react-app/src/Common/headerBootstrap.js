@@ -89,7 +89,7 @@ function HeaderBoot(props) {
           
           {   
             (isConnected)?
-            
+
               <Navbar.Brand> 
               </Navbar.Brand>
               :
@@ -134,26 +134,27 @@ function HeaderBoot(props) {
                   </Dropdown>
 
                   {
-                      (isConnected)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> Marius </small></Link>:<Link  className='p-1' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
+                      (isConnected)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i><small>  {sessionStorage.getItem('Email')}</small> </small></Link>:<Link  className='p-1' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}><small>S'inscrire</small></Button></small></Link> 
                   }
                   {       
-                      (isConnected) ?<LogoutButton onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
+                      (isConnected) ?<LogoutButton onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}><small>Connexion</small></Button></Link>
                   }
+                <small>
+                  <Form className="d-flex flex-row" style={{paddingRight:'5px', paddingLeft:'10px'}}>
 
-                <Form className="d-flex flex-row" style={{paddingRight:'5px', paddingLeft:'10px'}}>
-
-                  <Form.Control
-                    type="search"
-                    placeholder="recherche"
-                    className="mt-1 mb-1"
-                    left
-                    aria-label="Search"
-                    maxLength={"45"}
-                    style={{textAlign:'center', border:'opx'}}
-                  />
-                  <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
-                  
-                </Form>
+                    <Form.Control
+                      type="search"
+                      placeholder="recherche"
+                      className="mt-1 mb-1"
+                      left
+                      aria-label="Search"
+                      maxLength={"45"}
+                      style={{textAlign:'center', border:'opx'}}
+                    />
+                    <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
+                    
+                  </Form>
+                </small>
 
               </Nav>
 
