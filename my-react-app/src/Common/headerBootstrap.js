@@ -67,31 +67,43 @@ function HeaderBoot(props) {
 
   return (
     <div className='row' style={{maxWidth:window.widt}}>
+
       <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top " style={{backgroundColor:'rgb(8,8,8)'}}>
+       
         <Container fluid>
 
           <Navbar.Brand href="#" className='d-flex justify-content-start'>
-            {isConnected && pageCompte ?<nav></nav>:<strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>}
+            {
+              isConnected && pageCompte ?
+                <nav></nav>
+                :
+                <strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>
+            }
           </Navbar.Brand>
 
           <Navbar className='off_classe'> 
-            {(isConnected) && pageCompte?<ModalPop/>:<nav></nav>}
+            {
+              (isConnected) && pageCompte?
+                <ModalPop/>
+                :
+                <nav></nav>}
           </Navbar>
 
           <Navbar.Toggle   aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           
-          {  
-          
+          {   
             (isConnected)?
-            <Navbar.Brand> </Navbar.Brand>
-            :
-            <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
-                <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
-                  <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
-                
-                  <Button variant='outline-primary' style={{border:'0px' , color:'grey'}}> Acheteurs</Button>
+              <Navbar.Brand> 
+              </Navbar.Brand>
+              :
+              <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
+
+                  <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
+                    <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
+                    <Button variant='outline-primary' style={{border:'0px' , color:'grey'}}> Acheteurs</Button>
                   </div> 
-            </Navbar.Brand>
+
+              </Navbar.Brand>
           }
 
           <Navbar.Offcanvas
@@ -111,6 +123,7 @@ function HeaderBoot(props) {
                   <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><nav className='d-flex flex-row p-1' ><small><i className=" fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}></i> Accueil</small> </nav></Link>
                   
                   <Dropdown >
+
                     <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'grey'}}>
                       <Button variant='outline-primary p-1' style={{borderColor:'grey', color:'grey'}}><small>À propos</small></Button>
                     </Dropdown.Toggle>
@@ -120,14 +133,18 @@ function HeaderBoot(props) {
                       <Dropdown.Item href="#/action-2" style={{color:'grey'}}>Another action</Dropdown.Item>
                       <Dropdown.Item href="#/action-3" style={{color:'grey'}}>Something else</Dropdown.Item>
                     </Dropdown.Menu>
+
                   </Dropdown>
+
                   {
                       (isConnected)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> Marius </small></Link>:<Link  className='p-1' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
                   }
                   {       
                       (isConnected) ?<LogoutButton onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
                   }
+
                 <Form className="d-flex flex-row" style={{paddingRight:'5px'}}>
+
                   <Form.Control
                     type="search"
                     placeholder="recherche"
@@ -138,7 +155,9 @@ function HeaderBoot(props) {
                     style={{textAlign:'center', border:'opx'}}
                   />
                   <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
+                  
                 </Form>
+
               </Nav>
 
             </Offcanvas.Body>
@@ -148,7 +167,9 @@ function HeaderBoot(props) {
         </Container>
         
       </Navbar>
+
       <Outlet />
+
     </div>
   );
 }
