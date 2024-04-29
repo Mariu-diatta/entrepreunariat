@@ -29,32 +29,45 @@ import AlertBootstrap from "./alertBootSrap";
     const [validerCommande, setValiderCommande]=useState(false);
     const [summettreCommande, setSummettreCommande]=useState(false);
     const [destinationArray, setDestinationArray] = useState([]);
+    const [codeValidation,setCodeValidation]=useState(false);
+    const [code,setCode]=useState(null);
+    const [codeColor,setCodeColor]=useState(false);
+
+    useEffect(()=>{
+        setValiderCommande(validerCommande);
+        setCodeColor(codeColor);
+    }, [summettreCommande, validerCommande, codeColor])
 
 
     const codeGenerique=(e)=>{
-        ///document.getElementById('monid').innerHTML="<div style={{fontFamily:'system-ui', textAlign:'center'}}>Bravo!!! Vous avez fait des choix.<br> Veullez vérifier votre portable pour renseigner le code.<br><form><input type='number'/> </form></div>";
-        console.log("validation code");
+        document.getElementById('monid').innerHTML="<div style={{fontFamily:'system-ui', textAlign:'center'}}>Bravo!!! Vous avez fait des choix.<br> Veullez vérifier votre portable pour renseigner le code.<br><form><input type='number'/> </form></div>";
     };
+
+    const commandeSumit=(e)=>{
+        setCodeColor(true);
+        setSummettreCommande(true);
+    }
 
 
     // fonction annuler la commande
     const commandAnnuler=()=>{
         if(window.confirm("Voulez-vous vraiment annuler la commande?")){
-
         }
     };
+
+    const entrerCodeValidation=()=>{
+        setCodeValidation(true);
+    }
 
 
     //validation commande
     const validate=(e)=>{
         if(window.confirm("Voulez-vous vraiment valider la commande?")){
             setValiderCommande(true);
-            codeGenerique();
         }
-
     };
 
-    
+    //submit post 
     const handleSubmit=(e)=>{
 
         e.preventDefault();
@@ -62,32 +75,23 @@ import AlertBootstrap from "./alertBootSrap";
         setUseData({nom:nom,prenom:prenom,numero:numero});
 
         if (useData.nom==='' || useData.nom==='' || useData.nom==='') {
-            // document.getElementById('mon_id').innerHTML="Données utilisateurs incomplètes";
             console.log(" Données utilisateurs incomplètes ");
-        }else{
-            if (destinationArray.length!==0) {
-                codeGenerique();
-          
-            }else{
-                // document.getElementById('mon_id').innerHTML="Il y n'a pas de choix";
-                console.log(" Il y n'a pas de choix ");
-          
-            }
         }
-
     };
 
     // Fonction pour sélectionner un élément de la source et l'ajouter à la destination
     const selectAndAddToDestination = (index) => {
         // Copie de l'élément sélectionné depuis la source
-        const selectedElement = sourceArray[index];
-        // Copie de la sourceArray sans l'élément sélectionné
-        const updatedSourceArray = sourceArray.filter((_, i) => i !== index);
-        // Mise à jour des tableaux
-        setSourceArray(updatedSourceArray);
-        setDestinationArray(prevArray => [...prevArray, selectedElement]);
-        destinationArray.sort((a,b)=>a.prod-b.prod);
-        sourceArray.sort((a,b)=>a.prod-b.prod);
+        if(!summettreCommande){
+            const selectedElement = sourceArray[index];
+            // Copie de la sourceArray sans l'élément sélectionné
+            const updatedSourceArray = sourceArray.filter((_, i) => i !== index);
+            // Mise à jour des tableaux
+            setSourceArray(updatedSourceArray);
+            setDestinationArray(prevArray => [...prevArray, selectedElement]);
+            destinationArray.sort((a,b)=>a.prod-b.prod);
+            sourceArray.sort((a,b)=>a.prod-b.prod);
+        }
     };
 
     const supprimerElement= (index) => {
@@ -101,9 +105,12 @@ import AlertBootstrap from "./alertBootSrap";
     };
 
     return(
+
         <section className="container p-4 m-4" >
+
             { 
                 validerCommande?
+
                 <AlertBootstrap/>
                 :
                 <div className="row">
@@ -140,7 +147,7 @@ import AlertBootstrap from "./alertBootSrap";
 
                                         <tbody>
                                             {
-                                                sourceArray.map((car, index) =><ProduitSelected prod={car.prod}  lab={car.lab} prix={car.prix} qual={car.qual} onClick={() => selectAndAddToDestination(index)} />)
+                                                sourceArray.map((car, index) =><ProduitSelected prod={car.prod}  lab={car.lab} prix={car.prix} qual={car.qual} onClick={() => selectAndAddToDestination(index)} codeColor={codeColor} />)
                                             }  
                                         </tbody>
 
@@ -197,7 +204,7 @@ import AlertBootstrap from "./alertBootSrap";
                                                         <td>{el.lab}</td>
                                                         <td>{el.prix}</td>
                                                         <td>{el.qual}</td>
-                                                        <td>{summettreCommande?<Badge bg="success">Success</Badge>:<Button  style={{backgroundColor:'red'}} onClick={() =>supprimerElement(index)}>X</Button>}</td>
+                                                        <td>{summettreCommande?<Badge bg="secondary">Success</Badge>:<Button  style={{backgroundColor:'red'}} onClick={() =>supprimerElement(index)}>X</Button>}</td>
                                                     </tr>
                                                 )
                                             }
@@ -206,8 +213,13 @@ import AlertBootstrap from "./alertBootSrap";
                                     
                                 </div>
                                     {
-                                        (destinationArray.length!==0)?
-                                        <p id="monid"  style={{fontFamily:'system-ui', textAlign:'center', color:'green'}}></p>
+                                        (summettreCommande) && !codeValidation?
+
+                                        <div style={{fontFamily:'system-ui', textAlign:'center', color:'green'}}>
+                                            Bravo!!! Vous avez fait des choix.<br/> 
+                                            Veullez vérifier votre portable pour renseigner le code.<br/>
+                                            <input type='number' name={code} value={code} onChange={(e)=>setCode(e.target.value)} />
+                                        </div>
                                         :
                                         <p id="mon_id" style={{color:'red'}}></p>
                                     }
@@ -216,10 +228,13 @@ import AlertBootstrap from "./alertBootSrap";
                                         (destinationArray.length!==0)?
                                         <div>
                                             {  
-                                                summettreCommande?                             
-                                                    <nav><button type="submit" className='btn btn-success p-2 m-2' onClick={validate}> Valider</button ><button type="submit" className='btn btn-danger p-2 m-2' onClick={commandAnnuler}> Supprimer</button ></nav>
+                                                summettreCommande && codeValidation?                             
+                                                    <nav>
+                                                        <button type="submit" className='btn btn-success p-2 m-2' onClick={validate}> Valider</button >
+                                                        <button type="submit" className='btn btn-danger p-2 m-2' onClick={commandAnnuler}> Supprimer</button >
+                                                    </nav>
                                                     :
-                                                    <button type="submit" className='btn btn-success p-2 m-2' onClick={()=>setSummettreCommande(true)}> Soumettre</button >
+                                                    <nav></nav >
                                             }                                        
                                         </div> 
                                         :
@@ -228,6 +243,23 @@ import AlertBootstrap from "./alertBootSrap";
                                     }    
 
                             </form> 
+                            {
+                                (destinationArray.length!==0) && !summettreCommande?
+                                <nav> 
+                                    <button  className='btn btn-success p-2 m-2' onClick={commandeSumit}> Soumettre</button>
+                                </nav>
+                                :
+                                <nav>
+                                    {   summettreCommande && !codeValidation?
+                                        <nav>
+                                            <button  className='btn btn-success p-2 m-2' onClick={entrerCodeValidation}> Valider le code</button >
+                                            <button  className='btn btn-danger p-2 m-2' onClick={commandAnnuler}> Supprimer</button >
+                                        </nav>
+                                        :
+                                        <nav></nav>
+                                    }
+                                </nav>
+                            }
                         
                         </div>
                     
@@ -235,6 +267,7 @@ import AlertBootstrap from "./alertBootSrap";
 
                 </div>
             }
+
         </section>
     )
 }
