@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./../style.css";
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 const couleurBlue = {backgroundColor:"", color:"blue"};
 const couleurWhite = {backgroundColor:"", color:"black"};
+
 
 /**Site pour les fa icon https://fontawesome.com/v4/icon/ellipsis-v */
 const VerticalMenu=()=>{
@@ -17,7 +21,7 @@ const VerticalMenu=()=>{
     return (
 
         <nav className=' sticky-top u-align-center style_css  col-lg-2'>
-            <strong  style={{color:'black', paddingLeft:'0px'} }>VirtualB</strong>
+            < Navbar.Brand className="p-4"><strong className="p-4">VirtualB</strong></ Navbar.Brand> 
             <ul>
                 <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small><i className="fa fa-commenting fa-2x" aria-hidden="true">{"_"}</i>Messages</small></button></li>
                 { 

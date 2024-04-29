@@ -13,8 +13,6 @@ import {useState, useContext, useEffect} from "react";
 import {Outlet, Link, Navigate} from 'react-router-dom';
 import LogoutButton from './bootstrapUI/btnLogOut.js';
 import './../style.css';
-// import { signOut } from 'firebase/auth';
-// import { auth } from '../FirebaseUser/index.js';
 import ModalPop from './modal.js';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ContextApp from './context.js'; 
@@ -110,11 +108,11 @@ function HeaderBoot(props) {
             <Offcanvas.Body className='d-flex justify-content-end'>
 
               <Nav style={{ backgroundColor:'black'}}>
-                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><small style={{color:''}} ><i className="p-2 d-flex flex-row fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}>Accueil</i> </small></Link>
+                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><nav className='d-flex flex-row p-1' ><small><i className=" fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}></i> Accueil</small> </nav></Link>
                   
                   <Dropdown >
                     <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'grey'}}>
-                      <Button variant='outline-primary' style={{border:'0px', color:'grey'}}>À propos</Button>
+                      <Button variant='outline-primary p-1' style={{borderColor:'grey', color:'grey'}}><small>À propos</small></Button>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu style={{backgroundColor:'black'}}>
@@ -124,10 +122,10 @@ function HeaderBoot(props) {
                     </Dropdown.Menu>
                   </Dropdown>
                   {
-                      (isConnected)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> Marius </small></Link>:<Link  className='p-2 ' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
+                      (isConnected)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i> Marius </small></Link>:<Link  className='p-1' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}>S'inscrire</Button></small></Link> 
                   }
                   {       
-                      (isConnected) ?<LogoutButton onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-2' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
+                      (isConnected) ?<LogoutButton onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}>Connexion</Button></Link>
                   }
                 <Form className="d-flex flex-row" style={{paddingRight:'5px'}}>
                   <Form.Control
