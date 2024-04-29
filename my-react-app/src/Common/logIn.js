@@ -111,11 +111,11 @@ function LogIn() {
           <div className='col-lg-4'>
           </div>      
         </div>
-        
+
       </form>
 
       {
-        (isConnected)?<Navigate to="/admin"/>:<Navigate to="/login"/> 
+        (isConnected && sessionStorage.getItem('access_token'))?<Navigate to="/admin"/>:<Navigate to="/login"/> 
       }
       
     </>

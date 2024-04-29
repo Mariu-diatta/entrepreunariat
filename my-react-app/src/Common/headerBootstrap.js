@@ -38,13 +38,15 @@ function HeaderBoot(props) {
   //That part of the code is always rendering because it is in the header which is in evry page
   useEffect(()=>{
     if(sessionStorage.getItem('access_token')){
+      console.log('header: Je suis en refresh login')
       login();
       <Navigate to="/admin" />
     }else  {
+      console.log('Header: Je suis en refresh logout')
       logout();
       <Navigate to="/login"/> 
     }
-  });
+  }, [isConnected]);
 
   const notprivatepage=()=>{
     setPageCompte(false);
