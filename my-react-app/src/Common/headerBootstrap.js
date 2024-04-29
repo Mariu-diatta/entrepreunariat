@@ -13,8 +13,8 @@ import {useState, useContext, useEffect} from "react";
 import {Outlet, Link, Navigate} from 'react-router-dom';
 import LogoutButton from './bootstrapUI/btnLogOut.js';
 import './../style.css';
-import { signOut } from 'firebase/auth';
-import { auth } from '../FirebaseUser/index.js';
+// import { signOut } from 'firebase/auth';
+// import { auth } from '../FirebaseUser/index.js';
 import ModalPop from './modal.js';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ContextApp from './context.js'; 
@@ -32,7 +32,7 @@ function HeaderBoot(props) {
   const [change2, setChange2]=useState(maCouleur[1]);
   const [change3, setChange3]=useState(maCouleur[1]);
   const [pageCompte, setPageCompte]=useState(false);
-  const {isConnected,login, logout, initState}=useContext(ContextApp);
+  const {isConnected,login, logout}=useContext(ContextApp);
   
   const privatepage=()=>{
       setPageCompte(true);
@@ -49,15 +49,16 @@ function HeaderBoot(props) {
     }
   };
 
+  //That part of the code is always rendering because it is in the header which is in evry page
   useEffect(()=>{
     if(sessionStorage.getItem('access_token')){
       login();
-      <Navigate to="/admin"/>
+      <Navigate to="/admin" />
     }else  {
       logout();
       <Navigate to="/login"/> 
-    };
-  }, initState);
+    }
+  });
 
   const notprivatepage=()=>{
     setPageCompte(false);

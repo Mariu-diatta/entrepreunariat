@@ -13,11 +13,13 @@ function LogIn() {
   const [Email, setEmail]= useState("");
   const [password, setPassword] = useState("");
   const [passOublie, setPasseOublie]=useState(true);
-  const {isConnected,login,logOut,initState}= useContext(ContextApp);
+  const {isConnected,login}= useContext(ContextApp);
 
   const handleSubmit=(event)=>{
       
       event.preventDefault();
+
+      //data for user
       const data= new FormData();
       data.append("Email",Email);
       data.append("password",password);
@@ -109,6 +111,7 @@ function LogIn() {
           <div className='col-lg-4'>
           </div>      
         </div>
+        
       </form>
 
       {

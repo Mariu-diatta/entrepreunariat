@@ -18,22 +18,14 @@ import ContextApp from './Common/context.js';
 class  App extends Component{
 
    constructor(props){
-
       super(props);
       this.state={
         isConnected:false
       };
       this.login=this.login.bind(this);
       this.logout=this.logout.bind(this);
-      this.initState=this.initState.bind(this);
       this.logout=this.logout.bind(this);
    }
-
-
-  initState(){
-    const localstorage=localStorage.getItem('access_token');
-    return localstorage!==null?true:false;
-  }
 
   login (){
     this.setState({ isConnected:true});
@@ -41,7 +33,7 @@ class  App extends Component{
 
   logout(){
     this.setState({ isConnected:false});
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
 
@@ -51,11 +43,10 @@ class  App extends Component{
     const logout=  this.logout;
     const login=  this.login;
     const isConnected=  this.state.isConnected;
-    const initState=this.initState;
 
     return (
 
-      <ContextApp.Provider value={{isConnected, login,logout,initState}}>
+      <ContextApp.Provider value={{isConnected, login,logout}}>
         <BrowserRouter>
             <Routes>
               <Route path="/" element={<HeaderBoot />}>
