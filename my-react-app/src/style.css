@@ -1,6 +1,30 @@
+@media screen and (max-width: 2000px){
+    
+    .propos_class{
+        padding-bottom: 10px !important;
+        background-color: #171212 !important;
+    }
+
+    .search_class{
+        padding-left: 0px;
+        margin-left: 0px;
+    }
+}
+
 .fa{
     color: rgb(126, 162, 199);
 }
+
+.accordion-header{
+    background-color: #171212;
+}
+
+.logInOut{
+    padding-top:5px !important;
+    padding-bottom: 0px !important;
+    z-index: 23;
+}
+
 
 .box_ {
     flex-direction: row;

@@ -7,7 +7,6 @@ import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
-import Stack from 'react-bootstrap/Stack';
 import AlertBootstrap from "./alertBootSrap";
 
 
@@ -38,16 +37,10 @@ import AlertBootstrap from "./alertBootSrap";
         setCodeColor(codeColor);
     }, [summettreCommande, validerCommande, codeColor])
 
-
-    const codeGenerique=(e)=>{
-        document.getElementById('monid').innerHTML="<div style={{fontFamily:'system-ui', textAlign:'center'}}>Bravo!!! Vous avez fait des choix.<br> Veullez vérifier votre portable pour renseigner le code.<br><form><input type='number'/> </form></div>";
-    };
-
     const commandeSumit=(e)=>{
         setCodeColor(true);
         setSummettreCommande(true);
     }
-
 
     // fonction annuler la commande
     const commandAnnuler=()=>{
@@ -59,7 +52,6 @@ import AlertBootstrap from "./alertBootSrap";
         setCodeValidation(true);
     }
 
-
     //validation commande
     const validate=(e)=>{
         if(window.confirm("Voulez-vous vraiment valider la commande?")){
@@ -69,11 +61,8 @@ import AlertBootstrap from "./alertBootSrap";
 
     //submit post 
     const handleSubmit=(e)=>{
-
         e.preventDefault();
-
         setUseData({nom:nom,prenom:prenom,numero:numero});
-
         if (useData.nom==='' || useData.nom==='' || useData.nom==='') {
             console.log(" Données utilisateurs incomplètes ");
         }

@@ -36,8 +36,6 @@ class  App extends Component{
     sessionStorage.clear();
   }
 
-
-
   render(){
 
     const logout=  this.logout;

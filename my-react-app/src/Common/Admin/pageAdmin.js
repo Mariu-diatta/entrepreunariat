@@ -4,7 +4,9 @@ import {Navigate} from 'react-router-dom';
 import Footer from "../footerBoostrap";
 import VerticalMenu from "../verticalMenu";
 import ContextApp from "../context.js";
-import { useContext } from "react";
+import { createContext, useContext } from "react";
+
+
 
 const Admin =(props)=>{
 
@@ -14,18 +16,18 @@ const Admin =(props)=>{
         <>
             {
                 (isConnected)? 
+                    <div className="row flex-row vert_menu_footer"> 
+                        <VerticalMenu/>
+                        <div className="col-lg-10 class_pad">
 
-                <div className="row flex-row vert_menu_footer"> 
-                    <VerticalMenu/>
-                    <div className="col-lg-10 class_pad">
-                        <div className="row">
-                            <MainSection/>
-                        </div>
-                    </div> 
-                </div>
+                            <div className="row">
+                                <MainSection/>
+                            </div>
 
-                :<Navigate to="/login"/>
-            
+                        </div> 
+                    </div>
+                :
+                    <Navigate to="/login"/>
             }
             <div className=" nav-footer ">
                 <Footer/>

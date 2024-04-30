@@ -16,6 +16,9 @@ import './../style.css';
 import ModalPop from './modal.js';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ContextApp from './context.js'; 
+import Accordion from 'react-bootstrap/Accordion';
+
+
 
 
 const maCouleur=[
@@ -73,7 +76,7 @@ function HeaderBoot(props) {
         <Container fluid>
 
           <Navbar.Brand href="#" className='d-flex justify-content-start'>
-            <strong  className=' ' style={{color:'white', paddingLeft:'20px'}}>VirtualB</strong>
+            <strong  className='' style={{color:'white', paddingLeft:'20px', margin:'0px'}}>VirtualB</strong>
           </Navbar.Brand>
 
           <Navbar className='off_classe'> 
@@ -93,7 +96,7 @@ function HeaderBoot(props) {
               <Navbar.Brand> 
               </Navbar.Brand>
               :
-              <Navbar.Brand className='row' style={{paddingLeft:'40px'}}>
+              <Navbar.Brand className='row' style={{paddingLeft:'40px', margin:'0px'}}>
 
                   <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
                     <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
@@ -107,6 +110,7 @@ function HeaderBoot(props) {
             id={`offcanvasNavbar-expand-${'lg'}`}
             aria-labelledby={`offcanvasNavbarLabel-expand-${'lg'}`}
             placement="end"
+            className='navOf'
           > 
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${'lg'}`}>
@@ -119,12 +123,16 @@ function HeaderBoot(props) {
               <Nav style={{ backgroundColor:'black'}}>
                   <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><nav className='d-flex flex-row p-1' ><small><i className=" fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}></i> Accueil</small> </nav></Link>
                   
-                  <Dropdown >
-
-                    <Dropdown.Toggle variant="" id="dropdown-basic" style={{color:'grey'}}>
-                      <Button variant='outline-primary p-1' style={{borderColor:'grey', color:'grey'}}><small>À propos</small></Button>
+                  <Dropdown className='propos_class'>
+ 
+                    <Dropdown.Toggle variant="" id="dropdown-basic" className='propos_class' style={{backgroundColor:'black',padding:'0px'}}>
+                      <Accordion defaultActiveKey="0" className='u-align align-center'style={{ margin:'0px', padding:'0px', height:'3px'}}>
+                        <Accordion.Header  className='' style={{backgroundColor:'black',margin:'0px', marginTop:'-3px',marginLeft:'4px', height:'auto' }}>
+                          <small className=''>À propos</small>
+                        </Accordion.Header>
+                      </Accordion >
                     </Dropdown.Toggle>
-
+                    
                     <Dropdown.Menu style={{backgroundColor:'black'}}>
                       <Dropdown.Item href="/a_propos" style={{color:'grey'}}>Action</Dropdown.Item>
                       <Dropdown.Item href="#/action-2" style={{color:'grey'}}>Another action</Dropdown.Item>
@@ -134,28 +142,27 @@ function HeaderBoot(props) {
                   </Dropdown>
 
                   {
-                      (isConnected)?<Link  className='p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i><small>  {sessionStorage.getItem('Email')}</small> </small></Link>:<Link  className='p-1' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}><small>S'inscrire</small></Button></small></Link> 
+                      (isConnected)?<Link  className='logInOut p-2 ' to="/admin" onClick={privatepage} ><small><i className="fa fa-user fa-lg " aria-hidden="true"></i><small>  {sessionStorage.getItem('Email')}</small> </small></Link>:<Link  className='logInOut p-1' to="/inscription" ><small><Button variant='outline-primary' style={{border:'0px', color:'white'}}><small>S'inscrire</small></Button></small></Link> 
                   }
                   {       
-                      (isConnected) ?<LogoutButton onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}><small>Connexion</small></Button></Link>
+                      (isConnected) ?<LogoutButton className='logInOut' onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='logInOut p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}><small>Connexion</small></Button></Link>
                   }
-                <small>
-                  <Form className="d-flex flex-row" style={{paddingRight:'5px', paddingLeft:'10px'}}>
+            
+                <Form className="d-flex search_class flex-row" style={{paddingRight:'5px', paddingLeft:'10px'}}>
 
-                    <Form.Control
-                      type="search"
-                      placeholder="recherche"
-                      className="mt-1 mb-1"
-                      left
-                      aria-label="Search"
-                      maxLength={"45"}
-                      style={{textAlign:'center', border:'opx'}}
-                    />
-                    <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
-                    
-                  </Form>
-                </small>
-
+                  <Form.Control
+                    type="search"
+                    placeholder="recherche"
+                    className="mt-1 mb-1"
+                    left
+                    aria-label="Search"
+                    maxLength={"45"}
+                    style={{textAlign:'center', border:'opx'}}
+                  />
+                  <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
+                  
+                </Form>
+              
               </Nav>
 
             </Offcanvas.Body>
