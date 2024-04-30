@@ -15,6 +15,10 @@ function LogIn() {
   const [passOublie, setPasseOublie]=useState(true);
   const {isConnected,login}= useContext(ContextApp);
 
+  const handleSubmitPassForget=(e)=>{
+    e.preventDefault();
+  }
+
   const handleSubmit=(event)=>{
       
       event.preventDefault();
@@ -50,70 +54,90 @@ function LogIn() {
 
     <>
       <Row className='pt-4'>
-        <div className='col-lg-4'>
+
+        <div className='col-lg-2'>
         </div>
-        <div className='col-lg-4'>
-          {passOublie?<h4 style={{textAlign:'center'}}>Connexion!</h4>:<h4 style={{textAlign:'center'}}>Mot de pass oublié!</h4>}
+
+        <div className='col-lg-8'>
+          {
+            passOublie?
+              <div className='u-align-center u-form-group u-form-submit u-label-none u-form-group-4'>
+
+                <form onSubmit={handleSubmit}>
+
+                  <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4" style={{paddingTop:'10%'}}>
+
+                    <strong style={{textAlign:'center'}}><h4>Connexion!</h4></strong >
+
+                    <div className='col-lg-4'>
+                    </div>
+
+                    <div className='col-lg-4'>
+
+                      <div className='form-floating md-form p-1'>
+                        <FloatingLabel controlId="floatingInput"  label="Votre email"  className="mb-3"  >
+                          <Form.Control  name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="u-align-center u-input" />
+                        </FloatingLabel>
+                      </div>
+
+                      <div className='form-floating md-form p-1'>
+                        <FloatingLabel controlId="floatingPassword1" label="Votre mot de pass" className='mb-3'>
+                          <Form.Control   name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Votre mot de pass"  maxLength="30" className="  u-align-center u-input" />
+                        </FloatingLabel>
+                      </div>
+
+                    </div>
+                    
+                    <div className='col-lg-4'>
+                    </div>
+
+                  </div> 
+
+                </form> 
+
+                  <p> <small  className=' btn' onClick={()=>setPasseOublie(false)}> Mot de passe oublier?</small><Link to={'/inscription'}> <small>S'inscrire.</small></Link></p> 
+                  <p id='monid' style={{color:'red'}}> </p>     
+                  <BtnSmt/>      
+                  <br/>  
+
+              </div>
+            :
+            <div className='row'>
+
+              <form onSubmit={handleSubmitPassForget}>
+              
+                <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4" style={{paddingTop:'10%'}}>
+                
+                <strong > <h4 style={{textAlign:'center'}}>Mot de pass oublié!</h4></strong >
+
+                    <div className='col-lg-4'>
+                    </div>
+
+                    <div className='col-lg-4 form-floating md-form p-2'>
+
+                      <FloatingLabel controlId="floatingPassword2" label="Votre mot de pass" className=' mb-3'>
+                        <Form.Control   name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
+                      </FloatingLabel>
+                      <BtnSmt/>  
+
+                    </div>
+
+                    <div className='col-lg-4'>
+                    </div>
+
+                </div>
+
+              </form>
+
+            </div>
+          }
+
         </div>
-        <div className='col-lg-4'>
+
+        <div className='col-lg-2'>
         </div>
+
       </Row>
-
-      <form onSubmit={handleSubmit} className="u-clearfix u-form-spacing-40 u-form-vertical u-inner-form" >
-       
-        {
-          passOublie?
-          <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4 " >
-
-            <div className='col-lg-4'>
-            </div>
-
-            <div className='col-lg-4'>
-              <div className='form-floating md-form p-1'>
-                <FloatingLabel controlId="floatingInput"  label="Votre email"  className="mb-3"  >
-                  <Form.Control  name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="u-align-center u-input" />
-                </FloatingLabel>
-              </div>
-              <div className='form-floating md-form p-1'>
-                <FloatingLabel controlId="floatingPassword1" label="Votre mot de pass" className='mb-3'>
-                  <Form.Control   name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Votre mot de pass"  maxLength="30" className="  u-align-center u-input" />
-                </FloatingLabel>
-              </div>
-            </div>
-            
-            <div className='col-lg-4'>
-            </div>
-          </div>
-          :
-          <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4" >
-              <div className='col-lg-4'>
-              </div>
-              <div className='col-lg-4 form-floating md-form p-1'>
-                <FloatingLabel controlId="floatingPassword2" label="Votre mot de pass" className=' mb-3'>
-                  <Form.Control   name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
-                </FloatingLabel>
-              </div>
-              <div className='col-lg-4'>
-              </div>
-          </div>
-          
-        }
-
-        <div className="row u-align-center u-form-group u-form-submit u-label-none u-form-group-4"> 
-          <div className='col-lg-4'>
-          </div>
-          <div className='col-lg-4 '>
-            {passOublie?<p> <small  className=' btn' onClick={()=>setPasseOublie(false)}> Mot de passe oublier?</small><Link to={'/inscription'}> <small>S'inscrire.</small></Link>  </p>: <small></small>} 
-            <p id='monid' style={{color:'red'}}> </p>     
-            <BtnSmt/>      
-            <br/>     
-          </div> 
-          <div className='col-lg-4'>
-          </div>      
-        </div>
-
-      </form>
-
       {
         (isConnected && sessionStorage.getItem('access_token'))?<Navigate to="/admin"/>:<Navigate to="/login"/> 
       }
