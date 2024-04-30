@@ -142,7 +142,7 @@ function HeaderBoot(props) {
                   </Dropdown>
 
                   {
-                      (isConnected)?<Link  className='logInOut p-2 ' to="/admin" onClick={privatepage} ><small className='p-1 m-1'><i className="fa fa-user fa-lg " aria-hidden="true"></i><small>  {sessionStorage.getItem('Email')}</small> </small></Link>:<Link  className='logInOut' to="/inscription" ><small><Button variant='outline-primary' className='logInOut m-2 p-1'  style={{border:'0px', color:'white'}}><small>S'inscrire</small></Button></small></Link> 
+                      (isConnected)?<Link  className='logInOut p-2 ' to="/admin" onClick={privatepage} ><small className='p-1 m-1'><i className="fa fa-user fa-lg " aria-hidden="true"></i><small>  {sessionStorage.getItem('Email')}</small> </small></Link>:<Link  className='logInOut' to="/inscription" ><small><Button variant='outline-primary' className='logInOut'  style={{border:'0px', color:'white', marginTop:'6px'}}><small>S'inscrire</small></Button></small></Link> 
                   }
                   {       
                       (isConnected) ?<LogoutButton className='logInOut' onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='logInOut p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}><small>Connexion</small></Button></Link>
