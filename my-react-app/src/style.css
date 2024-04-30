@@ -18,16 +18,27 @@
     color: #f1eaea;
     text-align:justify;
     margin-top:7px !important;
+    padding-left: 1px;
+    padding-right: 1px;
     max-height:2px;
+    max-width: auto;
+    border-color: #0a0a0a;
 }
 
 
 .accordion-button:focus {
     box-shadow: none;
+    background-color: #0a0a0a;
 }
 
+
 .accordion-button:not(.collapsed) {
-    color: #f1eaea !important;
+    color: #ece8e8 !important;
+}
+
+.accordion{
+    height: 2px;
+    border-color: #0a0a0a;
 }
 
 /* nav- */

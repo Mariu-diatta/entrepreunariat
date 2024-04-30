@@ -123,12 +123,12 @@ function HeaderBoot(props) {
               <Nav className='nav_style'>
                   <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><nav className='d-flex flex-row p-1' ><small><i className=" fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}></i> Accueil</small> </nav></Link>
                   
-                  <Dropdown className=''>
+                  <Dropdown >
  
-                    <Dropdown.Toggle variant="" id="dropdown-basic" className='' style={{padding:'0px'}}>
-                      <Accordion defaultActiveKey="0" className='u-align align-center'style={{ height:'3px'}}>
-                        <Accordion.Header  className='' style={{margin:'0px', height:'auto' }}>
-                          <small className=''>À propos</small>
+                    <Dropdown.Toggle variant="" id="dropdown-basic" className='pr-2  pl-2' style={{padding:'0px'}}>
+                      <Accordion  className='u-align align-center'>
+                        <Accordion.Header style={{margin:'0px', height:'auto' }}>
+                          <small >À propos</small>
                         </Accordion.Header>
                       </Accordion >
                     </Dropdown.Toggle>
