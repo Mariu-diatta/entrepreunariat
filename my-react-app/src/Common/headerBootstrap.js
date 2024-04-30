@@ -17,14 +17,12 @@ import ModalPop from './modal.js';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ContextApp from './context.js'; 
 import Accordion from 'react-bootstrap/Accordion';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 import TooltipLayer from './overLayer';
 
 
 const maCouleur=[
-    {color:'white', backgroundColor:'rgb(220, 215, 215)', textAlign:'center', borderRadius:'5%', padding:'20px'},
-    {color:'white', textAlign:'center'}
+    {color:'white', backgroundColor:'grey',borderRadius:'5px'},
+    {color:'white', backgroundColor:'black' ,borderRadius:'5px'}
 ];
 
 function HeaderBoot(props) {
@@ -32,7 +30,7 @@ function HeaderBoot(props) {
   const [change, setChange]=useState(maCouleur[1]);
   const [change1, setChange1]=useState(maCouleur[1]);
   const [change2, setChange2]=useState(maCouleur[1]);
-  const [change3, setChange3]=useState(maCouleur[1]);
+
   const [pageCompte, setPageCompte]=useState(false);
   const {isConnected,login, logout}=useContext(ContextApp);
 
@@ -121,7 +119,7 @@ function HeaderBoot(props) {
 
               <Nav className='nav_style'>
 
-                  <Link className='p-2 ' to="/" style={change}  onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}>
+                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}>
                    
                     <TooltipLayer message={"Accueil"}> 
                       <nav className='d-flex flex-row p-1' >
@@ -131,14 +129,14 @@ function HeaderBoot(props) {
                       </nav>
                     </TooltipLayer> 
 
-                   </Link>
+                  </Link>
                   
                   <Dropdown >
  
-                    <Dropdown.Toggle variant="" id="dropdown-basic" className='pr-2  pl-2' style={{padding:'0px'}}>
+                    <Dropdown.Toggle variant="" id="dropdown-basic" className='pr-2  pl-2 pe-3 ' style={{padding:'0px'}}>
                       <Accordion  className='u-align align-center'>
                         <Accordion.Header style={{margin:'0px', height:'auto' }}>
-                          <small className='p-2 '>À propos</small>
+                          <small className='p-1 '>À propos</small>
                         </Accordion.Header>
                       </Accordion >
                     </Dropdown.Toggle>
@@ -153,18 +151,25 @@ function HeaderBoot(props) {
 
                   {
                       (isConnected)?
-                        <TooltipLayer message={"Compte de"+ sessionStorage.getItem('Email')}> 
-                          <Link  className='logInOut p-2 ' to="/admin" onClick={privatepage} >
-                            <small className='p-1 m-1'><i className="fa fa-user fa-lg " aria-hidden="true"></i></small>
+                        <nav>
+                          <Link  className='p-3 ' to="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
+                            
+                            <TooltipLayer message={"Compte de"+ sessionStorage.getItem('Email')}> 
+                              
+                              <small ><i className="fa fa-user fa-lg  " aria-hidden="true"></i></small>
+                              
+                            </TooltipLayer>
+
                           </Link>
-                        </TooltipLayer>
+
+                          <LogoutButton className='logInOut' onClick={()=>logOut()}/>
+                        </nav>
                         :
-                        <Link  className='logInOut' to="/inscription" ><small><Button variant='outline-primary' className='logInOut'  style={{border:'0px', color:'white', marginTop:'6px'}}><small>S'inscrire</small></Button></small></Link> 
-                  }
-                  {       
-                      (isConnected) ?<LogoutButton className='logInOut' onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='logInOut p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}><small>Connexion</small></Button></Link>
-                  }
-            
+                        <nav>
+                          <Link  className='logInOut' to="/inscription" ><small><Button variant='outline-primary' className='logInOut'  style={{border:'0px', color:'white', marginTop:'6px'}}><small>S'inscrire</small></Button></small></Link> 
+                          <Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='logInOut p-1' to="/login" style={change2}><Button variant='outline-primary' style={{color:'white'}}><small>Connexion</small></Button></Link>
+                        </nav>
+                      }
                 <Form className="d-flex search_class flex-row" style={{paddingRight:'5px', paddingLeft:'10px'}}>
 
                   <Form.Control
