@@ -1,7 +1,7 @@
 @media screen and (max-width: 2000px){
     
     .propos_class{
-        padding-bottom: 10px !important;
+        padding-bottom: 1px !important;
         background-color: #171212 !important;
     }
 
@@ -9,18 +9,40 @@
         padding-left: 0px;
         margin-left: 0px;
     }
+
+}
+
+/** changer couleur accordion**/
+.accordion-button {
+    background-color: #0a0a0a !important;
+    color: #f1eaea;
+    text-align:justify;
+    margin-top:7px !important;
+    max-height:2px;
+}
+
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #f1eaea !important;
+}
+
+/* nav- */
+
+.nav_style{
+    background-color: #0a0a0a !important;
 }
 
 .fa{
     color: rgb(126, 162, 199);
 }
 
-.accordion-header{
-    background-color: #171212;
-}
+
 
 .logInOut{
-    padding-top:5px !important;
     padding-bottom: 0px !important;
     z-index: 23;
 }
