@@ -17,8 +17,9 @@ import ModalPop from './modal.js';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ContextApp from './context.js'; 
 import Accordion from 'react-bootstrap/Accordion';
-
-
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+import TooltipLayer from './overLayer';
 
 
 const maCouleur=[
@@ -34,7 +35,6 @@ function HeaderBoot(props) {
   const [change3, setChange3]=useState(maCouleur[1]);
   const [pageCompte, setPageCompte]=useState(false);
   const {isConnected,login, logout}=useContext(ContextApp);
-
 
   //That part of the code is always rendering because it is in the header which is in evry page
   useEffect(()=>{
@@ -61,7 +61,6 @@ function HeaderBoot(props) {
     try {
       if(window.confirm("Vouvez-vous vraiment vous déconnecter?")){
       logout();
-      console.log("Deconnecter: valeur de mon eta: "+this.initState());
       } 
     } catch (error) {
       console.log(error);
@@ -121,7 +120,18 @@ function HeaderBoot(props) {
             <Offcanvas.Body className='d-flex justify-content-end'>
 
               <Nav className='nav_style'>
-                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}><nav className='d-flex flex-row p-1' ><small><i className=" fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}></i> Accueil</small> </nav></Link>
+
+                  <Link className='p-2 ' to="/" style={change}  onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}>
+                   
+                    <TooltipLayer message={"Accueil"}> 
+                      <nav className='d-flex flex-row p-1' >
+                        <small>
+                          <i className=" fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}></i>
+                        </small> 
+                      </nav>
+                    </TooltipLayer> 
+
+                   </Link>
                   
                   <Dropdown >
  
@@ -142,7 +152,14 @@ function HeaderBoot(props) {
                   </Dropdown>
 
                   {
-                      (isConnected)?<Link  className='logInOut p-2 ' to="/admin" onClick={privatepage} ><small className='p-1 m-1'><i className="fa fa-user fa-lg " aria-hidden="true"></i><small>  {sessionStorage.getItem('Email')}</small> </small></Link>:<Link  className='logInOut' to="/inscription" ><small><Button variant='outline-primary' className='logInOut'  style={{border:'0px', color:'white', marginTop:'6px'}}><small>S'inscrire</small></Button></small></Link> 
+                      (isConnected)?
+                        <TooltipLayer message={"Compte de"+ sessionStorage.getItem('Email')}> 
+                          <Link  className='logInOut p-2 ' to="/admin" onClick={privatepage} >
+                            <small className='p-1 m-1'><i className="fa fa-user fa-lg " aria-hidden="true"></i></small>
+                          </Link>
+                        </TooltipLayer>
+                        :
+                        <Link  className='logInOut' to="/inscription" ><small><Button variant='outline-primary' className='logInOut'  style={{border:'0px', color:'white', marginTop:'6px'}}><small>S'inscrire</small></Button></small></Link> 
                   }
                   {       
                       (isConnected) ?<LogoutButton className='logInOut' onClick={()=>logOut()}/>:<Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='logInOut p-1' to="/login" ><Button variant='outline-primary' style={{color:'white'}}><small>Connexion</small></Button></Link>
