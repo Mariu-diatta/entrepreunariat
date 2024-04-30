@@ -93,12 +93,12 @@ function LogIn() {
 
                   </div> 
 
-                </form> 
-
                   <p> <small className=' btn' onClick={()=>setPasseOublie(false)}> Mot de passe oublier?</small><Link to={'/inscription'}> <small>S'inscrire.</small></Link></p> 
                   <p id='monid' style={{color:'red'}}> </p>     
                   <BtnSmt/>      
-                  <br/>  
+                  <br/> 
+
+                </form>  
 
               </div>
             :
