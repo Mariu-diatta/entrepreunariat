@@ -1,21 +1,8 @@
-@media screen and (max-width: 2000px){
-    
-    .propos_class{
-        padding-bottom: 1px !important;
-        background-color: #171212 !important;
-    }
-
-    .search_class{
-        padding-left: 0px;
-        margin-left: 0px;
-    }
-
-}
 
 /** changer couleur accordion**/
 .accordion-button {
     background-color: #0a0a0a !important;
-    color: #f1eaea;
+    color: grey;
     text-align:justify;
     margin-top:7px !important;
     padding-left: 1px;
@@ -33,7 +20,7 @@
 
 
 .accordion-button:not(.collapsed) {
-    color: #ece8e8 !important;
+    color:grey !important;
 }
 
 .accordion{
@@ -77,6 +64,7 @@
 .nav-footer{
     z-index: 30000;
 }
+
 
 /** grand  ecran **/
 @media screen and (min-width: 1000px){
@@ -211,5 +199,18 @@
     .code_u{
         background-color: rgb(251, 251, 251) !important;
     }
+
+    /* 
+    .propos_class{
+        padding-bottom: 1px !important;
+        background-color: #171212 !important;
+    }
+
+    .search_class{
+        padding-left: 0px;
+        margin-left: 0px;
+    }
+    
+    */
 
 }
