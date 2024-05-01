@@ -4,7 +4,7 @@ import {Link } from "react-router-dom";
 
 function Footer(){
   return(
-    <nav className='m-0 nav-footer' >	
+    <nav className='m-0 nav-footer footerBottom' style={{}} >	
       <footer className="text-center text-lg-start bg-light text-muted  flex-row u-align-center u-clearfix u-grey-5 u-footer  mb-0 mt-3" >
         <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom " style={{color:"grey", fontSize:"small"}}>
           

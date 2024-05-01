@@ -21,18 +21,22 @@ function MainSection(){
 
   
   return(
-      // <ContextAdmin.Provider>
-    <section className="u-clearfix u-section-5  " id="carousel_ba86" style={{paddingLeft:"10%", paddingRight:"10%"}}>
+
+    <section className="u-clearfix u-section-5">
+      
       <div className="row">
-          <div className="col-lg-6 p-0 m-0">
+
+          <div className="col-lg-6">
             <PlusSection title={titre} image={im1} contenu={contenu}/>
           </div>
-          <div className="col-lg-6 p-0 m-0">    
+
+          <div className="col-lg-6">    
             <Contain image={im2} contenu={contenu}/>
           </div>
+
       </div>
+
     </section>
-      // </ContextAdmin.Provider>
   ) 
 }
 

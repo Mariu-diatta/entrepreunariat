@@ -17,21 +17,24 @@ const Admin =(props)=>{
             {
                 (isConnected)? 
                     <div className="row flex-row vert_menu_footer"> 
-                        <VerticalMenu/>
-                        <div className="col-lg-10 class_pad">
+                        <div className="col-lg-2">
+                            <VerticalMenu/>
+                        </div>
+                        <div className="col-lg-10">
 
-                            <div className="row">
+                            <div className="row me-5">  
                                 <MainSection/>
-                            </div>
+                            </div> 
 
+                            <div className=" ms-0 me-1 nav-footer ">
+                                <Footer/>
+                            </div>
+                            
                         </div> 
                     </div>
                 :
                     <Navigate to="/login"/>
-            }
-            <div className=" nav-footer ">
-                <Footer/>
-            </div> 
+            } 
         </>
     )
      
