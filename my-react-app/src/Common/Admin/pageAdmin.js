@@ -19,17 +19,15 @@ const contenu="La plateforme novatrice décrite vise à révolutionner le paysag
 const Admin =(props)=>{
 
     const {isConnected, login,logout}=useContext(ContextApp);
-    const [valeur, setValue]=useState("0");
+    const [message_, adherant_,  commande_]=["message","adherant","commande"];
     
-    const fonction=(valeur_, )=>{
-        setValue(valeur_);
-        alert(valeur_);
-        if (valeur==="message") {
-             alert("message");
-         } else if(valeur==="adherant") {
-            alert("adherant");
-         }else if(valeur==="commande"){
-            alert("commande");
+    const fonction=(valeur_)=>{
+        if (valeur_===message_) {
+             alert(message_);
+         } else if(valeur_===adherant_) {
+            alert(adherant_);
+         }else if(valeur_===commande_){
+            alert(commande_);
          }
     };
 
