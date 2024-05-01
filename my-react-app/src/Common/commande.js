@@ -5,10 +5,10 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import AlertBootstrap from "./alertBootSrap";
 import Footer from "./footerBoostrap";
+import suprim from './../accueil/Site1/images/supprimer.png';
 
 
    const Commande =()=>{
@@ -146,6 +146,7 @@ import Footer from "./footerBoostrap";
                                 </ul> 
 
                             </div>
+
                         </div>
 
                     </div>
@@ -194,7 +195,7 @@ import Footer from "./footerBoostrap";
                                                         <td>{el.lab}</td>
                                                         <td>{el.prix}</td>
                                                         <td>{el.qual}</td>
-                                                        <td>{summettreCommande?<Badge bg="secondary">Success</Badge>:<Button  style={{backgroundColor:'red'}} onClick={() =>supprimerElement(index)}>X</Button>}</td>
+                                                        <td>{summettreCommande?<Badge bg="secondary">Success</Badge>:<img src={suprim} alt='' className="btn m-0 p-0" style={{backgroundColor:'red', borderRadius:'30px'}} onClick={() =>supprimerElement(index)}/>}</td>
                                                     </tr>
                                                 )
                                             }

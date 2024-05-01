@@ -102,7 +102,7 @@ function HeaderBoot(props) {
                 <NavLink to='/a_propos' className='me-2 m-0 p-1'>
                   <TooltipLayer message={ MessageCommerçants} >
                     <i className=" fa fa-lg" aria-hidden="true">
-                      <Button  className='btn_bs'  variant='outline-primary' style={{border:'0px', color:'grey'}}>
+                      <Button  className='btn_bs mb-0'  variant='outline-primary' style={{border:'0px', color:'grey'}}>
                         Commerçants
                       </Button>
                     </i>
@@ -112,7 +112,7 @@ function HeaderBoot(props) {
                 <NavLink to='/login'  className='me-3 m-0 p-1'>
                   <TooltipLayer message={MessageAcheteurs}>
                   <i className=" fa fa-lg" aria-hidden="true">
-                    <Button className='btn_bs'  variant='outline-primary' style={{border:'0px' , color:'grey'}}>
+                    <Button className='btn_bs mb-0'  variant='outline-primary' style={{border:'0px' , color:'grey'}}>
                       Acheteurs
                     </Button>
                   </i>
@@ -178,7 +178,7 @@ function HeaderBoot(props) {
                           
                           <TooltipLayer message={"Compte de "+ sessionStorage.getItem('Email')}> 
                             
-                            <small><i className="ms-2 fa mb-0 pb-0 fa-user fa-lg" aria-hidden="true"></i></small>
+                            <small className='pb-3'><i className="ms-2  fa fa-user fa-lg" aria-hidden="true"></i></small>
                             
                           </TooltipLayer>
 
@@ -188,12 +188,12 @@ function HeaderBoot(props) {
                       </nav>
                     :
                       <nav className='p-2'>
-                        <NavLink className='style_navlink me-3' to="/inscription" > 
+                        <NavLink className='style_navlink  p-0 mt-0 mt-0' to="/inscription" > 
                             <small>
                               S'inscrir
                             </small>
                         </NavLink> 
-                        <NavLink className='style_navlink me-3' to="/login" >
+                        <NavLink className='style_navlink p-0 mt-0 mt-0' to="/login" >
                           <small>Connexion</small>
                         </NavLink>
                       </nav>
@@ -210,6 +210,7 @@ function HeaderBoot(props) {
                     maxLength={"45"}
                     style={{textAlign:'center', border:'opx'}}
                   />
+                  
                   <Button variant="success" className='mt-1 m-1  ' style={{backgroundColor:'rgba(123, 147, 201, 0.40)'}}><small>Search</small></Button>
                   
                 </Form>

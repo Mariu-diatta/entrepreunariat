@@ -4,7 +4,7 @@ import {Navigate} from 'react-router-dom';
 import Footer from "../footerBoostrap";
 import VerticalMenu from "../verticalMenu";
 import ContextApp from "../context.js";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import PlusSection from "../plusSection.js";
 import Contain from "../Produit/Contain.js";
 import im1 from "../../accueil/Site1/images/3454.jpg";
@@ -19,6 +19,12 @@ const contenu="La plateforme novatrice décrite vise à révolutionner le paysag
 const Admin =(props)=>{
 
     const {isConnected, login,logout}=useContext(ContextApp);
+    const [valeur, setValue]=useState("0");
+
+    const fonction=(valeur_)=>{
+        setValue(valeur_);
+        alert(valeur_);
+    };
 
     return(
         <>
@@ -26,15 +32,19 @@ const Admin =(props)=>{
                 (isConnected)? 
                     <div className="row flex-row vert_menu_footer"> 
                         <div className="col-lg-2">
-                            <VerticalMenu/>
+                            <VerticalMenu  fonction={fonction} />
                         </div>
                         <div className="col-lg-10"> 
-                               
-                            <div className=" .flex_position d-flex flex-row pe-3 ps-3">
-                                <MainSection children={<PlusSection title={titre} image={im1} contenu={contenu}/>} />
-                                <MainSection children={<Contain image={im2} contenu={contenu}/>}/>  
+
+                            <div className="row"> 
+                                <div className="col-lg-5 me-0">
+                                    <MainSection children={<PlusSection title={titre} image={im1} contenu={contenu}/>} />
+                                </div>  
+                                <div  className="col-lg-7 ms-0">    
+                                    <MainSection children={<Contain image={im2} contenu={contenu}/>}/> 
+                                </div> 
                             </div>
-                             
+                            
                             <div className=" ms-0 me-1 nav-footer ">
                                 <Footer/>
                             </div>

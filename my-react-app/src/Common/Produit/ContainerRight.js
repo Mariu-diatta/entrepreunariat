@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from "react";
-import  './../../style.css';
+import  './../../style.css';    
 
 const couleur ="rgb(248,245,244)";
 const couleurInit ="white";

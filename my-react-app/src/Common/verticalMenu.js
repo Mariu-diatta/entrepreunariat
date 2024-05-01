@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./../style.css";
 import Nav from 'react-bootstrap/Nav';
@@ -9,14 +9,24 @@ const couleurWhite = {backgroundColor:"", color:"black"};
 
 
 /**Site pour les fa icon https://fontawesome.com/v4/icon/ellipsis-v */
-const VerticalMenu=()=>{
+const VerticalMenu=(props)=>{
 
-        const [couleurCommande, setCouleurCommande]=useState(couleurWhite);
-        const [couleurAdherant, setcouleurAdherant]=useState(couleurWhite);
-        const [couleurMessage, setCouleurMessage]=useState(couleurWhite);
-        const [commandeActivate, setCommandeActivate]=useState(false);
-        const [adherantActivate, setAdherantActivate]=useState(false);
-        const [messageActivate, setMessageActivate]=useState(false);
+    const [couleurCommande, setCouleurCommande]=useState(couleurWhite);
+    const [couleurAdherant, setcouleurAdherant]=useState(couleurWhite);
+    const [couleurMessage, setCouleurMessage]=useState(couleurWhite);
+    const [commandeActivate, setCommandeActivate]=useState(false);
+    const [adherantActivate, setAdherantActivate]=useState(false);
+    const [messageActivate, setMessageActivate]=useState(false);
+
+    useEffect(()=>{
+        if(commandeActivate){
+            props.fonction("commande");
+        }else if(adherantActivate){
+            props.fonction("adherant");
+        }else{
+            props.fonction("message");
+        }
+    },  [commandeActivate, adherantActivate, messageActivate]);
 
     return (
 
