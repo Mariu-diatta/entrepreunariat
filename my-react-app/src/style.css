@@ -23,6 +23,11 @@
     color: aliceblue;
 }
 
+.btn_bs:hover{
+    color:white !important;
+    background-color: grey;
+}
+
 .home_d{
     padding: 10px !important;
 }

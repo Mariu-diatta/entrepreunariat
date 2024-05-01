@@ -19,6 +19,9 @@ import ContextApp from './context.js';
 import Accordion from 'react-bootstrap/Accordion';
 import TooltipLayer from './overLayer'
 
+const MessageCommerçants="Clicker pour vous inscrire en tant que commerçant et avoir des informations";
+const MessageAcheteurs="Clicker pour vous inscrire en tant que acheteurs et avoir des informations";
+
 
 const maCouleur=[
     {color:'white', backgroundColor:'grey'},
@@ -73,7 +76,7 @@ function HeaderBoot(props) {
         <Container fluid>
 
           <Navbar.Brand href="#" className='d-flex justify-content-start'>
-            <strong  className='' style={{color:'white', paddingLeft:'20px', margin:'0px'}}>VirtualB</strong>
+            <strong  className='me-3' style={{color:'white', paddingLeft:'20px', margin:'0px'}}>VirtualB</strong>
           </Navbar.Brand>
 
           <Navbar className='off_classe'> 
@@ -90,17 +93,32 @@ function HeaderBoot(props) {
           {   
             (isConnected)?
 
-              <Navbar.Brand> 
-              </Navbar.Brand>
+              <Nav> 
+              </Nav>
               :
-              <Navbar.Brand className='row' style={{paddingLeft:'40px', margin:'0px'}}>
+              <Nav  className='nav_style m-0 p-0'>
 
-                  <div className='d-flex flex-row col-md-2' style={{color:'white', marginRight:'100px'}}>
-                    <Button variant='outline-primary' style={{border:'0px', color:'grey'}}> Commerçants</Button>
-                    <Button variant='outline-primary' style={{border:'0px' , color:'grey'}}> Acheteurs</Button>
-                  </div> 
+                <NavLink to='/a_propos' className='me-3 m-0 p-1'>
+                  <TooltipLayer message={ MessageCommerçants} >
+                    <i className=" fa fa-lg" aria-hidden="true">
+                      <Button  className='btn_bs'  variant='outline-primary' style={{border:'0px', color:'grey'}}>
+                        Commerçants
+                      </Button>
+                    </i>
+                  </TooltipLayer>
+                </NavLink>
 
-              </Navbar.Brand>
+                <NavLink to='/login'  className='me-3 m-0 p-1'>
+                  <TooltipLayer message={MessageAcheteurs}>
+                  <i className=" fa fa-lg" aria-hidden="true">
+                    <Button className='btn_bs'  variant='outline-primary' style={{border:'0px' , color:'grey'}}>
+                      Acheteurs
+                    </Button>
+                  </i>
+                  </TooltipLayer>
+                </NavLink>
+
+              </Nav>
           }
 
           <Navbar.Offcanvas
