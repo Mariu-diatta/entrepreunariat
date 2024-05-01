@@ -172,11 +172,11 @@ function HeaderBoot(props) {
                   {
                       (isConnected)?
                         <nav>
-                          <NavLink  className='home_d' to="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
+                          <NavLink  className='home_d mb-0 mt-0' to="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
                             
                             <TooltipLayer message={"Compte de "+ sessionStorage.getItem('Email')}> 
                               
-                              <small><i className="fa fa-user fa-lg" aria-hidden="true"></i></small>
+                              <small><i className="fa mb-0 pb-0 fa-user fa-lg" aria-hidden="true"></i></small>
                               
                             </TooltipLayer>
 
