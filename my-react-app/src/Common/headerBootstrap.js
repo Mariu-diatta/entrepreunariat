@@ -96,7 +96,7 @@ function HeaderBoot(props) {
               <Nav> 
               </Nav>
               :
-              <Nav  className='nav_style m-0 p-0'>
+              <Nav  className='nav_style m-0 p-0 d-flex flex-row'>
 
                 <NavLink to='/a_propos' className='me-3 m-0 p-1'>
                   <TooltipLayer message={ MessageCommerçants} >
@@ -141,7 +141,7 @@ function HeaderBoot(props) {
                    
                     <TooltipLayer message={"Accueil"}> 
                         <small>
-                          <i className=" fa fa-home fa-lg" aria-hidden="true" style={{color:'white', margin:'10px', marginTop:'17px'}}></i>
+                          <i className="ms-3 fa fa-home fa-lg" aria-hidden="true" style={{color:'white', margin:'10px', marginTop:'17px'}}></i>
                         </small>
                     </TooltipLayer> 
 
@@ -149,12 +149,16 @@ function HeaderBoot(props) {
                   
                   <Dropdown >
                 
-                    <Dropdown.Toggle variant="" id="dropdown-basic" className=' pe-2 ' style={{padding:'0px'}}>
-                      <Accordion  className='u-align align-center'>
-                        <Accordion.Header style={{margin:'0px', height:'auto' }}>
-                          <small className=''>À propos</small>
-                        </Accordion.Header>
-                      </Accordion >
+                    <Dropdown.Toggle variant="" id="dropdown-basic" className=' pe-2 ' >
+                  
+                        <Accordion  className='u-align align-center'>
+                          <Accordion.Header style={{margin:'0px', height:'auto' }}>
+                          
+                            <small className='ms-3 pb-2'>À propos</small>
+                            
+                          </Accordion.Header>
+                        </Accordion >
+                      
                     </Dropdown.Toggle>
                     
                     <Dropdown.Menu style={{backgroundColor:'black'}}>
