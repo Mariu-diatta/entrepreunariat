@@ -18,22 +18,44 @@ const VerticalMenu=(props)=>{
     const [adherantActivate, setAdherantActivate]=useState(false);
     const [messageActivate, setMessageActivate]=useState(false);
 
+    const messageActive=()=>{
+        messageActivate?setMessageActivate(false):setMessageActivate(true);
+        setAdherantActivate(false);
+        setCommandeActivate(false);
+    };
+
+    const adherantActive=()=>{
+        adherantActivate?setAdherantActivate(false):setAdherantActivate(true);
+        setCommandeActivate(false);
+        setMessageActivate(false);
+    };
+
+    const commandeActive=()=>{
+        commandeActivate?setCommandeActivate(false):setCommandeActivate(true);
+        setAdherantActivate(false);
+        setMessageActivate(false);
+    };
+
+
     useEffect(()=>{
         if(commandeActivate){
             props.fonction("commande");
         }else if(adherantActivate){
             props.fonction("adherant");
-        }else{
+        }else if(messageActivate){
             props.fonction("message");
+            setCommandeActivate(false);
+            setAdherantActivate(false);
         }
-    },  [commandeActivate, adherantActivate, messageActivate]);
+
+    },  [commandeActivate, adherantActivate, messageActivate,]);
 
     return (
 
         <nav className='mt-5 sticky-top u-align-center style_css  col-lg-2'>
             {/* < Navbar.Brand className="p-4"><strong className="p-4">VirtualB</strong></ Navbar.Brand>  */}
             <ul>
-                <li>  <button className='code_u btn' onClick={()=>messageActivate?setMessageActivate(false):setMessageActivate(true)} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small><i className="me-2 fa fa-commenting fa-2x" aria-hidden="true"></i>Messages</small></button></li>
+                <li>  <button className='code_u btn' onClick={messageActive} onMouseOver={()=>setCouleurMessage(couleurBlue)} onMouseOut={()=>setCouleurMessage(couleurWhite)} style={couleurMessage}><small><i className="me-2 fa fa-commenting fa-2x" aria-hidden="true"></i>Messages</small></button></li>
                 { 
                     (messageActivate)?
                         <nav style={{backgroundColor:'white'}}>
@@ -49,7 +71,7 @@ const VerticalMenu=(props)=>{
                 }
             </ul>
             <ul>
-                <li > <button className='code_u btn' onClick={()=>adherantActivate?setAdherantActivate(false):setAdherantActivate(true)}  onMouseOver={()=>setcouleurAdherant(couleurBlue)} onMouseOut={()=>setcouleurAdherant(couleurWhite)} style={couleurAdherant}><small><i className="me-2 fa fa-users fa-2x" aria-hidden="true"></i> Adherants</small></button></li>
+                <li > <button className='code_u btn' onClick={adherantActive}  onMouseOver={()=>setcouleurAdherant(couleurBlue)} onMouseOut={()=>setcouleurAdherant(couleurWhite)} style={couleurAdherant}><small><i className="me-2 fa fa-users fa-2x" aria-hidden="true"></i> Adherants</small></button></li>
                 {  
                     (adherantActivate)?
                         <nav style={{backgroundColor:'white'}}>
@@ -64,7 +86,7 @@ const VerticalMenu=(props)=>{
                 }
             </ul>
             <ul>
-                <li > <button className='code_u btn' onClick={()=>commandeActivate?setCommandeActivate(false):setCommandeActivate(true)} onMouseOver={()=>setCouleurCommande(couleurBlue)} onMouseOut={()=>setCouleurCommande(couleurWhite)}  style={couleurCommande}><small><i className="me-2 fa fa-coffee fa-2x" aria-hidden="true"></i> Commandes</small></button></li>
+                <li > <button className='code_u btn' onClick={commandeActive} onMouseOver={()=>setCouleurCommande(couleurBlue)} onMouseOut={()=>setCouleurCommande(couleurWhite)}  style={couleurCommande}><small><i className="me-2 fa fa-coffee fa-2x" aria-hidden="true"></i> Commandes</small></button></li>
                 {                        
                     (commandeActivate)?
                     <nav style={{backgroundColor:'white'}}>

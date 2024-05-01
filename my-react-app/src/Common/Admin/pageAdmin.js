@@ -4,7 +4,7 @@ import {Navigate} from 'react-router-dom';
 import Footer from "../footerBoostrap";
 import VerticalMenu from "../verticalMenu";
 import ContextApp from "../context.js";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import PlusSection from "../plusSection.js";
 import Contain from "../Produit/Contain.js";
 import im1 from "../../accueil/Site1/images/3454.jpg";
@@ -20,10 +20,17 @@ const Admin =(props)=>{
 
     const {isConnected, login,logout}=useContext(ContextApp);
     const [valeur, setValue]=useState("0");
-
-    const fonction=(valeur_)=>{
+    
+    const fonction=(valeur_, )=>{
         setValue(valeur_);
         alert(valeur_);
+        if (valeur==="message") {
+             alert("message");
+         } else if(valeur==="adherant") {
+            alert("adherant");
+         }else if(valeur==="commande"){
+            alert("commande");
+         }
     };
 
     return(
