@@ -28,16 +28,12 @@ const Admin =(props)=>{
                         <div className="col-lg-2">
                             <VerticalMenu/>
                         </div>
-                        <div className="col-lg-10">
-
-                            <MainSection>
-                                <div className="col-lg-6 ps-0">
-                                    <PlusSection title={titre} image={im1} contenu={contenu}/>
-                                </div>
-                                <div className="col-lg-6 ps-0">
-                                    <MainSection children={<Contain image={im2} contenu={contenu}/>}/>  
-                                </div>
-                            </MainSection>
+                        <div className="col-lg-10"> 
+                               
+                            <div className=" .flex_position d-flex flex-row pe-3 ps-3">
+                                <MainSection children={<PlusSection title={titre} image={im1} contenu={contenu}/>} />
+                                <MainSection children={<Contain image={im2} contenu={contenu}/>}/>  
+                            </div>
                              
                             <div className=" ms-0 me-1 nav-footer ">
                                 <Footer/>

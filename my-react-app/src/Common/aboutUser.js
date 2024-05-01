@@ -2,7 +2,9 @@ import MainSection from "./mainSection";
 const AboutUser = ()=>{
     return(
         <div className="p-0">
-             <MainSection/>
+             <MainSection>
+                <div>about user</div>
+             </MainSection>
         </div>
     )
 }

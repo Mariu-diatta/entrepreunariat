@@ -28,6 +28,13 @@
     background-color: grey;
 }
 
+.footerBottom {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}
+
 .home_d{
     padding: 10px !important;
 }
@@ -98,6 +105,7 @@
 
 /** grand  ecran **/
 @media screen and (min-width: 1000px){
+
     .header_{
         box-shadow:1px 1px 1px 1px rgba(1, 1, 70, 0.2);
     }
@@ -199,6 +207,10 @@
 
 /** Petit ecran **/
 @media screen and (max-width: 1000px ){
+
+    .flex_position {
+        flex-direction:column !important;
+    }
 
     .class_d{
         width: 100%;

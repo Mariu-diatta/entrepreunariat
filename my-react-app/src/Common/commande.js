@@ -8,6 +8,7 @@ import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import AlertBootstrap from "./alertBootSrap";
+import Footer from "./footerBoostrap";
 
 
    const Commande =()=>{
@@ -95,16 +96,16 @@ import AlertBootstrap from "./alertBootSrap";
 
     return(
 
-        <section className="container p-4 m-4" >
-
+        <div className="row" >
+            <div className="container mb-5 pb-5" >
             { 
                 validerCommande?
 
                 <AlertBootstrap/>
                 :
-                <div className="row">
+                <div className="row ms-1 ps-1 me-1 pe-1">
 
-                    <div className="col-lg-5">
+                    <div className="col-lg-6">
 
                         <div className="row">
 
@@ -256,8 +257,9 @@ import AlertBootstrap from "./alertBootSrap";
 
                 </div>
             }
-
-        </section>
+            </div>
+            <Footer/>
+        </div>
     )
 }
 
