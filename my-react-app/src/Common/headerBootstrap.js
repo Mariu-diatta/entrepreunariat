@@ -69,8 +69,8 @@ function HeaderBoot(props) {
   };
 
   return (
-    <div className='container-fluid p-0 m-0'>
 
+    <div className='container-fluid p-0 m-0'>
       <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top m-0 p-0 " style={{backgroundColor:'rgb(8,8,8)', borderRadius:'5px'}}>
        
         <Container fluid>
@@ -81,10 +81,11 @@ function HeaderBoot(props) {
 
           <Navbar className='off_classe'> 
             {
-              (isConnected) && pageCompte?
-                <ModalPop/>
+                (isConnected) && pageCompte?
+                  <ModalPop/>
                 :
-                <nav></nav>
+                  <nav>
+                  </nav>
             }
           </Navbar>
 
@@ -170,32 +171,34 @@ function HeaderBoot(props) {
                   </Dropdown>
 
                   {
-                      (isConnected)?
-                        <nav>
-                          <NavLink  className='home_d mb-0 mt-0' to="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
+                    (isConnected)?
+
+                      <nav>
+                        <NavLink  className='home_d mb-0 mt-0' to="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
+                          
+                          <TooltipLayer message={"Compte de "+ sessionStorage.getItem('Email')}> 
                             
-                            <TooltipLayer message={"Compte de "+ sessionStorage.getItem('Email')}> 
-                              
-                              <small><i className="ms-2 fa mb-0 pb-0 fa-user fa-lg" aria-hidden="true"></i></small>
-                              
-                            </TooltipLayer>
+                            <small><i className="ms-2 fa mb-0 pb-0 fa-user fa-lg" aria-hidden="true"></i></small>
+                            
+                          </TooltipLayer>
 
-                          </NavLink>
+                        </NavLink>
 
-                          <LogoutButton className='logInOut' onClick={()=>logOut()}/>
-                        </nav>
-                        :
-                        <nav className='p-2'>
-                          <NavLink className='style_navlink me-3' to="/inscription" > 
-                              <small>
-                                S'inscrir
-                              </small>
-                          </NavLink> 
-                          <NavLink className='style_navlink me-3' to="/login" >
-                            <small>Connexion</small>
-                          </NavLink>
-                        </nav>
-                      }
+                        <LogoutButton className='logInOut' onClick={()=>logOut()}/>
+                      </nav>
+                    :
+                      <nav className='p-2'>
+                        <NavLink className='style_navlink me-3' to="/inscription" > 
+                            <small>
+                              S'inscrir
+                            </small>
+                        </NavLink> 
+                        <NavLink className='style_navlink me-3' to="/login" >
+                          <small>Connexion</small>
+                        </NavLink>
+                      </nav>
+                  }
+
                 <Form className="d-flex search_class flex-row" style={{paddingRight:'5px', paddingLeft:'10px'}}>
 
                   <Form.Control
@@ -222,7 +225,6 @@ function HeaderBoot(props) {
       </Navbar>
 
       <Outlet />
-
     </div>
   );
 }
