@@ -98,7 +98,7 @@ function HeaderBoot(props) {
               :
               <Nav  className='nav_style m-0 p-0 d-flex flex-row'>
 
-                <NavLink to='/a_propos' className='me-3 m-0 p-1'>
+                <NavLink to='/a_propos' className='me-2 m-0 p-1'>
                   <TooltipLayer message={ MessageCommerçants} >
                     <i className=" fa fa-lg" aria-hidden="true">
                       <Button  className='btn_bs'  variant='outline-primary' style={{border:'0px', color:'grey'}}>
@@ -154,7 +154,7 @@ function HeaderBoot(props) {
                         <Accordion  className='u-align align-center'>
                           <Accordion.Header style={{margin:'0px', height:'auto' }}>
                           
-                            <small className='ms-3 pb-2'>À propos</small>
+                            <small className='ms-1 pb-2'>À propos</small>
                             
                           </Accordion.Header>
                         </Accordion >
@@ -176,7 +176,7 @@ function HeaderBoot(props) {
                             
                             <TooltipLayer message={"Compte de "+ sessionStorage.getItem('Email')}> 
                               
-                              <small><i className="fa mb-0 pb-0 fa-user fa-lg" aria-hidden="true"></i></small>
+                              <small><i className="ms-2 fa mb-0 pb-0 fa-user fa-lg" aria-hidden="true"></i></small>
                               
                             </TooltipLayer>
 
