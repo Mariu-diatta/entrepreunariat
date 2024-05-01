@@ -10,19 +10,19 @@ import '../accueil/Site1/nicepage.css';
 import '../accueil/Site1/LogIn.css';
 import logo from "../accueil/Site1/images/logo_3.PNG";
 import {useState, useContext, useEffect} from "react";
-import {Outlet, Link, Navigate} from 'react-router-dom';
+import {Outlet, Link, Navigate, NavLink} from 'react-router-dom';
 import LogoutButton from './bootstrapUI/btnLogOut.js';
 import './../style.css';
 import ModalPop from './modal.js';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ContextApp from './context.js'; 
 import Accordion from 'react-bootstrap/Accordion';
-import TooltipLayer from './overLayer';
+import TooltipLayer from './overLayer'
 
 
 const maCouleur=[
-    {color:'white', backgroundColor:'grey',borderRadius:'5px'},
-    {color:'white', backgroundColor:'black' ,borderRadius:'5px'}
+    {color:'white', backgroundColor:'grey'},
+    {color:'white', backgroundColor:'black', borderRadius:'0px', padding:'10px !important'}
 ];
 
 function HeaderBoot(props) {
@@ -66,9 +66,9 @@ function HeaderBoot(props) {
   };
 
   return (
-    <div className='row' style={{maxWidth:window.widt}}>
+    <div className='container-fluid p-0 m-0'>
 
-      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top " style={{backgroundColor:'rgb(8,8,8)'}}>
+      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top m-0 p-0 " style={{backgroundColor:'rgb(8,8,8)', borderRadius:'5px'}}>
        
         <Container fluid>
 
@@ -119,24 +119,22 @@ function HeaderBoot(props) {
 
               <Nav className='nav_style'>
 
-                  <Link className='p-2 ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}>
+                  <NavLink className='m-0 me-3' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}>
                    
                     <TooltipLayer message={"Accueil"}> 
-                      <nav className='d-flex flex-row p-1' >
                         <small>
-                          <i className=" fa fa-home fa-lg" aria-hidden="true" style={{color:'white'}}></i>
-                        </small> 
-                      </nav>
+                          <i className=" fa fa-home fa-lg" aria-hidden="true" style={{color:'white', margin:'10px', marginTop:'17px'}}></i>
+                        </small>
                     </TooltipLayer> 
 
-                  </Link>
+                  </NavLink>
                   
                   <Dropdown >
- 
-                    <Dropdown.Toggle variant="" id="dropdown-basic" className='pr-2  pl-2 pe-3 ' style={{padding:'0px'}}>
+                
+                    <Dropdown.Toggle variant="" id="dropdown-basic" className=' pe-2 ' style={{padding:'0px'}}>
                       <Accordion  className='u-align align-center'>
                         <Accordion.Header style={{margin:'0px', height:'auto' }}>
-                          <small className='p-1 '>À propos</small>
+                          <small className=''>À propos</small>
                         </Accordion.Header>
                       </Accordion >
                     </Dropdown.Toggle>
@@ -152,22 +150,28 @@ function HeaderBoot(props) {
                   {
                       (isConnected)?
                         <nav>
-                          <Link  className='p-3 ' to="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
+                          <NavLink  className='home_d' to="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
                             
-                            <TooltipLayer message={"Compte de"+ sessionStorage.getItem('Email')}> 
+                            <TooltipLayer message={"Compte de "+ sessionStorage.getItem('Email')}> 
                               
-                              <small ><i className="fa fa-user fa-lg  " aria-hidden="true"></i></small>
+                              <small><i className="fa fa-user fa-lg" aria-hidden="true"></i></small>
                               
                             </TooltipLayer>
 
-                          </Link>
+                          </NavLink>
 
                           <LogoutButton className='logInOut' onClick={()=>logOut()}/>
                         </nav>
                         :
-                        <nav>
-                          <Link  className='logInOut' to="/inscription" ><small><Button variant='outline-primary' className='logInOut'  style={{border:'0px', color:'white', marginTop:'6px'}}><small>S'inscrire</small></Button></small></Link> 
-                          <Link  onMouseOver={()=>setChange2(maCouleur[0])} onMouseOut={()=>setChange2(maCouleur[1])} className='logInOut p-1' to="/login" style={change2}><Button variant='outline-primary' style={{color:'white'}}><small>Connexion</small></Button></Link>
+                        <nav className='p-2'>
+                          <NavLink className='style_navlink me-3' to="/inscription" > 
+                              <small>
+                                S'inscrir
+                              </small>
+                          </NavLink> 
+                          <NavLink className='style_navlink me-3' to="/login" >
+                            <small>Connexion</small>
+                          </NavLink>
                         </nav>
                       }
                 <Form className="d-flex search_class flex-row" style={{paddingRight:'5px', paddingLeft:'10px'}}>
