@@ -171,18 +171,18 @@ function HeaderBoot(props) {
                   {
                     (isConnected)?
 
-                      <nav>
+                      <nav className='d-flex flex-row'>
                         <Nav.Link  className='home_d mb-0 mt-0' href="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
                           
                           <TooltipLayer message={"Compte de "+ sessionStorage.getItem('Email')}> 
                             
-                            <small className='pb-3'><i className="ms-2  fa fa-user fa-lg" aria-hidden="true"></i></small>
+                            <small className='pb-3'><i className="ms-3 me-3  fa fa-user fa-lg" aria-hidden="true"></i></small>
                             
                           </TooltipLayer>
 
                         </Nav.Link>
 
-                        <LogoutButton className='logInOut' onClick={()=>logOut()}/>
+                        <LogoutButton className='ms-3 me-3 logInOut' onClick={()=>logOut()}/>
                       </nav>
                     :
                       <nav className='pt-2 ms-2  me-3  mt-0 row'>
