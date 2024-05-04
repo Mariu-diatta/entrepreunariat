@@ -14,19 +14,38 @@ const titre ="Management consulting";
 const contenu="La plateforme novatrice décrite vise à révolutionner le paysage commercial en regroupant les activités de petits commerces au sein d'un espace centralisé. Son objectif principal est d'offrir une visibilité accrue à ces commerces locaux, souvent méconnus, tout en simplifiant le processus de commercialisation de leurs produits. Grâce à cette consolidation, les consommateurs peuvent découvrir une variété de produits locaux en un seul endroit, favorisant ainsi l'achat local et renforçant les liens au sein de la communauté. Cette initiative prometteuse contribue non seulement à stimuler l'économie locale, mais elle offre également aux petits commerces une plateforme numérique"
 + "moderne pour prospérer dans un environnement de plus en plus numérisé. ";
 
+const [message_, adherant_,  commande_]=["message","adherant","commande"];
 
+// const sendData=(valeurBtn)=>{
+//     switch (valeurBtn) {
+//         case valeurBtn===message_:
+            
+//             break;
+
+//         case valeurBtn===commande_:
+//             break;
+    
+//         case valeurBtn===adherant_:
+//             break;
+//         default:
+//             break;
+//     }
+// };
 
 const Admin =(props)=>{
 
     const {isConnected, login,logout}=useContext(ContextApp);
-    const [message_, adherant_,  commande_]=["message","adherant","commande"];
+    const [valeurBtn, setValeurBtn]=useState("");
     
     const fonction=(valeur_)=>{
         if (valeur_===message_) {
-             alert(message_);
+            setValeurBtn(message_);
+            alert(message_);
          } else if(valeur_===adherant_) {
+            setValeurBtn(adherant_);
             alert(adherant_);
          }else if(valeur_===commande_){
+            setValeurBtn(commande_);
             alert(commande_);
          }
     };

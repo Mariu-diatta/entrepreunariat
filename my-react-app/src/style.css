@@ -19,7 +19,7 @@
 }
 
 .style_navlink{
-    padding: 11px !important;
+    padding-top: 0px;
     color: aliceblue;
 }
 
@@ -50,11 +50,6 @@
     color:black;
 }
 
-
-/* link:active{
-    border-bottom: white;
-    margin-bottom: 12px;
-} */
 
 .accordion-button:not(.collapsed) {
     color:grey !important;

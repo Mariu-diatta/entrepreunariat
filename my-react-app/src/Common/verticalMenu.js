@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./../style.css";
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 
 const couleurBlue = {backgroundColor:"", color:"blue"};
 const couleurWhite = {backgroundColor:"", color:"black"};

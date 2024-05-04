@@ -17,9 +17,8 @@ import ModalPop from './modal.js';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ContextApp from './context.js'; 
 import Accordion from 'react-bootstrap/Accordion';
-import TooltipLayer from './overLayer'
-
-const MessageCommerçants="Clicker pour vous inscrire en tant que commerçant et avoir des informations";
+import TooltipLayer from './overLayer';
+const MessageCommerçants="Clicker pour vous inscrirenpm install en tant que commerçant et avoir des informations";
 const MessageAcheteurs="Clicker pour vous inscrire en tant que acheteurs et avoir des informations";
 
 
@@ -71,8 +70,7 @@ function HeaderBoot(props) {
   return (
 
     <div className='container-fluid p-0 m-0'>
-      <Navbar key={'lg'} expand={'lg'} className="header_ sticky-top m-0 p-0 " style={{backgroundColor:'rgb(8,8,8)', borderRadius:'5px'}}>
-       
+      <Navbar variant="underline"  defaultActiveKey="/" key={'lg'} expand={'lg'} className="header_ sticky-top m-0 p-0 " style={{backgroundColor:'rgb(8,8,8)', borderRadius:'5px'}}>
         <Container fluid>
 
           <Navbar.Brand href="#" className='d-flex justify-content-start'>
@@ -97,29 +95,29 @@ function HeaderBoot(props) {
               <Nav> 
               </Nav>
               :
-              <Nav  className='nav_style m-0 p-0 d-flex flex-row'>
+              <div  className='m-0 p-0'>
 
-                <NavLink to='/a_propos' className='me-2 m-0 p-1'>
+                <NavLink to='/a_propos' className=''>
                   <TooltipLayer message={ MessageCommerçants} >
                     <i className=" fa fa-lg" aria-hidden="true">
-                      <Button  className='btn_bs mb-0'  variant='outline-primary' style={{border:'0px', color:'grey'}}>
+                      <Button  className=' mb-0'  variant='outline-primary' style={{border:'0px', color:'grey'}}>
                         Commerçants
                       </Button>
                     </i>
                   </TooltipLayer>
                 </NavLink>
 
-                <NavLink to='/login'  className='me-3 m-0 p-1'>
+                <NavLink to='/login'  className=''>
                   <TooltipLayer message={MessageAcheteurs}>
                   <i className=" fa fa-lg" aria-hidden="true">
-                    <Button className='btn_bs mb-0'  variant='outline-primary' style={{border:'0px' , color:'grey'}}>
-                      Acheteurs
+                    <Button className=' mb-0'  variant='outline-primary' style={{border:'0px' , color:'grey'}}>
+                     Acheteurs
                     </Button>
                   </i>
                   </TooltipLayer>
                 </NavLink>
 
-              </Nav>
+              </div>
           }
 
           <Navbar.Offcanvas
@@ -138,11 +136,11 @@ function HeaderBoot(props) {
 
               <Nav className='nav_style'>
 
-                  <NavLink className='m-0 me-3' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}>
+                  <NavLink className=' ' to="/" style={change} onMouseOver={()=>setChange(maCouleur[0])} onMouseOut={()=>setChange(maCouleur[1])} onClick={notprivatepage}>
                    
                     <TooltipLayer message={"Accueil"}> 
                         <small>
-                          <i className="ms-3 fa fa-home fa-lg" aria-hidden="true" style={{color:'white', margin:'10px', marginTop:'17px'}}></i>
+                          <i className=" pe-3 ps-3 pt-3 fa fa-home fa-lg" aria-hidden="true"></i>
                         </small>
                     </TooltipLayer> 
 
@@ -150,12 +148,12 @@ function HeaderBoot(props) {
                   
                   <Dropdown >
                 
-                    <Dropdown.Toggle variant="" id="dropdown-basic" className=' pe-2 ' >
+                    <Dropdown.Toggle variant="" id="dropdown-basic" >
                   
-                        <Accordion  className='u-align align-center'>
+                        <Accordion  className='  u-align align-center'>
                           <Accordion.Header style={{margin:'0px', height:'auto' }}>
                           
-                            <small className='ms-1 pb-2'>À propos</small>
+                            <small className='pb-3'>À propos</small>
                             
                           </Accordion.Header>
                         </Accordion >
@@ -174,7 +172,7 @@ function HeaderBoot(props) {
                     (isConnected)?
 
                       <nav>
-                        <NavLink  className='home_d mb-0 mt-0' to="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
+                        <Nav.Link  className='home_d mb-0 mt-0' href="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
                           
                           <TooltipLayer message={"Compte de "+ sessionStorage.getItem('Email')}> 
                             
@@ -182,19 +180,21 @@ function HeaderBoot(props) {
                             
                           </TooltipLayer>
 
-                        </NavLink>
+                        </Nav.Link>
 
                         <LogoutButton className='logInOut' onClick={()=>logOut()}/>
                       </nav>
                     :
-                      <nav className='p-2'>
-                        <NavLink className='style_navlink  p-0 mt-0 mt-0' to="/inscription" > 
+                      <nav className='pt-2 ms-2  me-3  mt-0 row'>
+                        <NavLink className='style_navlink col-6 ' to="/inscription" > 
                             <small>
                               S'inscrir
                             </small>
                         </NavLink> 
-                        <NavLink className='style_navlink p-0 mt-0 mt-0' to="/login" >
-                          <small>Connexion</small>
+                        <NavLink className='style_navlink col-6 ' to="/login" >
+                            <small>
+                              Connexion
+                            </small>
                         </NavLink>
                       </nav>
                   }
