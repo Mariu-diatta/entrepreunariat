@@ -14,7 +14,7 @@ const Data=[
     [im, "Automation Projects"],
 ];
 
-function SectionU(){
+function SectionProduct(){
   return(
       <section className="pb-0 mb-0">
           <h5 className="u-align-center u-text " data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><strong>Nos produits</strong></h5>
@@ -40,4 +40,4 @@ function SectionU(){
 
 
 
-export default SectionU;
+export default SectionProduct;

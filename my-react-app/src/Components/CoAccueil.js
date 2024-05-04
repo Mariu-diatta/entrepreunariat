@@ -1,8 +1,9 @@
 
-import SectionU from './CoSectionU.js';
+import SectionProduct from './CoSectionProductContain.js';
 import Carrous from '../Containers/bootstrapUI/ConTBootsCarrousel.js';
 import MainSection from './CoMainSection.js';
 import Footer from './CoFooterBoostrap.js';
+import AboutUser from './CoAbout.js';
 
 const Accueil =() => {
     return(
@@ -11,8 +12,10 @@ const Accueil =() => {
                 <Carrous />
             </div>
             <div className='container'>
-                <SectionU/>
-                <MainSection/>
+                <MainSection>
+                    <SectionProduct/>
+                    <AboutUser/>
+                </MainSection>
             </div>
             <Footer/>
         </div>
