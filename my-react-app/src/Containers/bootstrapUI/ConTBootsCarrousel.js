@@ -1,4 +1,4 @@
-import im from "../accueil/Site1/images/3q6.jpg"
+import im from "../../ImageCore/images/3q6.jpg"
 import Carousel from 'react-bootstrap/Carousel';
 
 const Carrous =() =>{

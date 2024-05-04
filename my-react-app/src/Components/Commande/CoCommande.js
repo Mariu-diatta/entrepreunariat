@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import im from "../accueil/Site1/images/3454.jpg";
-import ProduitSelected from "./Produit/produitSelect";
+import im from "./../../ImageCore/images/3454.jpg";
+import ProduitSelected from "../Produit/CoProduitSelect";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
 import Badge from 'react-bootstrap/Badge';
-import AlertBootstrap from "./alertBootSrap";
-import Footer from "./footerBoostrap";
-import suprim from './../accueil/Site1/images/supprimer.png';
+import AlertBootstrap from "../CoAlertBootSrap";
+import Footer from "../CoFooterBoostrap";
+import suprim from './../../ImageCore/images/supprimer.png';
 
 
    const Commande =()=>{
@@ -36,12 +36,12 @@ import suprim from './../accueil/Site1/images/supprimer.png';
     useEffect(()=>{
         setValiderCommande(validerCommande);
         setCodeColor(codeColor);
-    }, [summettreCommande, validerCommande, codeColor])
+    }, [summettreCommande, validerCommande, codeColor]);
 
     const commandeSumit=(e)=>{
         setCodeColor(true);
         setSummettreCommande(true);
-    }
+    };
 
     // fonction annuler la commande
     const commandAnnuler=()=>{
@@ -51,7 +51,7 @@ import suprim from './../accueil/Site1/images/supprimer.png';
 
     const entrerCodeValidation=()=>{
         setCodeValidation(true);
-    }
+    };
 
     //validation commande
     const validate=(e)=>{

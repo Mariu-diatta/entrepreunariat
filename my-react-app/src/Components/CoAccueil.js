@@ -1,8 +1,8 @@
 
-import SectionU from './sectionU.js';
-import Carrous from './carrouselBoostrap.js';
-import MainSection from './mainSection.js';
-import Footer from './footerBoostrap.js';
+import SectionU from './CoSectionU.js';
+import Carrous from '../Containers/bootstrapUI/ConTBootsCarrousel.js';
+import MainSection from './CoMainSection.js';
+import Footer from './CoFooterBoostrap.js';
 
 const Accueil =() => {
     return(

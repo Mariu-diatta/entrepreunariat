@@ -1,19 +1,19 @@
 
 import './App.css';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-import Contact from './Common/contact.js';
-import Accueil from './Common/accueil.js';
-import LogIn from './Common/logIn.js';
-import SignUp from './Common/registered.js';
-import About from './Common/about.js';
-import Admin  from './Common/Admin/pageAdmin.js';
-import Aderant from './Common/User/pageAderant.js';
-import Commande from './Common/commande.js';
-import AboutUser from './Common/aboutUser.js';
-import ZeroPage from './Common/zero.js';
-import HeaderBoot from './Common/headerBootstrap.js';
+import Contact from './Components/CoContact.js';
+import Accueil from './Components/CoAccueil.js';
+import LogIn from './Components/CoLogIn.js';
+import SignUp from './Components/CoRegistered.js';
+import About from './Components/CoAbout.js';
+import Admin  from './Components/Admin/CoAdmin.js';
+import Aderant from './Components/User/CoPageAderant.js';
+import Commande from './Components/Commande/CoCommande.js';
+import AboutUser from './Components/CoAboutUser.js';
+import ZeroPage from './Components/zero.js';
+import HeaderBoot from './Components/CoHeaderBootstrap.js';
 import { Component} from 'react';
-import ContextApp from './Common/context.js';
+import ContextApp from './Components/CoContext.js';
 
 class  App extends Component{
 

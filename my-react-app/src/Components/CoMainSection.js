@@ -1,7 +1,7 @@
-import '../accueil/Site1/A-propos.css';
-import '../accueil/Site1/Accueil.css';
-import '../accueil/Site1/nicepage.css';
-import '../accueil/Site1/LogIn.css';
+import '../ImageCore/A-propos.css';
+import '../ImageCore/Accueil.css';
+import '../ImageCore/nicepage.css';
+import '../ImageCore/LogIn.css';
 
 import createContext, { useState } from 'react'
 

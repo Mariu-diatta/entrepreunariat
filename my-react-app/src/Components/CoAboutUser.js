@@ -1,4 +1,4 @@
-import MainSection from "./mainSection";
+import MainSection from "./CoMainSection";
 const AboutUser = ()=>{
     return(
         <div className="p-0">

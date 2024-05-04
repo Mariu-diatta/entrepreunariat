@@ -1,4 +1,4 @@
-import MainSection from './mainSection.js';
+import MainSection from './CoMainSection.js';
 const About = () =>{
     return(
         <>

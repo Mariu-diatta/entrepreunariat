@@ -1,36 +1,20 @@
 
-import MainSection from "../mainSection";
+import MainSection from "../CoMainSection.js";
 import {Navigate} from 'react-router-dom';
-import Footer from "../footerBoostrap";
-import VerticalMenu from "../verticalMenu";
-import ContextApp from "../context.js";
+import Footer from "../CoFooterBoostrap.js";
+import VerticalMenu from "../CoVerticalMenu.js";
+import ContextApp from "../CoContext.js";
 import { createContext, useContext, useEffect, useState } from "react";
-import PlusSection from "../plusSection.js";
-import Contain from "../Produit/Contain.js";
-import im1 from "../../accueil/Site1/images/3454.jpg";
-import im2 from "../../accueil/Site1/images/6457.jpg";
+import PlusSection from "../CoPlusSection.js";
+import Contain from "../../Containers/bootstrapUI/Contain.js";
+import im1 from "../../ImageCore/images/3454.jpg";
+import im2 from "../../ImageCore/images/6457.jpg";
 
 const titre ="Management consulting";
 const contenu="La plateforme novatrice décrite vise à révolutionner le paysage commercial en regroupant les activités de petits commerces au sein d'un espace centralisé. Son objectif principal est d'offrir une visibilité accrue à ces commerces locaux, souvent méconnus, tout en simplifiant le processus de commercialisation de leurs produits. Grâce à cette consolidation, les consommateurs peuvent découvrir une variété de produits locaux en un seul endroit, favorisant ainsi l'achat local et renforçant les liens au sein de la communauté. Cette initiative prometteuse contribue non seulement à stimuler l'économie locale, mais elle offre également aux petits commerces une plateforme numérique"
 + "moderne pour prospérer dans un environnement de plus en plus numérisé. ";
 
 const [message_, adherant_,  commande_]=["message","adherant","commande"];
-
-// const sendData=(valeurBtn)=>{
-//     switch (valeurBtn) {
-//         case valeurBtn===message_:
-            
-//             break;
-
-//         case valeurBtn===commande_:
-//             break;
-    
-//         case valeurBtn===adherant_:
-//             break;
-//         default:
-//             break;
-//     }
-// };
 
 const Admin =(props)=>{
 
@@ -40,13 +24,10 @@ const Admin =(props)=>{
     const fonction=(valeur_)=>{
         if (valeur_===message_) {
             setValeurBtn(message_);
-            alert(message_);
          } else if(valeur_===adherant_) {
             setValeurBtn(adherant_);
-            alert(adherant_);
          }else if(valeur_===commande_){
             setValeurBtn(commande_);
-            alert(commande_);
          }
     };
 

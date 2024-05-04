@@ -1,4 +1,5 @@
-import BtnSmt from './buttonSubmit';
+import BtnSmt from './CoButtonSubmit';
+import CoButton from './CoBtnBootstrap';
 import './../style.css';
 import {Link, Navigate} from 'react-router-dom';
 import {useState,useContext} from 'react';
@@ -6,7 +7,7 @@ import axiosInstance from './axios';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import ContextApp from './context';
+import ContextApp from './CoContext';
 
 function LogIn() {
 
@@ -118,6 +119,7 @@ function LogIn() {
                       <FloatingLabel controlId="floatingPassword2" label="Votre mot de pass" className=' mb-3'>
                         <Form.Control   name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
                       </FloatingLabel>
+
                       <BtnSmt/>  
 
                     </div>

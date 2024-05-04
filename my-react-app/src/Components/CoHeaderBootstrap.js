@@ -4,20 +4,20 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import '../accueil/Site1/A-propos.css';
-import '../accueil/Site1/Accueil.css';
-import '../accueil/Site1/nicepage.css';
-import '../accueil/Site1/LogIn.css';
-import logo from "../accueil/Site1/images/logo_3.PNG";
+import './../ImageCore/A-propos.css';
+import './../ImageCore/Accueil.css';
+import './../ImageCore/nicepage.css';
+import './../ImageCore/LogIn.css';
+import logo from "../ImageCore/images/logo_3.PNG";
 import {useState, useContext, useEffect} from "react";
-import {Outlet, Link, Navigate, NavLink} from 'react-router-dom';
-import LogoutButton from './bootstrapUI/btnLogOut.js';
+import {Outlet, Navigate, NavLink} from 'react-router-dom';
+import CoButton from './CoBtnBootstrap.js';
 import './../style.css';
-import ModalPop from './modal.js';
+import ModalPop from './CoModal.js';
 import Dropdown from 'react-bootstrap/Dropdown';
-import ContextApp from './context.js'; 
+import ContextApp from './CoContext.js'; 
 import Accordion from 'react-bootstrap/Accordion';
-import TooltipLayer from './overLayer';
+import TooltipLayer from './CoOverLayer.js';
 const MessageCommerçants="Clicker pour vous inscrirenpm install en tant que commerçant et avoir des informations";
 const MessageAcheteurs="Clicker pour vous inscrire en tant que acheteurs et avoir des informations";
 
@@ -172,17 +172,17 @@ function HeaderBoot(props) {
                     (isConnected)?
 
                       <nav className='d-flex flex-row'>
-                        <Nav.Link  className='home_d mb-0 mt-0' href="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
+                        <NavLink  className='pt-2 mb-0 mt-0' to="/admin"  style={change1} onMouseOver={()=>setChange1(maCouleur[0])} onMouseOut={()=>setChange1(maCouleur[1])}  onClick={privatepage}>
                           
                           <TooltipLayer message={"Compte de "+ sessionStorage.getItem('Email')}> 
                             
-                            <small className='pb-3'><i className="ms-3 me-3  fa fa-user fa-lg" aria-hidden="true"></i></small>
+                            <small className=''><i className="ms-3 me-3  fa fa-user fa-lg" aria-hidden="true"></i></small>
                             
                           </TooltipLayer>
 
-                        </Nav.Link>
+                        </NavLink>
 
-                        <LogoutButton className='ms-3 me-3 logInOut' onClick={()=>logOut()}/>
+                        <CoButton name="Déconnecter" variant='outline-danger' className='ms-3 me-3 logInOut' onClick={()=>logOut()}/>
                       </nav>
                     :
                       <nav className='pt-2 ms-2  me-3  mt-0 row'>

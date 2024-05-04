@@ -1,5 +1,5 @@
-import im from "../accueil/Site1/images/3q6.jpg";
-import ContainerRignt from "./Produit/ContainerRight.js";
+import im from "../ImageCore/images/3q6.jpg";
+import ContainerRignt from "./Produit/CoContainerRight.js";
 import {Row,Col} from 'react-bootstrap';
 
 const Data=[

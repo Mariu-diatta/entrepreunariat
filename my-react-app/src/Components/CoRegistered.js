@@ -1,4 +1,4 @@
-import BtnSmt from './buttonSubmit';
+import BtnSmt from './CoButtonSubmit';
 import './../style.css';
 import {React,useState} from 'react';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';

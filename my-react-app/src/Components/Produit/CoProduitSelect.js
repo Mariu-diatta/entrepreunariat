@@ -1,6 +1,6 @@
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import oui from './../../accueil/Site1/images/oui.png';
+import oui from './../../ImageCore/images/oui.png';
 
 const ProduitSelected=(props)=>{
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./../style.css";
 
 const couleurBlue = {backgroundColor:"", color:"blue"};
@@ -58,8 +58,8 @@ const VerticalMenu=(props)=>{
                     (messageActivate)?
                         <nav style={{backgroundColor:'white'}}>
                             <ul >
-                                <li> <Link to="/" ><small><i className="fa" aria-hidden="true">Nouveaux Messages</i></small></Link></li>
-                                <li> <Link to="#" ><small><i className="fa" aria-hidden="true"> Messages</i></small></Link></li>
+                                <li> <NavLink to="/" ><small><i className="fa" aria-hidden="true">Nouveaux Messages</i></small></NavLink></li>
+                                <li> <NavLink to="#" ><small><i className="fa" aria-hidden="true"> Messages</i></small></NavLink></li>
                             </ul>
                         </nav>
                     : 
@@ -74,8 +74,8 @@ const VerticalMenu=(props)=>{
                     (adherantActivate)?
                         <nav style={{backgroundColor:'white'}}>
                             <ul >
-                                <li> <Link to="#" ><small><i className="fa" aria-hidden="true"> Nouveaux Adhérants</i></small></Link></li>
-                                <li> <Link to="#" ><small><i className="fa " aria-hidden="true"> Adhérants</i></small></Link></li>
+                                <li> <NavLink to="#" ><small><i className="fa" aria-hidden="true"> Nouveaux Adhérants</i></small></NavLink></li>
+                                <li> <NavLink to="#" ><small><i className="fa " aria-hidden="true"> Adhérants</i></small></NavLink></li>
                             </ul>
                         </nav>
                     :
@@ -89,10 +89,10 @@ const VerticalMenu=(props)=>{
                     (commandeActivate)?
                     <nav style={{backgroundColor:'white'}}>
                         <ul className="p-0 m-0">
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes réalisées</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes programées</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes en cours</i></small></Link></li>
-                            <li> <Link to="#" ><small><i className="fa" aria-hidden="true">Commandes prêtes</i></small></Link></li>
+                            <li> <NavLink to="#" ><small><i className="fa" aria-hidden="true">Commandes réalisées</i></small></NavLink></li>
+                            <li> <NavLink to="#" ><small><i className="fa" aria-hidden="true">Commandes programées</i></small></NavLink></li>
+                            <li> <NavLink to="#" ><small><i className="fa" aria-hidden="true">Commandes en cours</i></small></NavLink></li>
+                            <li> <NavLink to="#" ><small><i className="fa" aria-hidden="true">Commandes prêtes</i></small></NavLink></li>
                         </ul>
                     </nav>: <nav></nav>
                 } 
