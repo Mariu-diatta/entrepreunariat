@@ -1,10 +1,9 @@
-import BtnSmt from './CoButtonSubmit';
+import BtnSmt from './buttonSubmit';
 import './../style.css';
 import {React,useState} from 'react';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/esm/Row.js';
-import axiosInstance from './axios';
 
 
 
@@ -28,30 +27,8 @@ function SignUp(props){
     };
 
     const handleSubmit =(e)=>{
-            
+      
       e.preventDefault();
-
-      const data= new FormData();
-      data.append("photo",photo);
-      data.append("pname",pname);
-      data.append("name",name);
-      data.append("mail",mail);
-      data.append("genre",genre);
-      data.append("tel",tel);
-      data.append("ville",ville);
-      data.append("password",password);
-      data.append("message",message);
-
-      if (password===password1 || pname!=="" || name!=="" || photo!==null || genre!=="" || tel==="" || ville!==""){
-        axiosInstance.post('/register/', data).then(
-          (res)=>{
-            console.log(res);
-          }
-        );
-      }else{
-        console.log("Ok cool");
-      }
-
 
     };
 

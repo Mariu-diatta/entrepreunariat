@@ -43,7 +43,7 @@ function SignUp(props){
       data.append("message",message);
 
       if (password===password1 || pname!=="" || name!=="" || photo!==null || genre!=="" || tel==="" || ville!==""){
-        axiosInstance.post('/register/', data).then(
+        axiosInstance.post('register', data).then(
           (res)=>{
             console.log(res);
           }

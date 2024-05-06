@@ -41,8 +41,8 @@ const Admin =(props)=>{
                         </div>
                         <div className="col-lg-10"> 
 
-                            <div className="row">  
-                                <div className="col-lg-5 me-0 fixed-static">
+                            <div className="row position-sticky">  
+                                <div className="col-lg-5 me-0">
                                     <MainSection children={<PlusSection title={titre} image={im1} contenu={contenu}/>} />
                                 </div>  
                                 <div  className="col-lg-7 ms-0">    

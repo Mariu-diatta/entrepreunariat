@@ -41,8 +41,8 @@ const Admin =(props)=>{
                         </div>
                         <div className="col-lg-10"> 
 
-                            <div className="row">  
-                                <div className="col-lg-5 me-0 fixed-static">
+                            <div className="row"> 
+                                <div className="col-lg-5 me-0">
                                     <MainSection children={<PlusSection title={titre} image={im1} contenu={contenu}/>} />
                                 </div>  
                                 <div  className="col-lg-7 ms-0">    
@@ -50,6 +50,14 @@ const Admin =(props)=>{
                                 </div> 
                             </div>
                             
+                            <div className="row"> 
+                                <div className="col-lg-5 me-0">
+                                    <MainSection children={<PlusSection title={titre} image={im1} contenu={contenu}/>} />
+                                </div>  
+                                <div  className="col-lg-7 ms-0">    
+                                    <MainSection children={<Contain image={im2} contenu={contenu}/>}/> 
+                                </div> 
+                            </div>
                             
                             <div className=" ms-0 me-1 nav-footer ">
                                 <Footer/>

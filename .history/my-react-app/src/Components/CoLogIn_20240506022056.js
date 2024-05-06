@@ -11,7 +11,7 @@ import ContextApp from './CoContext';
 
 function LogIn() {
 
-  const [mail, setMail]= useState("");
+  const [mail, setmail]= useState("");
   const [password, setPassword] = useState("");
   const [passOublie, setPasseOublie]=useState(true);
   const {isConnected,login}= useContext(ContextApp);
@@ -77,7 +77,7 @@ function LogIn() {
 
                       <div className='form-floating md-form p-1'>
                         <FloatingLabel controlId="floatingInput"  label="Votre mail"  className="mb-3"  >
-                          <Form.Control  name={mail} value={mail} onChange={(e)=>setMail(e.target.value)} type="mail" placeholder="Votre mail" maxLength="30" className="u-align-center u-input" />
+                          <Form.Control  name={mail} value={mail} onChange={(e)=>setmail(e.target.value)} type="mail" placeholder="Votre mail" maxLength="30" className="u-align-center u-input" />
                         </FloatingLabel>
                       </div>
 
@@ -117,7 +117,7 @@ function LogIn() {
                     <div className='col-lg-4 form-floating md-form p-2'>
 
                       <FloatingLabel controlId="floatingPassword2" label="Votre mot de pass" className=' mb-3'>
-                        <Form.Control   name={mail} value={mail} onChange={(e)=>setMail(e.target.value)} type="mail" placeholder="Enter a valid mail address"  maxLength="30" className="u-align-center u-input" />
+                        <Form.Control   name={mail} value={mail} onChange={(e)=>setmail(e.target.value)} type="mail" placeholder="Enter a valid mail address"  maxLength="30" className="u-align-center u-input" />
                       </FloatingLabel>
 
                       <BtnSmt/>  

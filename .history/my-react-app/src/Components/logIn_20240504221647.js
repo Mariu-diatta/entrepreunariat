@@ -1,5 +1,4 @@
 import BtnSmt from './CoButtonSubmit';
-import CoButton from './CoBtnBootstrap';
 import './../style.css';
 import {Link, Navigate} from 'react-router-dom';
 import {useState,useContext} from 'react';
@@ -7,18 +6,18 @@ import axiosInstance from './axios';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import ContextApp from './CoContext';
+import ContextApp from './context';
 
 function LogIn() {
 
-  const [mail, setMail]= useState("");
+  const [Email, setEmail]= useState("");
   const [password, setPassword] = useState("");
   const [passOublie, setPasseOublie]=useState(true);
   const {isConnected,login}= useContext(ContextApp);
 
   const handleSubmitPassForget=(e)=>{
     e.preventDefault();
-  };
+  }
 
   const handleSubmit=(event)=>{
       
@@ -26,18 +25,18 @@ function LogIn() {
 
       //data for user
       const data= new FormData();
-      data.append("mail",mail);
+      data.append("Email",Email);
       data.append("password",password);
 
-      if (mail==="" ) {
-          document.getElementById('monid').innerHTML="mail non rempli<br/>";
+      if (Email==="" ) {
+          document.getElementById('monid').innerHTML="email non rempli<br/>";
       }else if(password===""){
         document.getElementById('monid').innerHTML="mot de passe non rempli<br/>";
       }else{
               axiosInstance.post('api/token/', data).then((res)=>{
               sessionStorage.setItem('access_token',res.data.access);
               sessionStorage.setItem('refresh_token',res.data.refresh);
-              sessionStorage.setItem('mail',mail);
+              sessionStorage.setItem('Email',Email);
               sessionStorage.setItem('password',password);
               axiosInstance.defaults.headers.Authorization='JWT'+ sessionStorage.getItem('acces_token'); 
               login();
@@ -76,8 +75,8 @@ function LogIn() {
                     <div className='col-lg-4'>
 
                       <div className='form-floating md-form p-1'>
-                        <FloatingLabel controlId="floatingInput"  label="Votre mail"  className="mb-3"  >
-                          <Form.Control  name={mail} value={mail} onChange={(e)=>setMail(e.target.value)} type="mail" placeholder="Votre mail" maxLength="30" className="u-align-center u-input" />
+                        <FloatingLabel controlId="floatingInput"  label="Votre email"  className="mb-3"  >
+                          <Form.Control  name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Votre email" maxLength="30" className="u-align-center u-input" />
                         </FloatingLabel>
                       </div>
 
@@ -117,9 +116,8 @@ function LogIn() {
                     <div className='col-lg-4 form-floating md-form p-2'>
 
                       <FloatingLabel controlId="floatingPassword2" label="Votre mot de pass" className=' mb-3'>
-                        <Form.Control   name={mail} value={mail} onChange={(e)=>setMail(e.target.value)} type="mail" placeholder="Enter a valid mail address"  maxLength="30" className="u-align-center u-input" />
+                        <Form.Control   name={Email} value={Email} onChange={(e)=>setEmail(e.target.value)} type="Email" placeholder="Enter a valid email address"  maxLength="30" className="u-align-center u-input" />
                       </FloatingLabel>
-
                       <BtnSmt/>  
 
                     </div>
