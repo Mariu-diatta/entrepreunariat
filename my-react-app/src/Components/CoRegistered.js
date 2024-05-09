@@ -8,7 +8,6 @@ import axiosInstance from './axios';
 
 
 
-
 function SignUp(props){
     const null_string="";
     const [photo, setPhoto] = useState(null);   
@@ -21,33 +20,58 @@ function SignUp(props){
     const [password, setPassword] = useState( null_string);
     const [password1, setPassword1] = useState( null_string);
     const [message, setMessage]=useState( null_string);
+    const [error_, setError_]=useState( null_string);
 
     const handleImageChange=(e)=>{
-      const file = e.target.value;
-      setPhoto(file);
+       console.log(e.target.files[0]);
+       setPhoto(e.target.files[0]);
+       console.log(photo);
     };
+    
 
     const handleSubmit =(e)=>{
             
       e.preventDefault();
 
       const data= new FormData();
-      data.append("photo",photo);
-      data.append("pname",pname);
-      data.append("name",name);
-      data.append("mail",mail);
-      data.append("genre",genre);
-      data.append("tel",tel);
-      data.append("ville",ville);
       data.append("password",password);
+      data.append("name",name);
+      data.append("pname",pname);
+      data.append("genre",genre);
+      data.append("ville",ville);
       data.append("message",message);
+      data.append("mail",mail);
+      data.append("tel",tel);
+      // data.append("photo",photo);
+
+      console.log(photo);
+
 
       if (password===password1 || pname!=="" || name!=="" || photo!==null || genre!=="" || tel==="" || ville!==""){
-        axiosInstance.post('/register/', data).then(
-          (res)=>{
-            console.log(res);
-          }
-        );
+       
+        try {
+
+          axiosInstance.post('register/', data).then(
+
+            (res)=>{
+              console.log(res);
+            }
+
+          ).then(e=> 
+            {setError_("");}
+          ).catch(AxiosError=>{
+
+            setError_(AxiosError.request.response);
+
+          });
+
+          document.getElementById('error_id').innerHTML=error_;
+
+        } catch (error) {
+
+          console.log("erreur: ", error);
+        }
+
       }else{
         console.log("Ok cool");
       }
@@ -120,7 +144,7 @@ function SignUp(props){
                 </FloatingLabel>
 
                 <FloatingLabel controlId="name-e4cc5"  label="Votre email" className="form-floating md-form p-1 col-lg-6 mb-3 ">
-                  <Form.Control   name={mail} value={mail} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter a valid email address" id="email-e4cc"  maxLength="30" className="form-floating md-form p-1 col-lg-6 mb-3 " required/>
+                  <Form.Control   name={mail} value={mail} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter a valid email address"   maxLength="30" className="form-floating md-form p-1 col-lg-6 mb-3 " required/>
                 </FloatingLabel>
 
               </Row>
@@ -128,11 +152,11 @@ function SignUp(props){
               <Row>
                 
                 <FloatingLabel controlId="name-e4cc6" label="Votre mot de passe" className="form-floating md-form p-1 col-lg-6 mb-3 ">
-                  <Form.Control  name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Mot de passe" id="name-e4cc2"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="2"/>
+                  <Form.Control  name={password} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Mot de passe"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" size="2"/>
                 </FloatingLabel>
 
                 <FloatingLabel controlId="name-e4cc7" label="Confirmez votre mot de passe" className="form-floating md-form p-1 col-lg-6 mb-3 ">
-                  <Form.Control  name={password1} value={password1} onChange={(e)=>setPassword1(e.target.value)} type="password" placeholder="Confirmer mot de passe" size="2"  id="name-e4cc2"  maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" />
+                  <Form.Control  name={password1} value={password1} onChange={(e)=>setPassword1(e.target.value)} type="password" placeholder="Confirmer mot de passe" size="2"   maxLength="30" className="u-align-center u-input" required="" wfd-id="id409" />
                 </FloatingLabel>
 
               </Row>
@@ -140,21 +164,21 @@ function SignUp(props){
               <Row>
 
                 <FloatingLabel controlId="name-e4cc8" label="Votre description" className="form-floating md-form p-1 mb-3 ">
-                  <Form.Control as="textarea" name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50" id="message-e4cc" maxLength="1000" minLength="100"  className="u-align-center u-input" style={{ height: '100px' }} required />
+                  <Form.Control as="textarea" name={message} value={message} onChange={(e)=>setMessage(e.target.value)} placeholder="Description de votre activité" rows="4" cols="50"  maxLength="1000" minLength="100"  className="u-align-center u-input" style={{ height: '100px' }} required />
                 </FloatingLabel>
 
               </Row>
               
               <Row>
 
-                <FloatingLabel controlId="name-e4cc8" label="Votre photo " className="form-floating md-form p-1 mb-3 ">
-                  <Form.Control  type="file" accept="image/*"   placeholder='profile' name={photo} value={photo} onChange={handleImageChange} />
+                <FloatingLabel label="Votre photo " htmlFor='uploadFile' className="form-floating md-form p-1 mb-3 ">
+                  <Form.Control  type="file" id='uploadFile' accept="image/*" src='/' name='file'  onChange={(e)=>handleImageChange(e)} />
                 </FloatingLabel>
 
               </Row>
 
               <div className="u-align-center u-form-group u-form-submit u-label-none u-form-group-4 pb-3">  
-                <p style={{color:'red'}}></p>
+                <p style={{color:'red'}} id='error_id'></p>
                 <BtnSmt/><br/> 
               </div> 
 
